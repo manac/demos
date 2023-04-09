@@ -26230,6 +26230,7 @@ var Selectable = /*#__PURE__*/function () {
     if (_points2 != undefined) {
       this.points = _points2;
     } else {
+      this.points = [];
       _classPrivateFieldSet(this, _polygon, []);
       _classPrivateFieldSet(this, _width, 0);
       _classPrivateFieldSet(this, _height, 0);
@@ -26509,7 +26510,7 @@ var GIB = /*#__PURE__*/function (_Selectable) {
       var clr = '';
       switch (type) {
         case GIB.Types.WL:
-          clr = '#BCADCC';
+          clr = '#E1C9F2';
           break;
         case GIB.Types.FL:
           clr = '#D4C6BD';
@@ -26518,7 +26519,10 @@ var GIB = /*#__PURE__*/function (_Selectable) {
           clr = '#00FF00';
           break;
         case GIB.Types.BL:
-          clr = '#FFFF00';
+          clr = '#0000FF';
+          break;
+        case GIB.Types.GS:
+          clr = '#D3D3D3';
           break;
       }
       return clr;
@@ -26553,6 +26557,10 @@ var GIB = /*#__PURE__*/function (_Selectable) {
     key: "isFullSheet",
     value: function isFullSheet(gib) {
       var size = GIB.getFullSheetSize(gib);
+      if (size == undefined) {
+        console.log(gib);
+        throw 'error';
+      }
       return gib.points.length == 8 && gib.width == size.width && gib.height == size.height;
     }
   }, {
@@ -26574,8 +26582,8 @@ var GIB = /*#__PURE__*/function (_Selectable) {
           break;
         case GIB.Types.AL:
           size = {
-            width: 0,
-            height: 0
+            width: 1200,
+            height: 3600
           };
           break;
         case GIB.Types.BL:
@@ -26605,7 +26613,7 @@ var GIB = /*#__PURE__*/function (_Selectable) {
 GIB.Types = {
   WL: 0,
   FL: 1,
-  AQ: 2,
+  AL: 2,
   BL: 3,
   NL: 4,
   GS: 5
@@ -32623,6 +32631,246 @@ CanvasUtil.Alignment = {
 };
 var _default = CanvasUtil;
 exports.default = _default;
+},{}],"../src/model/Join.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+var _x = /*#__PURE__*/new WeakMap();
+var _plate = /*#__PURE__*/new WeakMap();
+var _from = /*#__PURE__*/new WeakMap();
+var _label = /*#__PURE__*/new WeakMap();
+var _front = /*#__PURE__*/new WeakMap();
+var _wallLength = /*#__PURE__*/new WeakMap();
+var Join = /*#__PURE__*/function () {
+  function Join(obj) {
+    _classCallCheck(this, Join);
+    _classPrivateFieldInitSpec(this, _x, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(this, _plate, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(this, _from, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(this, _label, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(this, _front, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(this, _wallLength, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldSet(this, _x, obj.x);
+    _classPrivateFieldSet(this, _plate, obj.plate);
+    _classPrivateFieldSet(this, _from, obj.from);
+    _classPrivateFieldSet(this, _label, obj.label);
+    _classPrivateFieldSet(this, _front, obj.front);
+    _classPrivateFieldSet(this, _wallLength, obj.wallLength);
+  }
+  _createClass(Join, [{
+    key: "front",
+    get: function get() {
+      return _classPrivateFieldGet(this, _front);
+    }
+  }, {
+    key: "measurement",
+    get: function get() {
+      return _classPrivateFieldGet(this, _x);
+    }
+  }, {
+    key: "x",
+    get: function get() {
+      return _classPrivateFieldGet(this, _front) ? _classPrivateFieldGet(this, _x) : _classPrivateFieldGet(this, _wallLength) - _classPrivateFieldGet(this, _x);
+    }
+
+    // calculateX(margin, ratio, length, front){
+    //     let x;
+    //     // if(this.#front){
+    //         x = this.#from == 0? margin + this.x / ratio : margin + ((length - this.x) / ratio);
+    //     // }else{
+    //     //     x = this.#from == 1? margin + this.#x / ratio : margin + ((length - this.#x) / ratio);
+    //     // }
+
+    //     return x;
+    // }
+  }, {
+    key: "calculateX",
+    value: function calculateX(margin, ratio, length) {
+      //x = plateX - join.x / ratio;
+      var x;
+      if (_classPrivateFieldGet(this, _front)) {
+        x = _classPrivateFieldGet(this, _from) == 0 ? margin + this.x / ratio : margin + (length - this.x) / ratio;
+      } else {
+        x = _classPrivateFieldGet(this, _from) == 0 ? margin - this.x / ratio : margin - (length - this.x) / ratio;
+      }
+      return x;
+    }
+
+    /**
+     * Returns an array of Y coordinates
+     * @param {*} ty 
+     * @param {*} by 
+     * @param {*} plate 
+     * @returns 
+     */
+  }, {
+    key: "calculateY",
+    value: function calculateY(ty, by) {
+      var dir = _classPrivateFieldGet(this, _plate) == 1 ? 1 : -1;
+      var offset = _classPrivateFieldGet(this, _plate) == 1 ? 30 : 20;
+      var yArray = [];
+      if (_classPrivateFieldGet(this, _plate) == 2) {
+        yArray.push({
+          y: ty,
+          offset: offset,
+          dir: -1
+        });
+        yArray.push({
+          y: by,
+          offset: 30,
+          dir: 1
+        });
+      } else {
+        var y = _classPrivateFieldGet(this, _plate) == 1 ? by : ty;
+        yArray.push({
+          y: y,
+          offset: offset,
+          dir: dir
+        });
+      }
+      return yArray;
+    }
+  }, {
+    key: "plate",
+    get: function get() {
+      return _classPrivateFieldGet(this, _plate);
+    }
+  }, {
+    key: "from",
+    get: function get() {
+      return _classPrivateFieldGet(this, _from);
+    }
+  }, {
+    key: "label",
+    get: function get() {
+      return _classPrivateFieldGet(this, _label);
+    }
+  }]);
+  return Join;
+}();
+var _default = Join;
+exports.default = _default;
+},{}],"../src/model/Nogging.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+var _stud = /*#__PURE__*/new WeakMap();
+var _y = /*#__PURE__*/new WeakMap();
+var _height = /*#__PURE__*/new WeakMap();
+var _front = /*#__PURE__*/new WeakMap();
+var _code = /*#__PURE__*/new WeakMap();
+var Nogging = /*#__PURE__*/function () {
+  function Nogging(stud, y, height, front, code) {
+    _classCallCheck(this, Nogging);
+    _classPrivateFieldInitSpec(this, _stud, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(this, _y, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(this, _height, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(this, _front, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(this, _code, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldSet(this, _stud, stud);
+    _classPrivateFieldSet(this, _y, y);
+    _classPrivateFieldSet(this, _height, height);
+    _classPrivateFieldSet(this, _front, front);
+    _classPrivateFieldSet(this, _code, code);
+    if (code == undefined) {
+      throw 'code';
+    }
+  }
+  _createClass(Nogging, [{
+    key: "code",
+    get: function get() {
+      return _classPrivateFieldGet(this, _code);
+    }
+  }, {
+    key: "y",
+    get: function get() {
+      return _classPrivateFieldGet(this, _y);
+    }
+  }, {
+    key: "height",
+    get: function get() {
+      return _classPrivateFieldGet(this, _height);
+    }
+  }, {
+    key: "stud",
+    get: function get() {
+      return _classPrivateFieldGet(this, _stud);
+    }
+  }, {
+    key: "front",
+    get: function get() {
+      return _classPrivateFieldGet(this, _front);
+    }
+  }]);
+  return Nogging;
+}();
+var _default = Nogging;
+exports.default = _default;
 },{}],"../src/view/views/PlanView.js":[function(require,module,exports) {
 "use strict";
 
@@ -32640,6 +32888,8 @@ var _Stud = _interopRequireDefault(require("../../model/Stud"));
 var _Selectable = _interopRequireDefault(require("../../model/Selectable"));
 var _BreadCrumb = _interopRequireDefault(require("../components/BreadCrumb"));
 var _CanvasUtil = _interopRequireDefault(require("../../system/CanvasUtil"));
+var _Join = _interopRequireDefault(require("../../model/Join"));
+var _Nogging = _interopRequireDefault(require("../../model/Nogging"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32679,13 +32929,17 @@ var _context = /*#__PURE__*/new WeakMap();
 var _multiWall = /*#__PURE__*/new WeakMap();
 var _wallLength = /*#__PURE__*/new WeakMap();
 var _toggleOptions = /*#__PURE__*/new WeakMap();
-var _checkStuds = /*#__PURE__*/new WeakMap();
 var _layer = /*#__PURE__*/new WeakMap();
 var _gibs = /*#__PURE__*/new WeakMap();
 var _selectables = /*#__PURE__*/new WeakMap();
 var _y = /*#__PURE__*/new WeakMap();
 var _selected = /*#__PURE__*/new WeakMap();
 var _deselected = /*#__PURE__*/new WeakMap();
+var _station = /*#__PURE__*/new WeakMap();
+var _task = /*#__PURE__*/new WeakMap();
+var _selectedIndex = /*#__PURE__*/new WeakMap();
+var _loadTask = /*#__PURE__*/new WeakSet();
+var _load = /*#__PURE__*/new WeakSet();
 var _handleClick = /*#__PURE__*/new WeakSet();
 var _handleSelect = /*#__PURE__*/new WeakSet();
 var _renderWall = /*#__PURE__*/new WeakSet();
@@ -32715,6 +32969,8 @@ var PlanView = /*#__PURE__*/function (_View) {
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _renderWall);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _handleSelect);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _handleClick);
+    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _load);
+    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _loadTask);
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _view, {
       writable: true,
       value: void 0
@@ -32771,10 +33027,6 @@ var PlanView = /*#__PURE__*/function (_View) {
       writable: true,
       value: void 0
     });
-    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _checkStuds, {
-      writable: true,
-      value: void 0
-    });
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _layer, {
       writable: true,
       value: void 0
@@ -32799,6 +33051,18 @@ var PlanView = /*#__PURE__*/function (_View) {
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _station, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _task, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _selectedIndex, {
+      writable: true,
+      value: void 0
+    });
     _classPrivateFieldSet(_assertThisInitialized(_this), _view, _WallComponent.default.View.FRONT);
     _classPrivateFieldSet(_assertThisInitialized(_this), _width, props.width);
     _classPrivateFieldSet(_assertThisInitialized(_this), _height, props.height);
@@ -32812,7 +33076,11 @@ var PlanView = /*#__PURE__*/function (_View) {
   }
   _createClass(PlanView, [{
     key: "station",
+    get: function get() {
+      return _classPrivateFieldGet(this, _station);
+    },
     set: function set(val) {
+      _classPrivateFieldSet(this, _station, val);
       this.view = val.view; //val.name == '3'? WallComponent.View.BACK : val.view;
 
       _classPrivateFieldGet(this, _breadCrumb).station = val;
@@ -32821,11 +33089,16 @@ var PlanView = /*#__PURE__*/function (_View) {
   }, {
     key: "task",
     set: function set(val) {
-      _classPrivateFieldGet(this, _breadCrumb).task = val;
-      var options = val.options;
-      for (var key in options) {
-        _classPrivateFieldGet(this, _toggleOptions)[key].value = options[key];
-      }
+      // console.log('set task', val);
+      // this.#task = val;
+      // this.#breadCrumb.task = val;
+
+      // const options = val.options;
+      // for (var key in options) {
+      //     this.#toggleOptions[key].value = options[key];
+      // }
+
+      _classPrivateMethodGet(this, _loadTask, _loadTask2).call(this, val);
       this.refresh();
     }
   }, {
@@ -32869,11 +33142,6 @@ var PlanView = /*#__PURE__*/function (_View) {
       return _classPrivateFieldGet(this, _breadCrumb);
     }
   }, {
-    key: "checkStuds",
-    set: function set(val) {
-      _classPrivateFieldSet(this, _checkStuds, val);
-    }
-  }, {
     key: "layer",
     set: function set(val) {
       _classPrivateFieldSet(this, _layer, val);
@@ -32882,7 +33150,7 @@ var PlanView = /*#__PURE__*/function (_View) {
     key: "view",
     set: function set(val) {
       _classPrivateFieldSet(this, _view, val);
-      this.refresh();
+      // this.refresh();
     }
 
     /**
@@ -32890,48 +33158,8 @@ var PlanView = /*#__PURE__*/function (_View) {
      * @param {Wall} multiWall 
      */
   }, {
-    key: "load",
-    value: function load(multiWall) {
-      var _this2 = this;
-      _classPrivateFieldSet(this, _ratio, _WallComponent.default.Zoom.DEFAULT);
-
-      // this.#lotWallRef.current.innerHTML = lot;
-      // this.#wallNumberRef.current.innerHTML = '0' + multiWall.name.substring(2);
-
-      // this.#lotWallRef.current.text = lot;
-
-      _classPrivateFieldSet(this, _multiWall, multiWall);
-      this.station = multiWall.stations[0];
-      _classPrivateFieldSet(this, _checkStuds, []);
-      var wall = _classPrivateFieldGet(this, _multiWall).walls[0];
-      //hack using 45 literal
-      var hack = 45;
-      var previousX = -(hack * 2);
-      wall.studs.forEach(function (stud) {
-        if (stud.x - previousX > hack) {
-          _classPrivateFieldGet(_this2, _checkStuds).push(stud);
-        }
-        previousX = stud.x;
-      });
-      _classPrivateFieldSet(this, _wallLength, 0);
-      _classPrivateFieldGet(this, _multiWall).walls.forEach(function (wall) {
-        _classPrivateFieldSet(_this2, _wallLength, _classPrivateFieldGet(_this2, _wallLength) + wall.length);
-      });
-      _classPrivateFieldSet(this, _wallLength, _classPrivateFieldGet(this, _wallLength) + (_classPrivateFieldGet(this, _multiWall).walls.length - 1) * 200);
-      var studDepth = 45;
-      var studLength = (_classPrivateFieldGet(this, _multiWall).height - studDepth * 2) / _classPrivateFieldGet(this, _ratio);
-      _classPrivateFieldSet(this, _y, (_classPrivateFieldGet(this, _height) - studLength) / 2);
-      this.refresh();
-    }
-  }, {
     key: "render",
     value: function render() {
-      // const pad = {
-      //     margin: 8,
-      //     display: 'inline-block',
-      //     userSelect: 'none'
-      // };
-
       return _get(_getPrototypeOf(PlanView.prototype), "render", this).call(this, /*#__PURE__*/_react.default.createElement("div", {
         style: {
           paddingLeft: 8,
@@ -32964,8 +33192,7 @@ var PlanView = /*#__PURE__*/function (_View) {
       _classPrivateFieldGet(this, _breadCrumb).wall = _classPrivateFieldGet(this, _multiWall);
 
       //hack
-      this.load(val, val.stations[0]);
-      // this.refresh();
+      _classPrivateMethodGet(this, _load, _load2).call(this, val, val.stations[0]);
     }
   }, {
     key: "context",
@@ -32986,12 +33213,12 @@ var PlanView = /*#__PURE__*/function (_View) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this3 = this;
+      var _this2 = this;
       _classPrivateFieldSet(this, _canvas, _classPrivateFieldGet(this, _canvasRef).current);
       _classPrivateFieldSet(this, _context, _classPrivateFieldGet(this, _canvas).getContext('2d'));
       _classPrivateFieldGet(this, _context).translate(0.5, 0.5);
       _classPrivateFieldGet(this, _canvas).addEventListener('click', function (evt) {
-        _classPrivateMethodGet(_this3, _handleClick, _handleClick2).call(_this3, evt);
+        _classPrivateMethodGet(_this2, _handleClick, _handleClick2).call(_this2, evt);
       });
       _classPrivateFieldSet(this, _breadCrumb, _classPrivateFieldGet(this, _breadCrumbRef).current);
     }
@@ -33006,7 +33233,7 @@ var PlanView = /*#__PURE__*/function (_View) {
   }, {
     key: "refresh",
     value: function refresh() {
-      var _this4 = this;
+      var _this3 = this;
       //#f37429
 
       if (_classPrivateFieldGet(this, _multiWall) != null) {
@@ -33016,22 +33243,68 @@ var PlanView = /*#__PURE__*/function (_View) {
         _classPrivateFieldGet(this, _context).lineWidth = 1;
         var margin = (_classPrivateFieldGet(this, _canvas).width - _classPrivateFieldGet(this, _wallLength) / _classPrivateFieldGet(this, _ratio)) / 2;
         _classPrivateFieldSet(this, _selectables, []);
+        var wallIndex = 0;
+        var cutIndex = 0;
+        var args = {
+          margin: margin,
+          ratio: _classPrivateFieldGet(this, _ratio),
+          wallIndex: 0,
+          cutIndex: 1
+        };
         _classPrivateFieldGet(this, _multiWall).walls.forEach(function (wall) {
           if (wall.studs.length > 0) {
-            _classPrivateMethodGet(_this4, _renderWall, _renderWall2).call(_this4, wall, margin, _classPrivateFieldGet(_this4, _ratio));
+            args.wall = wall;
+            _classPrivateMethodGet(_this3, _renderWall, _renderWall2).call(_this3, args);
           }
+          args.wallIndex += 1;
         });
+
+        /*
+        
+        //show square
+        let option = this.#toggleOptions.square.value;
+        if (option == 'all') {
+        this.#drawLine(tx, ty, wallLength / ratio, wallHeight / ratio, 'black');
+          const hyp = Math.round(Math.sqrt(Math.pow(wallLength, 2) + Math.pow(wallHeight, 2)));
+          this.#context.font = '20px Arial';
+        let textMetric = this.#context.measureText(hyp.toString());
+        console.log('hyp', hyp.toString())
+        //draw a background
+        const boxHeight = 40;
+        const boxWidth = textMetric.width;
+          let boxX = tx + ((wallLength / ratio) - boxWidth) / 2;
+        let boxY = ty + ((wallHeight / ratio) - boxHeight) / 2;
+          this.#drawRect(boxX, boxY, boxWidth + 10, boxHeight, '#000000', '#FFFFFF');
+        CanvasUtil.addText({
+            context: this.#context,
+            text: hyp.toString(),
+            font: WallComponent.Fonts.HEADER,
+            color: '#000000',
+            horizontalAlignment: CanvasUtil.Alignment.CENTERED,
+            x: boxX + 5,
+            y: boxY + 25,
+            size: boxWidth
+        })
+        }
+        */
       }
     }
   }, {
     key: "select",
     value: function select(index) {
-      var _this5 = this;
-      if (_classPrivateFieldGet(this, _selectables)[index] != _classPrivateFieldGet(this, _selected)) {
+      var _this4 = this;
+      console.log('select: ' + index, _classPrivateFieldGet(this, _selected));
+      console.log('select: ' + index, _classPrivateFieldGet(this, _selectables)[index]);
+      if (_classPrivateFieldGet(this, _selectedIndex) != index) {
+        console.log('strange');
+        console.log(_classPrivateFieldGet(this, _selectables)[index]);
+        console.log(_classPrivateFieldGet(this, _selected));
         if (_classPrivateFieldGet(this, _selected) != null) {
           _classPrivateMethodGet(this, _deselect, _deselect2).call(this);
         }
         _classPrivateFieldSet(this, _selected, _classPrivateFieldGet(this, _selectables)[index]);
+        console.log('selected', _classPrivateFieldGet(this, _selected) == _classPrivateFieldGet(this, _selectables)[index]);
+        console.log(_classPrivateFieldGet(this, _selected));
         var scale = 1.6;
         var args = _classPrivateFieldGet(this, _selected).createScale(scale);
         _gsap.default.timeline().to(_classPrivateFieldGet(this, _selected), {
@@ -33041,19 +33314,52 @@ var PlanView = /*#__PURE__*/function (_View) {
           opacity: 1,
           duration: 0.2,
           onUpdate: function onUpdate() {
-            _this5.refresh();
+            _this4.refresh();
           }
         });
       } else {
+        console.log('show detail');
         this.fire('show_detail', {
           type: 'gib',
           item: _classPrivateFieldGet(this, _selected)
         });
       }
+      _classPrivateFieldSet(this, _selectedIndex, index);
     }
   }]);
   return PlanView;
 }(_View2.default);
+function _loadTask2(task) {
+  console.log('set task', task);
+  _classPrivateFieldSet(this, _task, task);
+  _classPrivateFieldGet(this, _breadCrumb).task = task;
+  var options = task.options;
+  for (var key in options) {
+    _classPrivateFieldGet(this, _toggleOptions)[key].value = options[key];
+  }
+}
+function _load2(multiWall) {
+  var _this5 = this;
+  _classPrivateFieldSet(this, _ratio, _WallComponent.default.Zoom.DEFAULT);
+
+  // this.#lotWallRef.current.innerHTML = lot;
+  // this.#wallNumberRef.current.innerHTML = '0' + multiWall.name.substring(2);
+
+  // this.#lotWallRef.current.text = lot;
+
+  _classPrivateFieldSet(this, _multiWall, multiWall);
+  _classPrivateFieldSet(this, _station, multiWall.stations[0]);
+  _classPrivateMethodGet(this, _loadTask, _loadTask2).call(this, _classPrivateFieldGet(this, _station).tasks[0]);
+  _classPrivateFieldSet(this, _wallLength, 0);
+  _classPrivateFieldGet(this, _multiWall).walls.forEach(function (wall) {
+    _classPrivateFieldSet(_this5, _wallLength, _classPrivateFieldGet(_this5, _wallLength) + wall.length);
+  });
+  _classPrivateFieldSet(this, _wallLength, _classPrivateFieldGet(this, _wallLength) + (_classPrivateFieldGet(this, _multiWall).walls.length - 1) * 200);
+  var studDepth = 45;
+  var studLength = (_classPrivateFieldGet(this, _multiWall).height - studDepth * 2) / _classPrivateFieldGet(this, _ratio);
+  _classPrivateFieldSet(this, _y, (_classPrivateFieldGet(this, _height) - studLength) / 2);
+  this.refresh();
+}
 function _handleClick2(evt) {
   var margin = (_classPrivateFieldGet(this, _canvas).width - _classPrivateFieldGet(this, _wallLength) / _classPrivateFieldGet(this, _ratio)) / 2;
   var point = {
@@ -33080,8 +33386,14 @@ function _handleSelect2(point) {
     // alert('deselect');
   }
 }
-function _renderWall2(wall, margin, ratio) {
+function _renderWall2(args) {
   var _this6 = this;
+  var wall, margin, ratio, wallIndex;
+  wall = args.wall;
+  margin = args.margin;
+  ratio = args.ratio;
+  wallIndex = args.wallIndex;
+
   //hack
   var studDepth = 45;
   var wallHeight = _classPrivateFieldGet(this, _multiWall).height;
@@ -33107,47 +33419,52 @@ function _renderWall2(wall, margin, ratio) {
 
   //move these into the Wall class
   //25s
-  wall.screws25.forEach(function (sc) {
-    stud = wall.studs[sc.x - 1];
-    stud.is25 = true;
-  });
 
-  //36s
-  wall.screws36.forEach(function (sc) {
-    stud = wall.studs[sc.x - 1];
-    stud.is36 = true;
-  });
+  //hack
+  if (_classPrivateFieldGet(this, _station).name == '1') {
+    _classPrivateFieldGet(this, _station).tasks[3].values.forEach(function (sc) {
+      stud = wall.studs[sc - 1];
+      stud.is25 = true;
+    });
+    _classPrivateFieldGet(this, _station).tasks[4].values.forEach(function (sc) {
+      stud = wall.studs[sc - 1];
+      stud.is36 = true;
+    });
+  }
 
   //noggings
   var ny, nh, nw;
   ny = _classPrivateFieldGet(this, _y);
   nh = studHeight;
   option = _classPrivateFieldGet(this, _toggleOptions).noggings.value;
-  if (option != 'none') {
+  if (option != 'none' && _classPrivateFieldGet(this, _task) != undefined && _classPrivateFieldGet(this, _task).name == 'NOGGINGS') {
     var realWidth;
-    wall.noggings.forEach(function (nogging) {
-      if (Number.isInteger(option)) {
-        color = option == nogging.code ? selectColor : defaultColor;
-      } else {
-        color = option == 'all' ? defaultColor : nogging.front ? option == 'front' ? selectColor : defaultColor : option == 'back' ? selectColor : defaultColor;
+    var nogging;
+    _classPrivateFieldGet(this, _task).values.forEach(function (n) {
+      if (n.w == wallIndex) {
+        nogging = new _Nogging.default(wall.studs[n.x - 1], n.y, n.h, true, n.code);
+        color = selectColor;
+        x = startX + (nogging.stud.x / ratio + studHeight) * dir;
+        realWidth = nogging.stud.next.x - nogging.stud.x - studHeight * ratio;
+        nw = (nogging.stud.next.x - nogging.stud.x) / ratio - studHeight;
+        ny = _classPrivateFieldGet(_this6, _y) + nogging.y / ratio;
+        nh = nogging.height / ratio;
+        _classPrivateMethodGet(_this6, _drawRect, _drawRect2).call(_this6, x, ny, nw * dir, nh, stroke, color);
       }
-      x = startX + (nogging.stud.x / ratio + studHeight) * dir;
-      realWidth = nogging.stud.next.x - nogging.stud.x - studHeight * ratio;
-      nw = (nogging.stud.next.x - nogging.stud.x) / ratio - studHeight;
-      ny = _classPrivateFieldGet(_this6, _y) + nogging.y / ratio;
-      nh = nogging.height / ratio;
-      _classPrivateMethodGet(_this6, _drawRect, _drawRect2).call(_this6, x, ny, nw * dir, nh, stroke, color);
     });
   }
 
   //blocking
   if (true) {
     var bkw, bky, bkh;
+    //hack
+    color = 'white';
     wall.blocking.forEach(function (blocking) {
       x = startX + ((blocking.stud.x + blocking.xOffset) / ratio + studHeight) * dir;
       bkw = 45 / ratio;
       bky = _classPrivateFieldGet(_this6, _y) + blocking.y / ratio;
       bkh = blocking.length / ratio;
+      // console.log('blocking', color);
       _classPrivateMethodGet(_this6, _drawRect, _drawRect2).call(_this6, x, bky, bkw * dir, bkh, stroke, color);
     });
   }
@@ -33186,6 +33503,8 @@ function _renderWall2(wall, margin, ratio) {
       studHeight = stud.width / ratio;
       studLength = stud.height / ratio;
       _classPrivateFieldGet(_this6, _selectables).push(stud);
+
+      //draw stud
       _classPrivateMethodGet(_this6, _drawRect, _drawRect2).call(_this6, x, sy, studHeight * dir, studLength, stroke, color);
     });
   }
@@ -33205,6 +33524,7 @@ function _renderWall2(wall, margin, ratio) {
   //show stud positions
   option = _classPrivateFieldGet(this, _toggleOptions).studs.value;
   if (option == 'check_pos') {
+    console.log('check studs', _classPrivateFieldGet(this, _task));
     //draw a line showing the poisition of the studs
     var offset = 30;
     var _sy = _classPrivateFieldGet(this, _y) + studLength + studDepth / ratio;
@@ -33212,25 +33532,32 @@ function _renderWall2(wall, margin, ratio) {
     var sx;
 
     // #checkStuds
-    _classPrivateFieldGet(this, _checkStuds).forEach(function (stud) {
-      sx = stud.x / ratio;
-      _classPrivateMethodGet(_this6, _drawLine, _drawLine2).call(_this6, plateX + sx, _sy + (offset - 5), 0, 10, '#000000');
-      _classPrivateFieldGet(_this6, _context).save();
-      _classPrivateFieldGet(_this6, _context).translate(plateX + sx, _sy + offset + 15);
-      _classPrivateFieldGet(_this6, _context).rotate(90 * Math.PI / 180);
+    console.log('check: ', _classPrivateFieldGet(this, _task).values);
+    _classPrivateFieldGet(this, _task).values.forEach(function (value) {
+      //HACK make all of the check studs only draw for the 1st wall
+      //checks were repeatedly being drawn for each wall
+      //problem is data ...data should have correct w value for each value object
+      //if statement should be if(value.w == wallIndex)
+      if (wallIndex == 0) {
+        sx = value.x / ratio;
+        _classPrivateMethodGet(_this6, _drawLine, _drawLine2).call(_this6, plateX + sx, _sy + (offset - 5), 0, 10, '#000000');
+        _classPrivateFieldGet(_this6, _context).save();
+        _classPrivateFieldGet(_this6, _context).translate(plateX + sx, _sy + offset + 15);
+        _classPrivateFieldGet(_this6, _context).rotate(90 * Math.PI / 180);
 
-      //draw text
-      _CanvasUtil.default.addText({
-        context: _classPrivateFieldGet(_this6, _context),
-        text: stud.x,
-        font: _WallComponent.default.Fonts.MEASUREMENT,
-        size: 12,
-        color: '#000000',
-        horizontalAlignment: _CanvasUtil.default.Alignment.LEFT,
-        x: 0,
-        y: 0
-      });
-      _classPrivateFieldGet(_this6, _context).restore();
+        //draw text
+        _CanvasUtil.default.addText({
+          context: _classPrivateFieldGet(_this6, _context),
+          text: value.x,
+          font: _WallComponent.default.Fonts.MEASUREMENT,
+          size: 12,
+          color: '#000000',
+          horizontalAlignment: _CanvasUtil.default.Alignment.LEFT,
+          x: 0,
+          y: 0
+        });
+        _classPrivateFieldGet(_this6, _context).restore();
+      }
     });
     _classPrivateMethodGet(this, _drawLine, _drawLine2).call(this, plateX + wallLength / ratio, _classPrivateFieldGet(this, _y) + studLength + studDepth / ratio + (offset - 5), 0, 10, '#000000');
     _classPrivateFieldGet(this, _context).restore();
@@ -33311,68 +33638,42 @@ function _renderWall2(wall, margin, ratio) {
     });
   }
 
-  //show framing
-  option = _classPrivateFieldGet(this, _toggleOptions).square.value;
-  if (option == 'all') {
-    _classPrivateMethodGet(this, _drawLine, _drawLine2).call(this, tx, ty, wallLength / ratio, wallHeight / ratio, 'black');
-    var hyp = Math.round(Math.sqrt(Math.pow(wallLength, 2) + Math.pow(wallHeight, 2)));
-    _classPrivateFieldGet(this, _context).font = '20px Arial';
-    var textMetric = _classPrivateFieldGet(this, _context).measureText(hyp.toString);
-
-    //draw a background
-    var boxHeight = 40;
-    var boxWidth = textMetric.width + 10;
-    var boxX = tx + (wallLength / ratio - boxWidth) / 2;
-    var boxY = ty + (wallHeight / ratio - boxHeight) / 2;
-    _classPrivateMethodGet(this, _drawRect, _drawRect2).call(this, boxX, boxY, boxWidth, boxHeight, '#000000', '#FFFFFF');
-    _CanvasUtil.default.addText({
-      context: _classPrivateFieldGet(this, _context),
-      text: hyp.toString(),
-      font: _WallComponent.default.Fonts.HEADER,
-      color: '#000000',
-      horizontalAlignment: _CanvasUtil.default.Alignment.CENTERED,
-      x: boxX + 5,
-      y: boxY + 25,
-      width: boxWidth
-    });
-  }
-
   //add the gib
   //keep track of rendered gibs
   _classPrivateFieldSet(this, _gibs, []);
   option = _classPrivateFieldGet(this, _toggleOptions).gib.value;
   if (option != 'none') {
     var gibX, gibY, gibW, gibL;
+    console.log('draw gib', _classPrivateFieldGet(this, _task));
     var cuts = option.indexOf('cut') != -1;
-    var cutIndex = 1; //need to add check for full sheet
-
     var gibIndex = 0;
-    wall.gibs.forEach(function (gib) {
-      //check to see if the  gib should be shown or not
-      if (option == gib.layer) {
+    var gib;
+    _classPrivateFieldGet(this, _task).values.forEach(function (g) {
+      if (g.w == wallIndex) {
+        gib = new _GIB.default(g.type, true, option, g.pos);
+        //check to see if the  gib should be shown or not
+        // if (option == gib.layer) {
         if (gib != _classPrivateFieldGet(_this6, _selected) && gib != _classPrivateFieldGet(_this6, _deselected)) {
           gib.draw(_classPrivateFieldGet(_this6, _context), _classPrivateFieldGet(_this6, _ratio), gibStartX, _classPrivateFieldGet(_this6, _y));
         }
         gibIndex += 1;
         _classPrivateFieldGet(_this6, _selectables).push(gib);
-        if (cuts) {
-          if (!_GIB.default.isFullSheet(gib)) {
-            //check to see if label needs to be applied to show a custom cut
+        if (!_GIB.default.isFullSheet(gib)) {
+          //check to see if label needs to be applied to show a custom cut
 
-            _CanvasUtil.default.addText({
-              context: _classPrivateFieldGet(_this6, _context),
-              text: cutIndex.toString(),
-              font: _WallComponent.default.Fonts.HEADER,
-              color: '#000000',
-              horizontalAlignment: _CanvasUtil.default.Alignment.CENTERED,
-              x: startX + gib.points[0] / ratio,
-              //x,
-              y: 100,
-              //y.y + y.offset * y.dir,
-              size: gib.points[2] / ratio
-            });
-            cutIndex += 1;
-          }
+          _CanvasUtil.default.addText({
+            context: _classPrivateFieldGet(_this6, _context),
+            text: args.cutIndex.toString(),
+            font: _WallComponent.default.Fonts.HEADER,
+            color: '#000000',
+            horizontalAlignment: _CanvasUtil.default.Alignment.CENTERED,
+            x: startX + gib.points[0] / ratio,
+            //x,
+            y: 100,
+            //y.y + y.offset * y.dir,
+            size: gib.points[2] / ratio
+          });
+          args.cutIndex += 1;
         }
       }
     });
@@ -33387,8 +33688,10 @@ function _renderWall2(wall, margin, ratio) {
   //add join marks
   option = _classPrivateFieldGet(this, _toggleOptions).joins.value;
   if (option != 'none') {
-    wall.joins.forEach(function (join) {
-      if (join.front && _classPrivateFieldGet(_this6, _view) == _WallComponent.default.View.FRONT || !join.front && _classPrivateFieldGet(_this6, _view) == _WallComponent.default.View.BACK) {
+    var joins = _classPrivateFieldGet(this, _station).task.values;
+    joins.forEach(function (j) {
+      var join = new _Join.default(j);
+      if (j.w == wallIndex) {
         var _x = plateX + join.calculateX(0, ratio, wall.length);
         var yCoords = join.calculateY(ty, by);
         yCoords.forEach(function (y) {
@@ -33503,7 +33806,7 @@ function _deselect2() {
 }
 var _default = PlanView;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./View":"../src/view/views/View.js","../components/WallComponent":"../src/view/components/WallComponent.js","../../model/GIB":"../src/model/GIB.js","gsap":"../../../../../../node_modules/gsap/index.js","../../system/Constants":"../src/system/Constants.js","../../model/Stud":"../src/model/Stud.js","../../model/Selectable":"../src/model/Selectable.js","../components/BreadCrumb":"../src/view/components/BreadCrumb.js","../../system/CanvasUtil":"../src/system/CanvasUtil.js"}],"../src/view/components/Viewer.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./View":"../src/view/views/View.js","../components/WallComponent":"../src/view/components/WallComponent.js","../../model/GIB":"../src/model/GIB.js","gsap":"../../../../../../node_modules/gsap/index.js","../../system/Constants":"../src/system/Constants.js","../../model/Stud":"../src/model/Stud.js","../../model/Selectable":"../src/model/Selectable.js","../components/BreadCrumb":"../src/view/components/BreadCrumb.js","../../system/CanvasUtil":"../src/system/CanvasUtil.js","../../model/Join":"../src/model/Join.js","../../model/Nogging":"../src/model/Nogging.js"}],"../src/view/components/Viewer.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34290,7 +34593,8 @@ var _wallAnalysisViewRef = /*#__PURE__*/new WeakMap();
 var _wallAnalysisView = /*#__PURE__*/new WeakMap();
 var _lot = /*#__PURE__*/new WeakMap();
 var _multiWall = /*#__PURE__*/new WeakMap();
-var _analysis = /*#__PURE__*/new WeakSet();
+var _analyse = /*#__PURE__*/new WeakSet();
+var _analysisWall = /*#__PURE__*/new WeakSet();
 var _analyseTask = /*#__PURE__*/new WeakSet();
 var _toTime = /*#__PURE__*/new WeakSet();
 var _loadLot = /*#__PURE__*/new WeakSet();
@@ -34306,7 +34610,8 @@ var ContentViewer = /*#__PURE__*/function (_Viewer) {
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _loadLot);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _toTime);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _analyseTask);
-    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _analysis);
+    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _analysisWall);
+    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _analyse);
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _planViewRef, {
       writable: true,
       value: void 0
@@ -34465,7 +34770,7 @@ var ContentViewer = /*#__PURE__*/function (_Viewer) {
         _this2.view = _Constants.default.Views.TASK_SELECTION;
       });
       _classPrivateFieldGet(this, _planView).breadCrumb.addEventListener('button', function (sender, args) {
-        _classPrivateMethodGet(_this2, _analysis, _analysis2).call(_this2);
+        _classPrivateMethodGet(_this2, _analyse, _analyse2).call(_this2);
       });
 
       /*
@@ -34500,7 +34805,8 @@ var ContentViewer = /*#__PURE__*/function (_Viewer) {
         //load up the selection views
         _classPrivateFieldGet(_this2, _planView).multiWall = args.item;
         _classPrivateFieldGet(_this2, _stationSelectionView).data = args.item.stations;
-        _classPrivateFieldGet(_this2, _planView).refresh();
+        _classPrivateFieldGet(_this2, _taskSelectionView).data = args.item.stations[0].tasks;
+        //this.#planView.refresh();
         _this2.view = _Constants.default.Views.PLAN;
       });
       _classPrivateFieldGet(this, _stationSelectionView).addEventListener('home', function (sender, args) {
@@ -34536,53 +34842,71 @@ var ContentViewer = /*#__PURE__*/function (_Viewer) {
   }]);
   return ContentViewer;
 }(_Viewer2.default);
-function _analysis2() {
+function _analyse2() {
   var _this3 = this;
-  console.log('mw', _classPrivateFieldGet(this, _multiWall));
-  var time = 0;
-  console.log('Multi Wall: ' + _classPrivateFieldGet(this, _multiWall).name);
+  var analysis = {
+    lot: 'LOT ' + _classPrivateFieldGet(this, _lot).name,
+    walls: [],
+    time: 0
+  };
+  var wallAnalysis;
+  _classPrivateFieldGet(this, _lot).walls.forEach(function (wall) {
+    wallAnalysis = _classPrivateMethodGet(_this3, _analysisWall, _analysisWall2).call(_this3, wall, _classPrivateFieldGet(_this3, _lot).walls);
+    analysis.walls.push(wallAnalysis);
+    analysis.time += wallAnalysis.time;
+  });
+  console.log('Analysis', analysis);
+}
+function _analysisWall2(wall, walls) {
+  var _this4 = this;
+  // console.log('lot', this.#lot);
+
   var wallAnalysis = {
-    name: _classPrivateFieldGet(this, _multiWall).name,
-    stations: []
+    name: wall.name,
+    stations: [],
+    time: 0
   };
   var stationAnalysis, taskAnalysis;
-  _classPrivateFieldGet(this, _multiWall).stations.forEach(function (station) {
+  wall.stations.forEach(function (station) {
     stationAnalysis = {
       name: station.name,
-      tasks: []
+      tasks: [],
+      time: 0
     };
     wallAnalysis.stations.push(stationAnalysis);
     station.tasks.forEach(function (task) {
-      taskAnalysis = _classPrivateMethodGet(_this3, _analyseTask, _analyseTask2).call(_this3, station, task, _classPrivateFieldGet(_this3, _multiWall).walls);
+      taskAnalysis = _classPrivateMethodGet(_this4, _analyseTask, _analyseTask2).call(_this4, task);
       stationAnalysis.tasks.push(taskAnalysis);
-      time += taskAnalysis.time;
+      stationAnalysis.time += taskAnalysis.time;
     });
+    wallAnalysis.time += stationAnalysis.time;
   });
-
-  // console.log('Multi Wall: ' + this.#multiWall.name + ' @ ' + this.#toTime(time));
-  console.log('A', wallAnalysis);
+  return wallAnalysis;
 }
-function _analyseTask2(station, task, walls) {
-  var time = 0;
-  var taskItems;
-  var totalItems = 0;
-  var units = [];
-  if (task.property != undefined) {
-    walls.forEach(function (wall) {
-      taskItems = wall[task.property];
-      console.log('ti', taskItems, station);
-      totalItems += taskItems.length;
-      units = units.concat(taskItems);
-      time += taskItems.length * task.weighting;
-    });
-  } else {
-    time = task.weighting;
-    // console.log('doi', task)
+function _analyseTask2(task) {
+  if (task.values == undefined) {
+    task.values = [];
+    console.log('u', task);
   }
+  var time = task.weighting * task.values.length;
+  // let taskItems;
+  // let units = [];
+
+  // if(task.property != undefined){
+  //     walls.forEach((wall) => {
+  //         taskItems = wall[task.property];
+  //         // totalItems += taskItems.length;
+  //         units = units.concat(taskItems);
+  //         time += (taskItems.length * task.weighting);
+  //     });
+  // }else{
+  //     time = task.weighting;
+  //     // console.log('doi', task)
+  // }
 
   return {
     name: task.name,
-    units: units,
+    units: task.values,
     weighting: task.weighting + ' seconds per unit',
     "total time": _classPrivateMethodGet(this, _toTime, _toTime2).call(this, time),
     time: time
@@ -34594,6 +34918,7 @@ function _toTime2(time) {
   return mins + ':' + secs;
 }
 function _loadLot2(lot) {
+  _classPrivateFieldSet(this, _lot, lot);
   _classPrivateFieldGet(this, _planView).lot = lot;
 
   //load up the selection views
@@ -34933,7 +35258,8 @@ var WallComponent = /*#__PURE__*/function (_EventComponent) {
         previousX = stud.x;
       });
       _classPrivateFieldGet(this, _contentView).load(multiWall);
-      _classPrivateFieldGet(this, _contentView).planView.checkStuds = _classPrivateFieldGet(this, _checkStuds);
+
+      // this.#contentView.planView.checkStuds = this.#checkStuds;
       //  this.#contentView.planView.load(multiWall, this.station);
 
       // this.#refresh();
@@ -35030,7 +35356,7 @@ WallComponent.Zoom = {
   INCREMENT: 1
 };
 WallComponent.Colors = {
-  DEFAULT: '#FFFFFF',
+  DEFAULT: '#FFFFF0',
   SELECTED: 'orange'
 };
 WallComponent.Fonts = {
@@ -35116,6 +35442,9 @@ var Station = /*#__PURE__*/function () {
     _classPrivateFieldSet(this, _name, name);
     _classPrivateFieldSet(this, _tasks, tasks);
     _classPrivateFieldSet(this, _view, view);
+
+    // console.log('station ' + name, tasks)
+
     _classPrivateFieldSet(this, _taskIndex, 0);
     if (tasks.length == 0) {
       throw 'Station must have one or more tasks assigned to it.';
@@ -35182,94 +35511,7 @@ var Station = /*#__PURE__*/function () {
 }();
 var _default = Station;
 exports.default = _default;
-},{"../system/EventListener":"../src/system/EventListener.js"}],"../src/model/Nogging.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
-var _stud = /*#__PURE__*/new WeakMap();
-var _y = /*#__PURE__*/new WeakMap();
-var _height = /*#__PURE__*/new WeakMap();
-var _front = /*#__PURE__*/new WeakMap();
-var _code = /*#__PURE__*/new WeakMap();
-var Nogging = /*#__PURE__*/function () {
-  function Nogging(stud, y, height, front, code) {
-    _classCallCheck(this, Nogging);
-    _classPrivateFieldInitSpec(this, _stud, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _y, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _height, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _front, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _code, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldSet(this, _stud, stud);
-    _classPrivateFieldSet(this, _y, y);
-    _classPrivateFieldSet(this, _height, height);
-    _classPrivateFieldSet(this, _front, front);
-    _classPrivateFieldSet(this, _code, code);
-    if (code == undefined) {
-      throw 'code';
-    }
-  }
-  _createClass(Nogging, [{
-    key: "code",
-    get: function get() {
-      return _classPrivateFieldGet(this, _code);
-    }
-  }, {
-    key: "y",
-    get: function get() {
-      return _classPrivateFieldGet(this, _y);
-    }
-  }, {
-    key: "height",
-    get: function get() {
-      return _classPrivateFieldGet(this, _height);
-    }
-  }, {
-    key: "stud",
-    get: function get() {
-      return _classPrivateFieldGet(this, _stud);
-    }
-  }, {
-    key: "front",
-    get: function get() {
-      return _classPrivateFieldGet(this, _front);
-    }
-  }]);
-  return Nogging;
-}();
-var _default = Nogging;
-exports.default = _default;
-},{}],"../src/model/Screw.js":[function(require,module,exports) {
+},{"../system/EventListener":"../src/system/EventListener.js"}],"../src/model/Screw.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35319,159 +35561,6 @@ var Screw = /*#__PURE__*/function () {
   return Screw;
 }();
 var _default = Screw;
-exports.default = _default;
-},{}],"../src/model/Join.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
-var _x = /*#__PURE__*/new WeakMap();
-var _plate = /*#__PURE__*/new WeakMap();
-var _from = /*#__PURE__*/new WeakMap();
-var _label = /*#__PURE__*/new WeakMap();
-var _front = /*#__PURE__*/new WeakMap();
-var _wallLength = /*#__PURE__*/new WeakMap();
-var Join = /*#__PURE__*/function () {
-  function Join(obj) {
-    _classCallCheck(this, Join);
-    _classPrivateFieldInitSpec(this, _x, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _plate, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _from, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _label, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _front, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(this, _wallLength, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldSet(this, _x, obj.x);
-    _classPrivateFieldSet(this, _plate, obj.plate);
-    _classPrivateFieldSet(this, _from, obj.from);
-    _classPrivateFieldSet(this, _label, obj.label);
-    _classPrivateFieldSet(this, _front, obj.front);
-    _classPrivateFieldSet(this, _wallLength, obj.wallLength);
-  }
-  _createClass(Join, [{
-    key: "front",
-    get: function get() {
-      return _classPrivateFieldGet(this, _front);
-    }
-  }, {
-    key: "measurement",
-    get: function get() {
-      return _classPrivateFieldGet(this, _x);
-    }
-  }, {
-    key: "x",
-    get: function get() {
-      return _classPrivateFieldGet(this, _front) ? _classPrivateFieldGet(this, _x) : _classPrivateFieldGet(this, _wallLength) - _classPrivateFieldGet(this, _x);
-    }
-
-    // calculateX(margin, ratio, length, front){
-    //     let x;
-    //     // if(this.#front){
-    //         x = this.#from == 0? margin + this.x / ratio : margin + ((length - this.x) / ratio);
-    //     // }else{
-    //     //     x = this.#from == 1? margin + this.#x / ratio : margin + ((length - this.#x) / ratio);
-    //     // }
-
-    //     return x;
-    // }
-  }, {
-    key: "calculateX",
-    value: function calculateX(margin, ratio, length) {
-      //x = plateX - join.x / ratio;
-      var x;
-      if (_classPrivateFieldGet(this, _front)) {
-        x = _classPrivateFieldGet(this, _from) == 0 ? margin + this.x / ratio : margin + (length - this.x) / ratio;
-      } else {
-        x = _classPrivateFieldGet(this, _from) == 0 ? margin - this.x / ratio : margin - (length - this.x) / ratio;
-      }
-      return x;
-    }
-
-    /**
-     * Returns an array of Y coordinates
-     * @param {*} ty 
-     * @param {*} by 
-     * @param {*} plate 
-     * @returns 
-     */
-  }, {
-    key: "calculateY",
-    value: function calculateY(ty, by) {
-      var dir = _classPrivateFieldGet(this, _plate) == 1 ? 1 : -1;
-      var offset = _classPrivateFieldGet(this, _plate) == 1 ? 30 : 20;
-      var yArray = [];
-      if (_classPrivateFieldGet(this, _plate) == 2) {
-        yArray.push({
-          y: ty,
-          offset: offset,
-          dir: -1
-        });
-        yArray.push({
-          y: by,
-          offset: 30,
-          dir: 1
-        });
-      } else {
-        var y = _classPrivateFieldGet(this, _plate) == 1 ? by : ty;
-        yArray.push({
-          y: y,
-          offset: offset,
-          dir: dir
-        });
-      }
-      return yArray;
-    }
-  }, {
-    key: "plate",
-    get: function get() {
-      return _classPrivateFieldGet(this, _plate);
-    }
-  }, {
-    key: "from",
-    get: function get() {
-      return _classPrivateFieldGet(this, _from);
-    }
-  }, {
-    key: "label",
-    get: function get() {
-      return _classPrivateFieldGet(this, _label);
-    }
-  }]);
-  return Join;
-}();
-var _default = Join;
 exports.default = _default;
 },{}],"../src/model/Lintel.js":[function(require,module,exports) {
 "use strict";
@@ -35768,6 +35857,8 @@ var Wall = /*#__PURE__*/function () {
     _classPrivateFieldSet(this, _studs, []);
     obj.studs.forEach(function (s) {
       // sw = s.type == 'side'
+      //hack
+      // s.height = this.#height - 45*2;
       stud = new _Stud.default(s.x, s.y, s.width, s.height, types[s.type]);
       if (s.y == 0 && types[s.type] == 'bottom') {
         console.log('wall error: ' + obj.code);
@@ -36040,6 +36131,7 @@ var _options = /*#__PURE__*/new WeakMap();
 var _commands = /*#__PURE__*/new WeakMap();
 var _weighting = /*#__PURE__*/new WeakMap();
 var _property = /*#__PURE__*/new WeakMap();
+var _values = /*#__PURE__*/new WeakMap();
 var Task = /*#__PURE__*/function () {
   function Task(number, name, description, options, commands, weighting, property) {
     var _this = this;
@@ -36072,6 +36164,10 @@ var Task = /*#__PURE__*/function () {
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(this, _values, {
+      writable: true,
+      value: void 0
+    });
     _classPrivateFieldSet(this, _number, number);
     _classPrivateFieldSet(this, _name, name);
     _classPrivateFieldSet(this, _description, description);
@@ -36079,6 +36175,7 @@ var Task = /*#__PURE__*/function () {
     _classPrivateFieldSet(this, _commands, commands);
     _classPrivateFieldSet(this, _weighting, weighting);
     _classPrivateFieldSet(this, _property, property);
+    _classPrivateFieldSet(this, _values, []);
     if (Array.isArray(commands)) {
       commands.forEach(function (cmd) {
         cmd.parent = _this;
@@ -36088,6 +36185,14 @@ var Task = /*#__PURE__*/function () {
     // console.log('task', this);
   }
   _createClass(Task, [{
+    key: "values",
+    get: function get() {
+      return _classPrivateFieldGet(this, _values);
+    },
+    set: function set(val) {
+      _classPrivateFieldSet(this, _values, val);
+    }
+  }, {
     key: "property",
     get: function get() {
       return _classPrivateFieldGet(this, _property);
@@ -36212,7 +36317,7 @@ _defineProperty(Tasks, "tasks", {
     noggings: 'all',
     square: 'none'
   }, [], 15, 'screws36'),
-  "Front Noggings": new _Task.default(6, 'NOGGINGS', 'Description here', {
+  "Noggings": new _Task.default(6, 'NOGGINGS', 'Description here', {
     studs: 'all',
     gib: 'none',
     joins: 'none',
@@ -36245,13 +36350,6 @@ _defineProperty(Tasks, "tasks", {
     gib: 'front_layer_2_cuts',
     joins: 'none',
     noggings: 'all',
-    square: 'none'
-  }, [], 0),
-  "Back Noggings": new _Task.default(1, 'NOGGINGS', 'Dummy Task', {
-    studs: 'all',
-    gib: 'none',
-    joins: 'none',
-    noggings: 'back',
     square: 'none'
   }, [], 0),
   "Back Gib": new _Task.default(2, 'GIB', 'Dummy task', {
@@ -36344,6 +36442,7 @@ var MultiWall = /*#__PURE__*/function () {
     _classPrivateFieldSet(this, _name, obj.name);
     _classPrivateFieldSet(this, _walls, new Array(obj.walls.length));
     for (var i = 0; i < obj.walls.length; i++) {
+      obj.walls[i].height = obj.height;
       _classPrivateFieldGet(this, _walls)[i] = new _Wall.default(obj.walls[i]);
     }
 
@@ -36354,7 +36453,8 @@ var MultiWall = /*#__PURE__*/function () {
     obj.stations.forEach(function (s) {
       tasks = [];
       s.tasks.forEach(function (t) {
-        task = _Tasks.default.get(t);
+        task = _Tasks.default.get(t.name);
+        task.values = t.values;
         tasks.push(task);
         _classPrivateFieldGet(_this, _tasks).push(task);
       });
@@ -36362,7 +36462,6 @@ var MultiWall = /*#__PURE__*/function () {
         _classPrivateFieldGet(_this, _stations).push(new _Station.default(s.name, tasks, s.view));
       }
     });
-    console.log('NEED TO ASSOCIATE EACH TASK WITH A STATION');
 
     // console.log('tasks', this.#tasks);
   }
@@ -36764,8 +36863,6 @@ var WallView = /*#__PURE__*/function (_View) {
       fetch('/C1.json').then(function (res) {
         return res.json();
       }).then(function (out) {
-        // console.log('Output: ', out);
-        // console.log(this.load);
         _this2.load(out);
       }).catch(function (err) {
         return console.error(err);
@@ -36815,13 +36912,41 @@ var WallView = /*#__PURE__*/function (_View) {
       // }
     }
   }, {
-    key: "load",
-    value:
+    key: "debug",
+    value: function debug(objs) {
+      objs.forEach(function (obj) {
+        obj.multiwalls.forEach(function (multiwall) {
+          // this.multiWall.stations.forEach((station) => {
+          var ding;
+          // });
+          try {
+            multiwall.stations[0].tasks.forEach(function (task) {
+              if (task.name == 'Check Studs') {
+                task.values.forEach(function (value) {
+                  value.w = 0;
+                });
+              }
+            });
+          } catch (e) {
+            console.log(ding);
+            console.log(e);
+          }
+        });
+      });
+      console.log('debug', objs);
+
+      // this.#save(JSON.stringify(objs), 'c3.json');
+    }
+
     /**
      * Loads a wall into the WallCOmponent
      * @param {MultiWall} multi 
      */
-    function load(objs) {
+  }, {
+    key: "load",
+    value: function load(objs) {
+      this.debug(objs);
+
       //create a whole lot of LOTS =)
       var lots = [];
       objs.forEach(function (obj) {
@@ -36999,7 +37124,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55288" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57494" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
