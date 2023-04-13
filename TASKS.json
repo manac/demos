@@ -1,0 +1,210 @@
+[
+    {
+        "key": "Mark Joins",
+        "number": 1,
+        "name": "MARK JOINS",
+        "description": "Mark top and or bottom plates to show where GIB is positioned on the wall.",
+        "options": {
+            "studs": "all",
+            "gib": "none",
+            "joins": "front",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 20,
+        "property": "joins"
+    },
+    {
+        "key": "Check Studs",
+        "number": 15,
+        "name": "CHECK STUDS",
+        "description": "",
+        "options": {
+            "studs": "check_pos",
+            "gib": "none",
+            "joins": "none",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 10,
+        "property": "studs"
+    },
+    {
+        "key": "Square Frame",
+        "number": 1,
+        "name": "SQUARE FRAME",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "none",
+            "joins": "none",
+            "noggings": "all",
+            "square": "all"
+        },
+        "commands": [],
+        "weighting": 120,
+        "property": ""
+    },
+    {
+        "key": "25s",
+        "number": 1,
+        "name": "INSTALL 25s",
+        "description": "",
+        "options": {
+            "studs": "s25s",
+            "gib": "none",
+            "joins": "none",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 15,
+        "property": ""
+    },
+    {
+        "key": "36s",
+        "number": 1,
+        "name": "INSTALL 36s",
+        "description": "",
+        "options": {
+            "studs": "s36s",
+            "gib": "none",
+            "joins": "none",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 17,
+        "property": ""
+    },
+    {
+        "key": "Noggings",
+        "number": 1,
+        "name": "NOGGINGS",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "none",
+            "joins": "none",
+            "noggings": "front",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 60,
+        "property": ""
+    },
+    {
+        "key": "Layer 1",
+        "number": 1,
+        "name": "GIB LAYER 1",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "front_layer_1",
+            "joins": "none",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 0,
+        "property": ""
+    },
+    {
+        "key": "Layer 2",
+        "number": 1,
+        "name": "GIB LAYER 2",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "front_layer_2",
+            "joins": "none",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 0,
+        "property": ""
+    },
+    {
+        "key": "Layer 1 Cuts",
+        "number": 1,
+        "name": "GIB LAYER 1 CUTS",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "front_layer_1_cuts",
+            "joins": "none",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 60,
+        "property": ""
+    },
+    {
+        "key": "Layer 2 Cuts",
+        "number": 1,
+        "name": "GIB LAYER 2 CUTS",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "front_layer_2_cuts",
+            "joins": "none",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 0,
+        "property": ""
+    },
+    {
+        "key": "Back Gib",
+        "number": 1,
+        "name": "GIB",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "back_layer_1",
+            "joins": "front",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 0,
+        "property": ""
+    },
+    {
+        "key": "Insulation",
+        "number": 1,
+        "name": "INSULATION",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "none",
+            "joins": "front",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 0,
+        "property": ""
+    },
+    {
+        "key": "Flush Boxes",
+        "number": 1,
+        "name": "FlUSH BOXES",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "none",
+            "joins": "front",
+            "noggings": "all",
+            "square": "none"
+        },
+        "commands": [],
+        "weighting": 0,
+        "property": ""
+    }
+]
