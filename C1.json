@@ -1654,10 +1654,7 @@
                     {
                         "name": "1",
                         "tasks": [
-                            {
-                                "name": "Mark Joins",
-                                "values": []
-                            },
+                           
                             {
                                 "name": "Check Studs",
                                 "values": [
