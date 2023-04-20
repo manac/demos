@@ -10,11 +10,12 @@
             "joins": "front",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 20,
-        "property": "joins"
+        "property": "joins",
+        "exportable": false
     },
     {
         "key": "Check Studs",
@@ -27,11 +28,12 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 10,
-        "property": "studs"
+        "property": "studs",
+        "exportable": false
     },
     {
         "key": "Square Frame",
@@ -44,11 +46,12 @@
             "joins": "none",
             "noggings": "all",
             "square": "all",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 120,
-        "property": ""
+        "property": "",
+        "exportable": false
     },
     {
         "key": "25s",
@@ -61,11 +64,12 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 15,
-        "property": ""
+        "property": "",
+        "exportable": false
     },
     {
         "key": "36s",
@@ -78,11 +82,12 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 17,
-        "property": ""
+        "property": "",
+        "exportable": false
     },
     {
         "key": "Noggings",
@@ -95,11 +100,12 @@
             "joins": "none",
             "noggings": "front",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 60,
-        "property": ""
+        "property": "",
+        "exportable": false
     },
     {
         "key": "Layer 1",
@@ -112,11 +118,12 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 0,
-        "property": ""
+        "property": "",
+        "exportable": false
     },
     {
         "key": "Layer 2",
@@ -129,11 +136,12 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 0,
-        "property": ""
+        "property": "",
+        "exportable": false
     },
     {
         "key": "Layer 1 Cuts",
@@ -146,11 +154,44 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 60,
-        "property": ""
+        "property": "",
+        "exportable": true,
+        "exportKeys": [
+            {
+                "key": "k1",
+                "label": "Type",
+                "property": "typeCode"
+            },
+            {
+                "key": "k2",
+                "label": "Code",
+                "property": "code"
+            },
+            {
+                "key": "k3",
+                "label": "Width",
+                "property": "width"
+            },
+            {
+                "key": "k4",
+                "label": "Height",
+                "property": "height"
+            },
+            {
+                "key": "k5",
+                "label": "Cut",
+                "property": "cut"
+            },
+            {
+                "key": "k6",
+                "label": "Full Sheet",
+                "property": "fullsheet"
+            }
+        ]
     },
     {
         "key": "Layer 2 Cuts",
@@ -163,11 +204,44 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 60,
-        "property": ""
+        "property": "",
+        "exportable": true,
+        "exportKeys": [
+            {
+                "key": "k1",
+                "label": "Type",
+                "property": "typeCode"
+            },
+            {
+                "key": "k2",
+                "label": "Code",
+                "property": "code"
+            },
+            {
+                "key": "k3",
+                "label": "Width",
+                "property": "width"
+            },
+            {
+                "key": "k4",
+                "label": "Height",
+                "property": "height"
+            },
+            {
+                "key": "k5",
+                "label": "Cut",
+                "property": "cut"
+            },
+            {
+                "key": "k6",
+                "label": "Full Sheet",
+                "property": "fullsheet"
+            }
+        ]
     },
     {
         "key": "Insulation",
@@ -180,16 +254,17 @@
             "joins": "front",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "none"
+            "flushboxes": "none"
         },
         "commands": [],
         "weighting": 0,
-        "property": ""
+        "property": "",
+        "exportable": false
     },
     {
         "key": "Flush Boxes",
         "number": 1,
-        "name": "FlUSH BOXES",
+        "name": "FLUSH BOXES",
         "description": "",
         "options": {
             "studs": "all",
@@ -197,10 +272,33 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes" : "all"
+            "flushboxes": "all"
         },
         "commands": [],
         "weighting": 0,
-        "property": ""
+        "property": "",
+        "exportable": true,
+        "exportKeys": [
+            {
+                "key": "k1",
+                "label": "Type",
+                "property": "type"
+            },
+            {
+                "key": "k2",
+                "label": "Stud",
+                "property": "stud"
+            },
+            {
+                "key": "k3",
+                "label": "Position",
+                "property": "position"
+            },
+            {
+                "key": "k4",
+                "label": "Orientation",
+                "property": "orientation"
+            }
+        ]
     }
 ]
