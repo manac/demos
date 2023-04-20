@@ -9,7 +9,8 @@
             "gib": "none",
             "joins": "front",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 20,
@@ -25,7 +26,8 @@
             "gib": "none",
             "joins": "none",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 10,
@@ -41,7 +43,8 @@
             "gib": "none",
             "joins": "none",
             "noggings": "all",
-            "square": "all"
+            "square": "all",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 120,
@@ -57,7 +60,8 @@
             "gib": "none",
             "joins": "none",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 15,
@@ -73,7 +77,8 @@
             "gib": "none",
             "joins": "none",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 17,
@@ -89,7 +94,8 @@
             "gib": "none",
             "joins": "none",
             "noggings": "front",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 60,
@@ -105,7 +111,8 @@
             "gib": "front_layer_1",
             "joins": "none",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 0,
@@ -121,7 +128,8 @@
             "gib": "front_layer_2",
             "joins": "none",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 0,
@@ -137,7 +145,8 @@
             "gib": "front_layer_1_cuts",
             "joins": "none",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 60,
@@ -153,26 +162,11 @@
             "gib": "front_layer_2_cuts",
             "joins": "none",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
-        "weighting": 0,
-        "property": ""
-    },
-    {
-        "key": "Back Gib",
-        "number": 1,
-        "name": "GIB",
-        "description": "",
-        "options": {
-            "studs": "all",
-            "gib": "back_layer_1",
-            "joins": "front",
-            "noggings": "all",
-            "square": "none"
-        },
-        "commands": [],
-        "weighting": 0,
+        "weighting": 60,
         "property": ""
     },
     {
@@ -185,7 +179,8 @@
             "gib": "none",
             "joins": "front",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "none"
         },
         "commands": [],
         "weighting": 0,
@@ -199,9 +194,10 @@
         "options": {
             "studs": "all",
             "gib": "none",
-            "joins": "front",
+            "joins": "none",
             "noggings": "all",
-            "square": "none"
+            "square": "none",
+            "flushboxes" : "all"
         },
         "commands": [],
         "weighting": 0,
