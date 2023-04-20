@@ -2390,7 +2390,39 @@
                             },
                             {
                                 "name": "Flush Boxes",
-                                "values": []
+                                "values": [
+                                    {
+                                        "x": 17,
+                                        "y": 1100,
+                                        "portrait": true,
+                                       "top": false,
+                                       "right": false,
+                                       "w": 0
+                                    },
+                                    {
+                                        "x": 18,
+                                        "y": 1000,
+                                        "portrait": true,
+                                       "top": false,
+                                       "right": true,
+                                       "w": 1
+                                    },
+                                    {
+                                        "x": 18,
+                                        "y": 300,
+                                        "portrait": false,
+                                       "top": false,
+                                       "right": true,
+                                       "w": 1
+                                    },
+                                    {
+                                        "x": 18,
+                                        "y": 300,
+                                        "portrait": false,
+                                       "top": false,
+                                       "right": false,
+                                       "w": 1
+                                    }]
                             }
                         ],
                         "view": 1
@@ -3708,6 +3740,51 @@
                     {
                         "name": "3",
                         "tasks": [
+                            {
+                                "name": "Flush Boxes",
+                                "values": [{
+                                    "x": 2,
+                                    "y": 1100,
+                                    "portrait": true,
+                                   "top": false,
+                                   "right": false,
+                                   "w": 0
+                                },
+                            
+                                {
+                                    "x": 10,
+                                    "y": 1100,
+                                    "portrait": true,
+                                   "top": false,
+                                   "right": false,
+                                   "w": 2
+                                },
+                            
+                                {
+                                    "x": 2,
+                                    "y": 1750,
+                                    "portrait": false,
+                                   "top": true,
+                                   "right": true,
+                                   "w": 4
+                                },
+                                {
+                                    "x": 5,
+                                    "y": 300,
+                                    "portrait": false,
+                                   "top": true,
+                                   "right": true,
+                                   "w": 4
+                                },
+                                {
+                                    "x": 8,
+                                    "y": 1100,
+                                    "portrait": true,
+                                   "top": true,
+                                   "right": true,
+                                   "w": 4
+                                }]
+                            },
                             {
                                 "name": "Noggings",
                                 "values": [
@@ -9115,7 +9192,22 @@
                             },
                             {
                                 "name": "Flush Boxes",
-                                "values": []
+                                "values": [{
+                                    "x": 3,
+                                    "y": 300,
+                                    "portrait": false,
+                                   "top": false,
+                                   "right": false,
+                                   "w": 0
+                                },
+                                {
+                                    "x": 27,
+                                    "y": 300,
+                                    "portrait": false,
+                                   "top": false,
+                                   "right": false,
+                                   "w": 1
+                                }]
                             }
                         ],
                         "view": 1
@@ -11077,7 +11169,39 @@
                         "tasks": [
                             {
                                 "name": "Flush Boxes",
-                                "values": []
+                                "values": [{
+                                    "x": 2,
+                                    "y": 300,
+                                    "portrait": false,
+                                   "top": false,
+                                   "right": false,
+                                   "w": 2
+                                },
+                            
+                                {
+                                    "x": 2,
+                                    "y": 1100,
+                                    "portrait": true,
+                                   "top": true,
+                                   "right": false,
+                                   "w": 0
+                                },
+                                {
+                                    "x": 16,
+                                    "y": 300,
+                                    "portrait": false,
+                                   "top": true,
+                                   "right": false,
+                                   "w": 0
+                                },
+                                {
+                                    "x": 28,
+                                    "y": 1100,
+                                    "portrait": true,
+                                   "top": true,
+                                   "right": true,
+                                   "w": 0
+                                }]
                             }
                         ],
                         "view": 1
@@ -13238,7 +13362,32 @@
                             },
                             {
                                 "name": "Flush Boxes",
-                                "values": []
+                                "values": [{
+                                    "x": 8,
+                                    "y": 300,
+                                    "portrait": false,
+                                   "top": false,
+                                   "right": true,
+                                   "w": 4
+                                },
+
+                                {
+                                    "x": 8,
+                                    "y": 1100,
+                                    "portrait": true,
+                                   "top": true,
+                                   "right": false,
+                                   "w": 2
+                                },
+                                
+                                {
+                                    "x": 9,
+                                    "y": 1100,
+                                    "portrait": true,
+                                   "top": true,
+                                   "right": true,
+                                   "w": 4
+                                }]
                             }
                         ],
                         "view": 1
