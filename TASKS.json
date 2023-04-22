@@ -164,32 +164,44 @@
             {
                 "key": "k1",
                 "label": "Type",
-                "property": "typeCode"
+                "property": "typeCode",
+                "width": 100,
+                "align": "left"
             },
             {
                 "key": "k2",
                 "label": "Code",
-                "property": "code"
+                "property": "code",
+                "width": 150,
+                "align": "left"
             },
             {
                 "key": "k3",
                 "label": "Width",
-                "property": "width"
+                "property": "width",
+                "width": 100,
+                "align": "center"
             },
             {
                 "key": "k4",
-                "label": "Height",
-                "property": "height"
+                "label": "Overhang",
+                "property": "overhang",
+                "width": 100,
+                "align": "center"
             },
             {
                 "key": "k5",
-                "label": "Cut",
-                "property": "cut"
+                "label": "Height",
+                "property": "height",
+                "width": 250,
+                "align": "center"
             },
             {
                 "key": "k6",
-                "label": "Full Sheet",
-                "property": "fullsheet"
+                "label": "Cut",
+                "property": "cut",
+                "width": 250,
+                "align": "center"
             }
         ]
     },
@@ -214,32 +226,44 @@
             {
                 "key": "k1",
                 "label": "Type",
-                "property": "typeCode"
+                "property": "typeCode",
+                "width": 100,
+                "align": "left"
             },
             {
                 "key": "k2",
                 "label": "Code",
-                "property": "code"
+                "property": "code",
+                "width": 150,
+                "align": "left"
             },
             {
                 "key": "k3",
                 "label": "Width",
-                "property": "width"
+                "property": "width",
+                "width": 100,
+                "align": "center"
             },
             {
                 "key": "k4",
-                "label": "Height",
-                "property": "height"
+                "label": "Overhang",
+                "property": "overhang",
+                "width": 100,
+                "align": "center"
             },
             {
                 "key": "k5",
-                "label": "Cut",
-                "property": "cut"
+                "label": "Height",
+                "property": "height",
+                "width": 250,
+                "align": "center"
             },
             {
                 "key": "k6",
-                "label": "Full Sheet",
-                "property": "fullsheet"
+                "label": "Cut",
+                "property": "cut",
+                "width": 250,
+                "align": "center"
             }
         ]
     },
@@ -275,29 +299,33 @@
             "flushboxes": "all"
         },
         "commands": [],
-        "weighting": 0,
+        "weighting": 60,
         "property": "",
         "exportable": true,
         "exportKeys": [
             {
                 "key": "k1",
                 "label": "Type",
-                "property": "type"
+                "property": "type",
+                "width": 250
             },
             {
                 "key": "k2",
                 "label": "Stud",
-                "property": "stud"
+                "property": "stud",
+                "width": 250
             },
             {
                 "key": "k3",
                 "label": "Position",
-                "property": "position"
+                "property": "position",
+                "width": 250
             },
             {
                 "key": "k4",
                 "label": "Orientation",
-                "property": "orientation"
+                "property": "orientation",
+                "width": 250
             }
         ]
     }
