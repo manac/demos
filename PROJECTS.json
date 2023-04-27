@@ -1,10 +1,6 @@
 [
     {
-        "name": "HOMAI",
-        "path": "/configs/Homai.json"
-    },
-    {
-        "name": "ORMISTON",
-        "path": "/configs/Ormiston.json"
+        "name": "TEST PROJECT",
+        "path": "/configs/TEST PROJECT.json"
     }
 ]

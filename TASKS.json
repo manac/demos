@@ -165,42 +165,56 @@
                 "key": "k1",
                 "label": "Type",
                 "property": "typeCode",
-                "width": 100,
+                "width": 60,
                 "align": "left"
             },
             {
                 "key": "k2",
                 "label": "Code",
                 "property": "code",
-                "width": 150,
+                "width": 60,
                 "align": "left"
             },
             {
                 "key": "k3",
                 "label": "Width",
                 "property": "width",
-                "width": 100,
+                "width": 80,
                 "align": "center"
             },
             {
                 "key": "k4",
-                "label": "Overhang",
-                "property": "overhang",
-                "width": 100,
+                "label": "Width +",
+                "property": "widthOverhang",
+                "width": 80,
                 "align": "center"
             },
             {
                 "key": "k5",
-                "label": "Height",
-                "property": "height",
-                "width": 250,
+                "label": "Cut",
+                "property": "vcut",
+                "width": 100,
                 "align": "center"
             },
             {
                 "key": "k6",
+                "label": "Height",
+                "property": "height",
+                "width": 80,
+                "align": "center"
+            },
+            {
+                "key": "k7",
+                "label": "Height +",
+                "property": "heightOverhang",
+                "width": 80,
+                "align": "center"
+            },
+            {
+                "key": "k8",
                 "label": "Cut",
-                "property": "cut",
-                "width": 250,
+                "property": "hcut",
+                "width": 60,
                 "align": "center"
             }
         ]
@@ -227,42 +241,56 @@
                 "key": "k1",
                 "label": "Type",
                 "property": "typeCode",
-                "width": 100,
+                "width": 60,
                 "align": "left"
             },
             {
                 "key": "k2",
                 "label": "Code",
                 "property": "code",
-                "width": 150,
+                "width": 60,
                 "align": "left"
             },
             {
                 "key": "k3",
                 "label": "Width",
                 "property": "width",
-                "width": 100,
+                "width": 80,
                 "align": "center"
             },
             {
                 "key": "k4",
-                "label": "Overhang",
-                "property": "overhang",
-                "width": 100,
+                "label": "Width +",
+                "property": "widthOverhang",
+                "width": 80,
                 "align": "center"
             },
             {
                 "key": "k5",
-                "label": "Height",
-                "property": "height",
-                "width": 250,
+                "label": "Cut",
+                "property": "vcut",
+                "width": 100,
                 "align": "center"
             },
             {
                 "key": "k6",
+                "label": "Height",
+                "property": "height",
+                "width": 80,
+                "align": "center"
+            },
+            {
+                "key": "k7",
+                "label": "Height +",
+                "property": "heightOverhang",
+                "width": 80,
+                "align": "center"
+            },
+            {
+                "key": "k8",
                 "label": "Cut",
-                "property": "cut",
-                "width": 250,
+                "property": "hcut",
+                "width": 60,
                 "align": "center"
             }
         ]
