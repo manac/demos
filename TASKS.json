@@ -10,7 +10,8 @@
             "joins": "front",
             "noggings": "all",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 20,
@@ -28,7 +29,8 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 10,
@@ -46,7 +48,8 @@
             "joins": "none",
             "noggings": "all",
             "square": "all",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 120,
@@ -64,7 +67,8 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 15,
@@ -82,7 +86,8 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 17,
@@ -100,7 +105,8 @@
             "joins": "none",
             "noggings": "front",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 60,
@@ -118,7 +124,8 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 0,
@@ -136,7 +143,8 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 0,
@@ -154,7 +162,8 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 60,
@@ -220,6 +229,44 @@
         ]
     },
     {
+        "key": "Layer 1 Staples",
+        "number": 1,
+        "name": "GIB LAYER 1 STAPLES",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "front_layer_1_cuts",
+            "joins": "none",
+            "noggings": "all",
+            "square": "none",
+            "flushboxes": "none",
+            "paths": "staples"
+        },
+        "commands": [],
+        "weighting": 60,
+        "property": "",
+        "exportable": false
+    },
+    {
+        "key": "Layer 1 Routing",
+        "number": 1,
+        "name": "GIB LAYER 1 ROUTING",
+        "description": "",
+        "options": {
+            "studs": "all",
+            "gib": "front_layer_1_cuts",
+            "joins": "none",
+            "noggings": "all",
+            "square": "none",
+            "flushboxes": "none",
+            "paths": "routing"
+        },
+        "commands": [],
+        "weighting": 60,
+        "property": "",
+        "exportable": false
+    },
+    {
         "key": "Layer 2 Cuts",
         "number": 1,
         "name": "GIB LAYER 2 CUTS",
@@ -230,7 +277,8 @@
             "joins": "none",
             "noggings": "all",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 60,
@@ -306,7 +354,8 @@
             "joins": "front",
             "noggings": "all",
             "square": "none",
-            "flushboxes": "none"
+            "flushboxes": "none",
+            "paths": "none"
         },
         "commands": [],
         "weighting": 0,
@@ -335,23 +384,29 @@
                 "key": "k1",
                 "label": "Type",
                 "property": "type",
-                "width": 250
+                "width": 60
             },
             {
                 "key": "k2",
                 "label": "Stud",
                 "property": "stud",
-                "width": 250
+                "width": 60
             },
             {
                 "key": "k3",
-                "label": "Position",
+                "label": "Position (from bottom plate)",
                 "property": "position",
                 "width": 250
             },
             {
                 "key": "k4",
                 "label": "Orientation",
+                "property": "orientation",
+                "width": 250
+            },
+            {
+                "key": "k5",
+                "label": "Strap",
                 "property": "orientation",
                 "width": 250
             }
