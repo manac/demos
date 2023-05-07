@@ -2,5 +2,9 @@
     {
         "name": "TEST PROJECT",
         "path": "/configs/TEST PROJECT.json"
+    },
+    {
+        "name": "COLIN STREET",
+        "path": "/configs/COLIN_STREET.json"
     }
 ]
