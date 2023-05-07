@@ -1,11 +1,14 @@
 {
     "name": "TEST PROJECT",
     "lots": [
-        1,
-        2,
-        5,
-        6,
-        8
+        {
+            "lots": [1, 2, 5, 6, 8],
+            "path": {
+                "pdf": "pdf path",
+                "wup": "wup path",
+                "btl": "btl path"
+            }
+        }
     ],
     "multiwalls": [
         {
