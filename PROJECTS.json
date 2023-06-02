@@ -1,15 +1,7 @@
 [
     {
-        "name": "TEST PROJECT",
-        "path": "/configs/TEST PROJECT.json"
-    },
-    {
         "name": "COLIN STREET 1/7/12",
         "path": "/configs/COLIN_STREET_1_7_12.json"
-    },
-    {
-        "name": "COLIN STREET 4/11/16",
-        "path": "/configs/COLIN_STREET_4_11_16.json"
     },
 	{
         "name": "COLIN STREET 2/8/9/13/14",
@@ -18,6 +10,10 @@
 	{
         "name": "COLIN STREET 3/10/15",
         "path": "/configs/COLIN_STREET_3_10_15.json"
+    },
+    {
+        "name": "COLIN STREET 4/11/16",
+        "path": "/configs/COLIN_STREET_4_11_16.json"
     },
 	{
         "name": "COLIN STREET 5/17",
