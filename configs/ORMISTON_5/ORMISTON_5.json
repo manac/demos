@@ -1,0 +1,10 @@
+{
+	"name": "ORMISTON STAGE 5",
+	"id": "f4202dbb-0869-442a-a576-e4105da6455b",
+	"groups" : [
+    {
+        "name": "ORMISTON STAGE 5 120",
+        "path": "/configs/ORMISTON_5/ORMISTON_5_120.json"
+    }
+]
+}
