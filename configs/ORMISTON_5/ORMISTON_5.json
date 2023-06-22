@@ -1,6 +1,7 @@
 {
 	"name": "ORMISTON STAGE 5",
 	"id": "f4202dbb-0869-442a-a576-e4105da6455b",
+    "spacings": [1, 301, 401, 501, 601, 801, 901, 1201],
 	"groups" : [
     {
         "name": "ORMISTON STAGE 5 120",
