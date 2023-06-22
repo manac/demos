@@ -1,29 +1,30 @@
 {
 	"name": "COLIN STREET",
 	"id": "06f143a6-02ef-4d13-9219-998f4e717e52",
+    "spacings": [1, 301, 401, 501, 601, 801, 901, 1201],
 	"groups" : [
     {
-        "name": "COLIN STREET 1/7/12",
+        "name": "1/7/12",
         "path": "/configs/COLIN_STREET/COLIN_STREET_1_7_12.json"
     },
 	{
-        "name": "COLIN STREET 2/8/9/13/14",
+        "name": "2/8/9/13/14",
         "path": "/configs/COLIN_STREET/COLIN_STREET_2_8_9_13_14.json"
     },
 	{
-        "name": "COLIN STREET 3/10/15",
+        "name": "3/10/15",
         "path": "/configs/COLIN_STREET/COLIN_STREET_3_10_15.json"
     },
     {
-        "name": "COLIN STREET 4/11/16",
+        "name": "4/11/16",
         "path": "/configs/COLIN_STREET/COLIN_STREET_4_11_16.json"
     },
 	{
-        "name": "COLIN STREET 5/17",
+        "name": "5/17",
         "path": "/configs/COLIN_STREET/COLIN_STREET_5_17.json"
     },
 	{
-        "name": "COLIN STREET 6/18",
+        "name": "6/18",
         "path": "/configs/COLIN_STREET/COLIN_STREET_6_18.json"
     }
 ]
