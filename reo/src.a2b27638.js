@@ -44318,7 +44318,6 @@ var _wordIndex = /*#__PURE__*/new WeakMap();
 var _categoriesHash = /*#__PURE__*/new WeakMap();
 var _setDropText = /*#__PURE__*/new WeakSet();
 var _animateAnswer = /*#__PURE__*/new WeakSet();
-var _loadRandomWord = /*#__PURE__*/new WeakSet();
 var _selectElements = /*#__PURE__*/new WeakSet();
 var _layoutComponents = /*#__PURE__*/new WeakSet();
 var _layoutLandscape = /*#__PURE__*/new WeakSet();
@@ -44364,7 +44363,6 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _layoutLandscape);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _layoutComponents);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _selectElements);
-    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _loadRandomWord);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _animateAnswer);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _setDropText);
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _containerRef, {
@@ -44516,7 +44514,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
           break;
         case 2:
           if (_classPrivateFieldGet(this, _answered)) {
-            _classPrivateMethodGet(this, _loadRandomWord, _loadRandomWord2).call(this);
+            this.loadRandomWord();
           }
       }
     }
@@ -44552,7 +44550,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       _classPrivateFieldGet(this, _remainingWords).splice(0, _classPrivateFieldGet(this, _wordCount));
 
       //temp
-      _classPrivateMethodGet(this, _loadRandomWord, _loadRandomWord2).call(this);
+      this.loadRandomWord();
     }
   }, {
     key: "save",
@@ -44578,35 +44576,54 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       };
     }
   }, {
+    key: "loadRandomWord",
+    value: function loadRandomWord() {
+      var _this4 = this;
+      _classPrivateFieldSet(this, _answered, false);
+      this.clickCount = 0;
+      for (var i = _classPrivateFieldGet(this, _wordComponents).length - 1; i >= 0; i--) {
+        _classPrivateMethodGet(this, _removeDraggable, _removeDraggable2).call(this, _classPrivateFieldGet(this, _wordComponents)[i]);
+      }
+      _classPrivateFieldSet(this, _wordComponents, []);
+      _classPrivateFieldGet(this, _activeWords).forEach(function (w) {
+        _classPrivateFieldGet(_this4, _wordComponents).push(_classPrivateMethodGet(_this4, _addDraggable, _addDraggable2).call(_this4, w));
+      });
+      _classPrivateFieldSet(this, _activeWords, _classPrivateMethodGet(this, _selectElements, _selectElements2).call(this, _classPrivateFieldGet(this, _words), _classPrivateFieldGet(this, _wordIndex), _classPrivateFieldGet(this, _wordCount)));
+      _classPrivateFieldSet(this, _currentWord, _classPrivateFieldGet(this, _activeWords)[0]);
+      _classPrivateMethodGet(this, _setDropText, _setDropText2).call(this);
+      _classPrivateFieldSet(this, _wordIndex, _classPrivateFieldGet(this, _wordIndex) < _classPrivateFieldGet(this, _words).length - 1 ? _classPrivateFieldGet(this, _wordIndex) + 1 : 0);
+      console.log('check', _classPrivateFieldGet(this, _wordIndex), _classPrivateFieldGet(this, _words).length);
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var _this4 = this;
+      var _this5 = this;
       _classPrivateFieldSet(this, _countainerBounds, _classPrivateFieldGet(this, _containerRef).current.getBoundingClientRect());
       if (_classPrivateFieldGet(this, _isTouch)) {
         _classPrivateFieldGet(this, _containerRef).current.addEventListener('touchend', function (e) {
-          _classPrivateMethodGet(_this4, _dragEnd, _dragEnd2).call(_this4, e);
+          _classPrivateMethodGet(_this5, _dragEnd, _dragEnd2).call(_this5, e);
         });
         _classPrivateFieldGet(this, _containerRef).current.addEventListener('touchmove', function (e) {
-          _classPrivateMethodGet(_this4, _drag, _drag2).call(_this4, e);
+          _classPrivateMethodGet(_this5, _drag, _drag2).call(_this5, e);
         });
       } else {
         _classPrivateFieldGet(this, _containerRef).current.addEventListener('mouseup', function (e) {
-          _classPrivateMethodGet(_this4, _dragEnd, _dragEnd2).call(_this4, e);
+          _classPrivateMethodGet(_this5, _dragEnd, _dragEnd2).call(_this5, e);
         });
         _classPrivateFieldGet(this, _containerRef).current.addEventListener('mousemove', function (e) {
-          _classPrivateMethodGet(_this4, _drag, _drag2).call(_this4, e);
+          _classPrivateMethodGet(_this5, _drag, _drag2).call(_this5, e);
         });
       }
       _classPrivateFieldGet(this, _dropRef).current.addEventListener('click', function (e) {
-        _this4.clickCount = _classPrivateFieldGet(_this4, _clickCount) + 1;
+        _this5.clickCount = _classPrivateFieldGet(_this5, _clickCount) + 1;
       });
       var canvas = _classPrivateFieldGet(this, _canvasRef).current;
       canvas.width = _classPrivateFieldGet(this, _countainerBounds).width;
       canvas.height = _classPrivateFieldGet(this, _countainerBounds).height;
       _classPrivateFieldSet(this, _ctx, canvas.getContext('2d'));
       window.addEventListener('resize', function () {
-        _classPrivateFieldSet(_this4, _isPortrait, _Utils.Utils.getPortrait());
-        _classPrivateMethodGet(_this4, _layoutComponents, _layoutComponents2).call(_this4);
+        _classPrivateFieldSet(_this5, _isPortrait, _Utils.Utils.getPortrait());
+        _classPrivateMethodGet(_this5, _layoutComponents, _layoutComponents2).call(_this5);
       });
       _classPrivateFieldSet(this, _isPortrait, _Utils.Utils.getPortrait());
     }
@@ -44642,23 +44659,6 @@ function _animateAnswer2(wordComponent) {
     y: y,
     duration: 1
   });
-}
-function _loadRandomWord2() {
-  var _this5 = this;
-  _classPrivateFieldSet(this, _answered, false);
-  this.clickCount = 0;
-  for (var i = _classPrivateFieldGet(this, _wordComponents).length - 1; i >= 0; i--) {
-    _classPrivateMethodGet(this, _removeDraggable, _removeDraggable2).call(this, _classPrivateFieldGet(this, _wordComponents)[i]);
-  }
-  _classPrivateFieldSet(this, _wordComponents, []);
-  _classPrivateFieldGet(this, _activeWords).forEach(function (w) {
-    _classPrivateFieldGet(_this5, _wordComponents).push(_classPrivateMethodGet(_this5, _addDraggable, _addDraggable2).call(_this5, w));
-  });
-  _classPrivateFieldSet(this, _activeWords, _classPrivateMethodGet(this, _selectElements, _selectElements2).call(this, _classPrivateFieldGet(this, _words), _classPrivateFieldGet(this, _wordIndex), _classPrivateFieldGet(this, _wordCount)));
-  _classPrivateFieldSet(this, _currentWord, _classPrivateFieldGet(this, _activeWords)[0]);
-  _classPrivateMethodGet(this, _setDropText, _setDropText2).call(this);
-  _classPrivateFieldSet(this, _wordIndex, _classPrivateFieldGet(this, _wordIndex) < _classPrivateFieldGet(this, _words).length - 1 ? _classPrivateFieldGet(this, _wordIndex) + 1 : 0);
-  console.log('check', _classPrivateFieldGet(this, _wordIndex), _classPrivateFieldGet(this, _words).length);
 }
 function _selectElements2(array, index, n) {
   // An empty array to store the selected elements
@@ -44921,12 +44921,12 @@ function _checkAnswer2() {
   if (match) {
     if (_classPrivateFieldGet(this, _wordIndex) == 0) {
       // alert('Completed');
-      this.fire('completed');
-      App.message('Gina', function () {
-        _classPrivateMethodGet(_this6, _loadRandomWord, _loadRandomWord2).call(_this6);
+      // this.fire('completed');
+      _ReoApp.default.message('Category Complete', this, function (context) {
+        context.loadRandomWord();
       });
     } else {
-      _classPrivateMethodGet(this, _loadRandomWord, _loadRandomWord2).call(this);
+      this.loadRandomWord();
     }
   } else {
     //answer was wrong so send component back to its location
@@ -45079,9 +45079,10 @@ var QuestionView = /*#__PURE__*/function (_View) {
       _classPrivateFieldGet(this, _pakehaRef).current.addEventListener('selected', function () {
         _classPrivateMethodGet(_this2, _selectIngarihi, _selectIngarihi2).call(_this2);
       });
-      _classPrivateFieldGet(this, _wordDropRef).current.addEventListener('completed', function () {
-        //alert('GV');
-      });
+
+      // this.#wordDropRef.current.addEventListener('completed', () => {
+
+      // });
     }
   }, {
     key: "render",
@@ -46241,25 +46242,65 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+var _rootRef = /*#__PURE__*/new WeakMap();
 var _category = /*#__PURE__*/new WeakMap();
+var _args = /*#__PURE__*/new WeakMap();
 var MessageView = /*#__PURE__*/function (_View) {
   _inherits(MessageView, _View);
   function MessageView(props) {
     var _this;
     _classCallCheck(this, MessageView);
-    _this = _callSuper(this, MessageView, [props, ['select']]);
+    _this = _callSuper(this, MessageView, [props, ['close']]);
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _rootRef, {
+      writable: true,
+      value: void 0
+    });
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _category, {
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _args, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldSet(_assertThisInitialized(_this), _rootRef, _react.default.createRef());
     return _this;
   }
   _createClass(MessageView, [{
+    key: "args",
+    set: function set(val) {
+      if (_classPrivateFieldGet(this, _args) != val) {
+        _classPrivateFieldSet(this, _args, val);
+        this.setState({});
+      }
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var _this2 = this;
+      if (_classPrivateFieldGet(this, _rootRef).current) {
+        _classPrivateFieldGet(this, _rootRef).current.addEventListener('click', function () {
+          _this2.fire('close', {
+            result: 'OK',
+            context: _classPrivateFieldGet(_this2, _args).context,
+            callback: _classPrivateFieldGet(_this2, _args).callback,
+            view: _classPrivateFieldGet(_this2, _args).view
+          });
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return _get(_getPrototypeOf(MessageView.prototype), "render", this).call(this, /*#__PURE__*/_react.default.createElement("div", {
+        ref: _classPrivateFieldGet(this, _rootRef),
         style: _MessageView.default.root
-      }, "Hello"));
+      }, _classPrivateFieldGet(this, _args) ? _classPrivateFieldGet(this, _args).message : ''));
     }
   }]);
   return MessageView;
@@ -46510,12 +46551,23 @@ var ReoApp = /*#__PURE__*/function (_App) {
         _classPrivateFieldGet(_this2, _questionViewRef).current.addEventListener('save', function (sender, args) {
           _classPrivateFieldGet(_this2, _myListViewRef).current.add(args.category, args.word);
         });
+
+        //hack ...needs to be moved to App base class
+        _classPrivateFieldGet(_this2, _myMessageViewRef).current.addEventListener('close', function (sender, args) {
+          _classPrivateFieldGet(_this2, _contentViewerRef).current.view = args.view;
+          args.callback(args.context);
+        });
         _classPrivateMethodGet(_this2, _loadCategories, _loadCategories2).call(_this2);
       });
     }
   }, {
     key: "setView",
-    value: function setView(view) {
+    value: function setView(view, args) {
+      //hack
+      if (view == 'message_view') {
+        args.view = _classPrivateFieldGet(this, _contentViewerRef).current.view;
+        _classPrivateFieldGet(this, _myMessageViewRef).current.args = args;
+      }
       _classPrivateFieldGet(this, _contentViewerRef).current.view = view;
       _classPrivateFieldGet(this, _menuRef).current.menuState = view == 'question_view' ? _MenuSelect.MENU_STATE.CLOSED : _MenuSelect.MENU_STATE.OPEN;
       var label = '';
@@ -46550,10 +46602,13 @@ var ReoApp = /*#__PURE__*/function (_App) {
     }
   }], [{
     key: "message",
-    value: function message(_message, callback) {
-      // alert(message);
-      inst.setView('message_view');
-      // callback();
+    value: function message(_message, context, callback) {
+      //alert(message);        
+      inst.setView('message_view', {
+        message: _message,
+        context: context,
+        callback: callback
+      });
     }
   }]);
   return ReoApp;
@@ -46647,7 +46702,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62098" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57264" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
