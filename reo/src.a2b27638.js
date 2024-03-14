@@ -37930,8 +37930,8 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
@@ -38008,6 +38008,11 @@ var EventListener = /*#__PURE__*/function () {
       }
     }
   }, {
+    key: "clearEventListeners",
+    value: function clearEventListeners(name) {
+      _classPrivateFieldGet(this, _listener)[name] = [];
+    }
+  }, {
     key: "fire",
     value: function fire(name, args) {
       if (_classPrivateFieldGet(this, _listener)[name] != undefined) {
@@ -38040,15 +38045,15 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
@@ -38059,11 +38064,10 @@ function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.
 var _eventListener = /*#__PURE__*/new WeakMap();
 var EventComponent = /*#__PURE__*/function (_React$Component) {
   _inherits(EventComponent, _React$Component);
-  var _super = _createSuper(EventComponent);
   function EventComponent(props, events) {
     var _this;
     _classCallCheck(this, EventComponent);
-    _this = _super.call(this, props);
+    _this = _callSuper(this, EventComponent, [props]);
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _eventListener, {
       writable: true,
       value: void 0
@@ -38081,6 +38085,11 @@ var EventComponent = /*#__PURE__*/function (_React$Component) {
     key: "addEventListener",
     value: function addEventListener(name, listener, clear) {
       _classPrivateFieldGet(this, _eventListener).addEventListener(name, listener, clear);
+    }
+  }, {
+    key: "clearEventListeners",
+    value: function clearEventListeners(name) {
+      _classPrivateFieldGet(this, _eventListener).clearEventListeners(name);
     }
   }, {
     key: "fire",
@@ -44287,6 +44296,9 @@ function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(
 function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
 function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
 function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+/**
+ * The words display area where words can be dragged and dropped to answer the quiz
+ */
 var _containerRef = /*#__PURE__*/new WeakMap();
 var _canvasRef = /*#__PURE__*/new WeakMap();
 var _ctx = /*#__PURE__*/new WeakMap();
@@ -44316,8 +44328,9 @@ var _clickCount = /*#__PURE__*/new WeakMap();
 var _isPortrait = /*#__PURE__*/new WeakMap();
 var _wordIndex = /*#__PURE__*/new WeakMap();
 var _categoriesHash = /*#__PURE__*/new WeakMap();
-var _error = /*#__PURE__*/new WeakMap();
-var _correct = /*#__PURE__*/new WeakMap();
+var _errorSound = /*#__PURE__*/new WeakMap();
+var _correctSound = /*#__PURE__*/new WeakMap();
+var _incorrectAnswers = /*#__PURE__*/new WeakMap();
 var _setDropText = /*#__PURE__*/new WeakSet();
 var _animateAnswer = /*#__PURE__*/new WeakSet();
 var _selectElements = /*#__PURE__*/new WeakSet();
@@ -44449,6 +44462,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       writable: true,
       value: void 0
     });
+    /**all of the words from the currently selected categories */
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _words, {
       writable: true,
       value: void 0
@@ -44457,6 +44471,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       writable: true,
       value: void 0
     });
+    /**words that are available to choose an answer from */
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _activeWords, {
       writable: true,
       value: void 0
@@ -44465,6 +44480,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       writable: true,
       value: void 0
     });
+    /**the words that are yet to be quizzed on */
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _remainingWords, {
       writable: true,
       value: void 0
@@ -44489,11 +44505,15 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       writable: true,
       value: void 0
     });
-    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _error, {
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _errorSound, {
       writable: true,
       value: void 0
     });
-    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _correct, {
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _correctSound, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _incorrectAnswers, {
       writable: true,
       value: void 0
     });
@@ -44514,8 +44534,8 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     _classPrivateFieldSet(_assertThisInitialized(_this), _padding, 20);
     _classPrivateFieldSet(_assertThisInitialized(_this), _wordComponents, []);
     _classPrivateFieldSet(_assertThisInitialized(_this), _clickCount, 0);
-    _classPrivateFieldSet(_assertThisInitialized(_this), _correct, new Audio('audio/correct.mp3'));
-    _classPrivateFieldSet(_assertThisInitialized(_this), _error, new Audio('audio/error.mp3'));
+    _classPrivateFieldSet(_assertThisInitialized(_this), _correctSound, new Audio('audio/correct.mp3'));
+    _classPrivateFieldSet(_assertThisInitialized(_this), _errorSound, new Audio('audio/error.mp3'));
     return _this;
   }
   _createClass(WordDropComponent, [{
@@ -44549,6 +44569,8 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     key: "categories",
     set: function set(categories) {
       var _this2 = this;
+      _classPrivateFieldSet(this, _incorrectAnswers, {});
+
       //add hash for categories and words
       _classPrivateFieldSet(this, _categoriesHash, {});
       var words = [];
@@ -44560,6 +44582,8 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
         });
       });
       words = _classPrivateMethodGet(this, _shuffle, _shuffle2).call(this, words);
+      console.clear();
+      console.log('start', words);
       _classPrivateFieldSet(this, _wordIndex, 0);
       _classPrivateFieldSet(this, _words, words);
       _classPrivateFieldSet(this, _remainingWords, _toConsumableArray(words));
@@ -44606,6 +44630,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
         _classPrivateFieldGet(_this4, _wordComponents).push(_classPrivateMethodGet(_this4, _addDraggable, _addDraggable2).call(_this4, w));
       });
       _classPrivateFieldSet(this, _activeWords, _classPrivateMethodGet(this, _selectElements, _selectElements2).call(this, _classPrivateFieldGet(this, _words), _classPrivateFieldGet(this, _wordIndex), _classPrivateFieldGet(this, _wordCount)));
+      console.log('active', _classPrivateFieldGet(this, _activeWords));
       _classPrivateFieldSet(this, _currentWord, _classPrivateFieldGet(this, _activeWords)[0]);
       _classPrivateMethodGet(this, _setDropText, _setDropText2).call(this);
       _classPrivateFieldSet(this, _wordIndex, _classPrivateFieldGet(this, _wordIndex) < _classPrivateFieldGet(this, _words).length - 1 ? _classPrivateFieldGet(this, _wordIndex) + 1 : 0);
@@ -44933,6 +44958,7 @@ function _dragEnd2(e) {
 function _draggedOver2() {}
 function _checkAnswer2() {
   var _this6 = this;
+  var maori_key = _classPrivateFieldGet(this, _currentWord).maori;
   var match = false;
   if (_classPrivateFieldGet(this, _questionMode).a == 'maori') {
     match = _classPrivateFieldGet(this, _wordComponent).word.maori == _classPrivateFieldGet(this, _currentWord).maori;
@@ -44944,22 +44970,32 @@ function _checkAnswer2() {
   }
   if (match) {
     _classPrivateFieldGet(this, _dropRef).current.style.borderColor = 'white';
-    _classPrivateFieldGet(this, _correct).play();
+    _classPrivateFieldGet(this, _correctSound).play();
+
+    //quiz complete
     if (_classPrivateFieldGet(this, _wordIndex) == 0) {
-      // alert('Completed');
-      // this.fire('completed');
-      _ReoApp.default.message('Category Complete', ['Practice Again?'], this, function (context) {
+      //check to see if there any errors
+      console.log('errors', _classPrivateFieldGet(this, _incorrectAnswers));
+      _ReoApp.default.message('Category Complete', ['Practice Again?'], [{
+        label: 'YES',
+        stle: {}
+      }, {
+        label: 'NO'
+      }], this, function (context) {
         context.loadRandomWord();
       });
     } else {
       this.loadRandomWord();
     }
   } else {
+    if (_classPrivateFieldGet(this, _incorrectAnswers)[maori_key] == undefined) {
+      _classPrivateFieldGet(this, _incorrectAnswers)[maori_key] = _classPrivateFieldGet(this, _currentWord);
+    }
+
     //play error audio
-    _classPrivateFieldGet(this, _error).play();
+    _classPrivateFieldGet(this, _errorSound).play();
 
     //save this incorrect answer
-
     _classPrivateFieldGet(this, _dropRef).current.style.borderColor = 'white';
     //answer was wrong so send component back to its location
     _classPrivateMethodGet(this, _resetWordComponent, _resetWordComponent2).call(this);
@@ -44989,7 +45025,6 @@ function _registerPointerEvents2(wordComponent) {
 function _setWordComponent2(wordComponent) {
   _classPrivateFieldSet(this, _wordComponent, wordComponent);
   _classPrivateFieldSet(this, _componentLocation, _classPrivateFieldGet(this, _wordComponent).location);
-  console.log('start', _classPrivateFieldGet(this, _componentLocation), wordComponent);
 }
 function _deregisterPointerEvents2(element) {
   var _this8 = this;
@@ -45476,6 +45511,11 @@ var Button = /*#__PURE__*/function (_EventComponent) {
     return _this;
   }
   _createClass(Button, [{
+    key: "label",
+    get: function get() {
+      return _classPrivateFieldGet(this, _label);
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -46357,7 +46397,7 @@ var style = {
   },
   button: {
     display: 'inline-block',
-    backgroundColor: 'yellow',
+    backgroundColor: '#fbeee0',
     border: '3px solid #422800',
     borderRadius: '30px',
     boxSshadow: '#422800 4px 4px 0 0',
@@ -46412,9 +46452,8 @@ function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!priva
 function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 var _rootRef = /*#__PURE__*/new WeakMap();
 var _category = /*#__PURE__*/new WeakMap();
-var _yesRef = /*#__PURE__*/new WeakMap();
-var _noRef = /*#__PURE__*/new WeakMap();
 var _args = /*#__PURE__*/new WeakMap();
+var _buttons = /*#__PURE__*/new WeakMap();
 var MessageView = /*#__PURE__*/function (_View) {
   _inherits(MessageView, _View);
   function MessageView(props) {
@@ -46429,21 +46468,16 @@ var MessageView = /*#__PURE__*/function (_View) {
       writable: true,
       value: void 0
     });
-    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _yesRef, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _noRef, {
-      writable: true,
-      value: void 0
-    });
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _args, {
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _buttons, {
+      writable: true,
+      value: void 0
+    });
     _classPrivateFieldSet(_assertThisInitialized(_this), _rootRef, _react.default.createRef());
-    _classPrivateFieldSet(_assertThisInitialized(_this), _yesRef, _react.default.createRef());
-    _classPrivateFieldSet(_assertThisInitialized(_this), _noRef, _react.default.createRef());
+    _classPrivateFieldSet(_assertThisInitialized(_this), _buttons, []);
     return _this;
   }
   _createClass(MessageView, [{
@@ -46455,24 +46489,23 @@ var MessageView = /*#__PURE__*/function (_View) {
       }
     }
   }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
       var _this2 = this;
       if (_classPrivateFieldGet(this, _rootRef).current) {
-        _classPrivateFieldGet(this, _yesRef).current.addEventListener('click', function () {
-          _this2.fire('close', {
-            result: 'YES',
-            context: _classPrivateFieldGet(_this2, _args).context,
-            callback: _classPrivateFieldGet(_this2, _args).callback,
-            view: _classPrivateFieldGet(_this2, _args).view
-          });
-        });
-        _classPrivateFieldGet(this, _noRef).current.addEventListener('click', function () {
-          _this2.fire('close', {
-            result: 'NO',
-            context: _classPrivateFieldGet(_this2, _args).context,
-            callback: _classPrivateFieldGet(_this2, _args).callback,
-            view: _classPrivateFieldGet(_this2, _args).view
+        console.log(_classPrivateFieldGet(this, _buttons));
+        _classPrivateFieldGet(this, _buttons).forEach(function (ref) {
+          ref.current.addEventListener('click', function () {
+            if (ref.current) {
+              _this2.fire('close', {
+                result: ref.current.label,
+                context: _classPrivateFieldGet(_this2, _args).context,
+                callback: _classPrivateFieldGet(_this2, _args).callback,
+                view: _classPrivateFieldGet(_this2, _args).view
+              });
+            } else {
+              console.log('doh');
+            }
           });
         });
       }
@@ -46480,25 +46513,36 @@ var MessageView = /*#__PURE__*/function (_View) {
   }, {
     key: "render",
     value: function render() {
+      var _this3 = this;
+      _classPrivateFieldGet(this, _buttons).forEach(function (button) {
+        button.current.clearEventListeners('click');
+      });
+      _classPrivateFieldSet(this, _buttons, []);
       return _get(_getPrototypeOf(MessageView.prototype), "render", this).call(this, /*#__PURE__*/_react.default.createElement("div", {
         ref: _classPrivateFieldGet(this, _rootRef),
         style: _MessageView.default.root
-      }, /*#__PURE__*/_react.default.createElement("div", {
+      }, _classPrivateFieldGet(this, _args) ? /*#__PURE__*/_react.default.createElement("div", {
         style: _MessageView.default.content
       }, /*#__PURE__*/_react.default.createElement("div", {
         style: _MessageView.default.title
-      }, _classPrivateFieldGet(this, _args) ? _classPrivateFieldGet(this, _args).title : ''), /*#__PURE__*/_react.default.createElement("div", {
-        style: _MessageView.default.message
-      }, _classPrivateFieldGet(this, _args) ? _classPrivateFieldGet(this, _args).messages[0] : ''), /*#__PURE__*/_react.default.createElement("div", {
+      }, _classPrivateFieldGet(this, _args).title), _classPrivateFieldGet(this, _args).messages.map(function (message) {
+        return /*#__PURE__*/_react.default.createElement("div", {
+          key: message,
+          style: _MessageView.default.message
+        }, message);
+      }), /*#__PURE__*/_react.default.createElement("div", {
         style: _MessageView.default.buttons
-      }, /*#__PURE__*/_react.default.createElement(_Button.default, {
-        ref: _classPrivateFieldGet(this, _yesRef),
-        style: _MessageView.default.button,
-        label: 'YES'
-      }), /*#__PURE__*/_react.default.createElement(_Button.default, {
-        ref: _classPrivateFieldGet(this, _noRef),
-        label: 'NO'
-      })))));
+      }, _classPrivateFieldGet(this, _args).buttons.map(function (button) {
+        var s = _MessageView.default.button;
+        var ref = _react.default.createRef();
+        _classPrivateFieldGet(_this3, _buttons).push(ref);
+        return /*#__PURE__*/_react.default.createElement(_Button.default, {
+          key: button.label,
+          ref: ref,
+          style: s,
+          label: button.label
+        });
+      }))) : ''));
     }
   }]);
   return MessageView;
@@ -46633,7 +46677,7 @@ var ReoApp = /*#__PURE__*/function (_App) {
     _classPrivateMethodGet(_assertThisInitialized(_this), _initCategories, _initCategories2).call(_assertThisInitialized(_this));
 
     //select default category
-    _Categories.default[1].selected = true;
+    _Categories.default[0].selected = true;
 
     // Create a new FontFace instance with the font name and the font source
 
@@ -46811,11 +46855,12 @@ var ReoApp = /*#__PURE__*/function (_App) {
     }
   }], [{
     key: "message",
-    value: function message(title, messages, context, callback) {
+    value: function message(title, messages, buttons, context, callback) {
       //alert(message);        
       inst.setView('message_view', {
         title: title,
         messages: messages,
+        buttons: buttons,
         context: context,
         callback: callback
       });
