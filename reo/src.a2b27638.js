@@ -44316,6 +44316,8 @@ var _clickCount = /*#__PURE__*/new WeakMap();
 var _isPortrait = /*#__PURE__*/new WeakMap();
 var _wordIndex = /*#__PURE__*/new WeakMap();
 var _categoriesHash = /*#__PURE__*/new WeakMap();
+var _error = /*#__PURE__*/new WeakMap();
+var _correct = /*#__PURE__*/new WeakMap();
 var _setDropText = /*#__PURE__*/new WeakSet();
 var _animateAnswer = /*#__PURE__*/new WeakSet();
 var _selectElements = /*#__PURE__*/new WeakSet();
@@ -44330,6 +44332,7 @@ var _dragStart = /*#__PURE__*/new WeakSet();
 var _drag = /*#__PURE__*/new WeakSet();
 var _setPosition = /*#__PURE__*/new WeakSet();
 var _dragEnd = /*#__PURE__*/new WeakSet();
+var _draggedOver = /*#__PURE__*/new WeakSet();
 var _checkAnswer = /*#__PURE__*/new WeakSet();
 var _resetWordComponent = /*#__PURE__*/new WeakSet();
 var _registerPointerEvents = /*#__PURE__*/new WeakSet();
@@ -44351,6 +44354,10 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
      */
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _resetWordComponent);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _checkAnswer);
+    /**
+     * Returns true if dragged word is over drop zone
+     */
+    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _draggedOver);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _dragEnd);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _setPosition);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _drag);
@@ -44482,6 +44489,14 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _error, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _correct, {
+      writable: true,
+      value: void 0
+    });
     _classPrivateFieldSet(_assertThisInitialized(_this), _containerRef, _react.default.createRef());
     _classPrivateFieldSet(_assertThisInitialized(_this), _canvasRef, _react.default.createRef());
     _classPrivateFieldSet(_assertThisInitialized(_this), _dropRef, _react.default.createRef());
@@ -44499,6 +44514,8 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     _classPrivateFieldSet(_assertThisInitialized(_this), _padding, 20);
     _classPrivateFieldSet(_assertThisInitialized(_this), _wordComponents, []);
     _classPrivateFieldSet(_assertThisInitialized(_this), _clickCount, 0);
+    _classPrivateFieldSet(_assertThisInitialized(_this), _correct, new Audio('audio/correct.mp3'));
+    _classPrivateFieldSet(_assertThisInitialized(_this), _error, new Audio('audio/error.mp3'));
     return _this;
   }
   _createClass(WordDropComponent, [{
@@ -44645,6 +44662,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
   return WordDropComponent;
 }(_EventComponent2.default);
 function _setDropText2() {
+  console.log(_classPrivateFieldGet(this, _currentWord));
   _classPrivateFieldGet(this, _dropRef).current.innerHTML = _classPrivateFieldGet(this, _questionMode).q == 'maori' ? _classPrivateFieldGet(this, _currentWord)[_classPrivateFieldGet(this, _questionMode).q] : _classPrivateFieldGet(this, _currentWord).english[0];
 }
 function _animateAnswer2(wordComponent) {
@@ -44885,6 +44903,11 @@ function _drag2(e) {
     _classPrivateFieldSet(this, _xOffset, _classPrivateFieldGet(this, _currentX));
     _classPrivateFieldSet(this, _yOffset, _classPrivateFieldGet(this, _currentY));
     _classPrivateMethodGet(this, _setPosition, _setPosition2).call(this, _classPrivateFieldGet(this, _currentX), _classPrivateFieldGet(this, _currentY), _classPrivateFieldGet(this, _wordComponent));
+    if (_classPrivateMethodGet(this, _overlap, _overlap2).call(this, _classPrivateFieldGet(this, _wordComponent), _classPrivateFieldGet(this, _dropRef).current)) {
+      _classPrivateFieldGet(this, _dropRef).current.style.borderColor = 'orange';
+    } else {
+      _classPrivateFieldGet(this, _dropRef).current.style.borderColor = 'white';
+    }
 
     // this.#updateConnector();
   }
@@ -44907,6 +44930,7 @@ function _dragEnd2(e) {
     }
   }
 }
+function _draggedOver2() {}
 function _checkAnswer2() {
   var _this6 = this;
   var match = false;
@@ -44919,16 +44943,24 @@ function _checkAnswer2() {
     });
   }
   if (match) {
+    _classPrivateFieldGet(this, _dropRef).current.style.borderColor = 'white';
+    _classPrivateFieldGet(this, _correct).play();
     if (_classPrivateFieldGet(this, _wordIndex) == 0) {
       // alert('Completed');
       // this.fire('completed');
-      _ReoApp.default.message('Category Complete', this, function (context) {
+      _ReoApp.default.message('Category Complete', ['Practice Again?'], this, function (context) {
         context.loadRandomWord();
       });
     } else {
       this.loadRandomWord();
     }
   } else {
+    //play error audio
+    _classPrivateFieldGet(this, _error).play();
+
+    //save this incorrect answer
+
+    _classPrivateFieldGet(this, _dropRef).current.style.borderColor = 'white';
     //answer was wrong so send component back to its location
     _classPrivateMethodGet(this, _resetWordComponent, _resetWordComponent2).call(this);
   }
@@ -45178,13 +45210,29 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var row_height = 70;
 var style = {
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%'
+  },
   root: {
     fontSize: 40,
     backgroundColor: 'white',
     width: '100%',
-    height: 'calc(100% - 10px)',
+    // height: 'calc(100% - 10px)',
+    flex: 1,
+    //'calc(100% - 110px)',
     userSelect: 'none',
     overflowY: 'auto'
+  },
+  foot: {
+    paddingTop: 10,
+    height: 80,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingRight: 20
+    // backgroundColor: 'pink'  
   },
   scroll: {
     width: '100%'
@@ -45213,25 +45261,25 @@ var style = {
     flexDirection: 'row',
     padding: 10,
     borderBottom: 'solid 1px lightgrey',
-    backgroundColor: 'yellow'
+    backgroundColor: '#008080',
+    color: 'white'
   },
   label: {
     flex: 1
     // backgroundColor: 'pink'
   },
-
   check_container: {
     width: 70
   },
   check: {
     width: 40,
-    height: 40
+    height: 40,
+    color: 'red'
   },
   edit: {
     width: 50
     // backgroundColor: 'pink'
   },
-
   edit_image: {
     width: 40,
     height: 40
@@ -45253,15 +45301,15 @@ function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
@@ -45273,11 +45321,10 @@ var _checked = /*#__PURE__*/new WeakMap();
 var _inputRef = /*#__PURE__*/new WeakMap();
 var CategoryViewItem = /*#__PURE__*/function (_EventComponent) {
   _inherits(CategoryViewItem, _EventComponent);
-  var _super = _createSuper(CategoryViewItem);
   function CategoryViewItem(props) {
     var _this;
     _classCallCheck(this, CategoryViewItem);
-    _this = _super.call(this, props);
+    _this = _callSuper(this, CategoryViewItem, [props]);
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _checked, {
       writable: true,
       value: void 0
@@ -45323,7 +45370,10 @@ var CategoryViewItem = /*#__PURE__*/function (_EventComponent) {
           _this2.props.select(_this2.props.category, evt.target.checked, _this2.props.index);
         }
       })), /*#__PURE__*/_react.default.createElement("div", {
-        style: _CategoryViewItem.default.label
+        style: _CategoryViewItem.default.label,
+        onClick: function onClick() {
+          _this2.props.edit(_this2.props.category);
+        }
       }, this.props.category.name), /*#__PURE__*/_react.default.createElement("div", {
         style: _CategoryViewItem.default.edit,
         onClick: function onClick() {
@@ -45339,7 +45389,113 @@ var CategoryViewItem = /*#__PURE__*/function (_EventComponent) {
 }(_EventComponent2.default);
 var EDIT_IMAGE = 'img/edit.svg';
 var _default = exports.default = CategoryViewItem;
-},{"react":"node_modules/react/index.js","../../components/EventComponent":"src/components/EventComponent.js","./CategoryViewItem.style":"src/view/categories_view/CategoryViewItem.style.js"}],"src/view/categories_view/CategoriesView.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../../components/EventComponent":"src/components/EventComponent.js","./CategoryViewItem.style":"src/view/categories_view/CategoryViewItem.style.js"}],"src/components/button/Button.style.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var style = {
+  root: {
+    display: 'inline-block',
+    backgroundColor: ' #fbeee0',
+    border: '3px solid #422800',
+    borderRadius: '30px',
+    boxSshadow: '#422800 4px 4px 0 0',
+    color: '#422800',
+    cursor: 'pointer',
+    fontWeight: 600,
+    fontSize: '18px',
+    padding: '0 18px',
+    lineHeight: '50px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    userSelect: 'none',
+    WebkitUserSelect: 'none',
+    touchAction: 'manipulation'
+  }
+};
+var _default = exports.default = style;
+},{}],"src/components/button/Button.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+var _EventComponent2 = _interopRequireDefault(require("../EventComponent"));
+var _Button = _interopRequireDefault(require("./Button.style"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
+function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
+function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
+function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
+;
+var _rootRef = /*#__PURE__*/new WeakMap();
+var _label = /*#__PURE__*/new WeakMap();
+var _style = /*#__PURE__*/new WeakMap();
+var Button = /*#__PURE__*/function (_EventComponent) {
+  _inherits(Button, _EventComponent);
+  function Button(props) {
+    var _this;
+    _classCallCheck(this, Button);
+    _this = _callSuper(this, Button, [props, ['click']]);
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _rootRef, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _label, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _style, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldSet(_assertThisInitialized(_this), _style, _this.props.style ? _this.props.style : _Button.default.root);
+    _classPrivateFieldSet(_assertThisInitialized(_this), _rootRef, _react.default.createRef());
+    _classPrivateFieldSet(_assertThisInitialized(_this), _label, _this.props.label || '');
+    return _this;
+  }
+  _createClass(Button, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+      _classPrivateFieldGet(this, _rootRef).current.addEventListener('click', function () {
+        _this2.fire('click', {});
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        ref: _classPrivateFieldGet(this, _rootRef),
+        style: _classPrivateFieldGet(this, _style)
+      }, _classPrivateFieldGet(this, _label));
+    }
+  }]);
+  return Button;
+}(_EventComponent2.default);
+var _default = exports.default = Button;
+},{"react":"node_modules/react/index.js","../EventComponent":"src/components/EventComponent.js","./Button.style":"src/components/button/Button.style.js"}],"src/view/categories_view/CategoriesView.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45350,22 +45506,23 @@ var _react = _interopRequireDefault(require("react"));
 var _View2 = _interopRequireDefault(require("../../components/view/View"));
 var _CategoriesView = _interopRequireDefault(require("./CategoriesView.style"));
 var _CategoryViewItem = _interopRequireDefault(require("./CategoryViewItem"));
+var _Button = _interopRequireDefault(require("../../components/button/Button"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
@@ -45374,17 +45531,22 @@ function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _
 function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
 function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 var _categories = /*#__PURE__*/new WeakMap();
+var _startRef = /*#__PURE__*/new WeakMap();
 var CategoriesView = /*#__PURE__*/function (_View) {
   _inherits(CategoriesView, _View);
-  var _super = _createSuper(CategoriesView);
   function CategoriesView(props) {
     var _this;
     _classCallCheck(this, CategoriesView);
-    _this = _super.call(this, props, ['select', 'edit']);
+    _this = _callSuper(this, CategoriesView, [props, ['select', 'edit', 'start']]);
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _categories, {
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _startRef, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldSet(_assertThisInitialized(_this), _startRef, _react.default.createRef());
     return _this;
   }
   _createClass(CategoriesView, [{
@@ -45395,23 +45557,30 @@ var CategoriesView = /*#__PURE__*/function (_View) {
     }
   }, {
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      var _this2 = this;
+      _classPrivateFieldGet(this, _startRef).current.addEventListener('click', function () {
+        _this2.fire('start', {});
+      });
+    }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
       var select = function select(category, checked, index) {
         category.selected = checked;
-        _this2.fire('select', {
+        _this3.fire('select', {
           category: category
         });
       };
       var edit = function edit(category) {
-        _this2.fire('edit', {
+        _this3.fire('edit', {
           category: category
         });
       };
       return _get(_getPrototypeOf(CategoriesView.prototype), "render", this).call(this, /*#__PURE__*/_react.default.createElement("div", {
+        style: _CategoriesView.default.base
+      }, /*#__PURE__*/_react.default.createElement("div", {
         style: _CategoriesView.default.root
       }, _classPrivateFieldGet(this, _categories) ? /*#__PURE__*/_react.default.createElement("div", {
         style: _CategoriesView.default.scroll
@@ -45425,13 +45594,18 @@ var CategoriesView = /*#__PURE__*/function (_View) {
           edit: edit,
           style: _CategoriesView.default.item
         });
-      })) : ''));
+      })) : ''), /*#__PURE__*/_react.default.createElement("div", {
+        style: _CategoriesView.default.foot
+      }, /*#__PURE__*/_react.default.createElement(_Button.default, {
+        ref: _classPrivateFieldGet(this, _startRef),
+        label: 'START'
+      }))));
     }
   }]);
   return CategoriesView;
 }(_View2.default);
 var _default = exports.default = CategoriesView;
-},{"react":"node_modules/react/index.js","../../components/view/View":"src/components/view/View.js","./CategoriesView.style":"src/view/categories_view/CategoriesView.style.js","./CategoryViewItem":"src/view/categories_view/CategoryViewItem.js"}],"src/view/category_view/CategoryView.style.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../../components/view/View":"src/components/view/View.js","./CategoriesView.style":"src/view/categories_view/CategoriesView.style.js","./CategoryViewItem":"src/view/categories_view/CategoryViewItem.js","../../components/button/Button":"src/components/button/Button.js"}],"src/view/category_view/CategoryView.style.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45440,13 +45614,29 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var row_height = 70;
 var style = {
+  base: {
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%'
+  },
   root: {
     fontSize: 40,
     backgroundColor: 'white',
     width: '100%',
-    height: 'calc(100% - 10px)',
+    // height: 'calc(100% - 10px)',
+    flex: 1,
+    //'calc(100% - 110px)',
     userSelect: 'none',
     overflowY: 'auto'
+  },
+  foot: {
+    paddingTop: 10,
+    height: 80,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingRight: 20
+    // backgroundColor: 'pink'  
   },
   scroll: {
     width: '100%'
@@ -45660,45 +45850,51 @@ var _react = _interopRequireDefault(require("react"));
 var _View2 = _interopRequireDefault(require("../../components/view/View"));
 var _CategoryView = _interopRequireDefault(require("./CategoryView.style"));
 var _WordItem = _interopRequireDefault(require("./WordItem"));
+var _Button = _interopRequireDefault(require("../../components/button/Button"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _callSuper(t, o, e) { return o = _getPrototypeOf(o), _possibleConstructorReturn(t, _isNativeReflectConstruct() ? Reflect.construct(o, e || [], _getPrototypeOf(t).constructor) : o.apply(t, e)); }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _get() { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get.bind(); } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(arguments.length < 3 ? target : receiver); } return desc.value; }; } return _get.apply(this, arguments); }
 function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 function _classPrivateMethodInitSpec(obj, privateSet) { _checkPrivateRedeclaration(obj, privateSet); privateSet.add(obj); }
 function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
 function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
 function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
 function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
+function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
+function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
+function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 var _category = /*#__PURE__*/new WeakMap();
+var _backRef = /*#__PURE__*/new WeakMap();
 var _render = /*#__PURE__*/new WeakSet();
 var CategoryView = /*#__PURE__*/function (_View) {
   _inherits(CategoryView, _View);
-  var _super = _createSuper(CategoryView);
   function CategoryView(props) {
     var _this;
     _classCallCheck(this, CategoryView);
-    _this = _super.call(this, props, ['select']);
+    _this = _callSuper(this, CategoryView, [props, ['select', 'back']]);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _render);
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _category, {
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _backRef, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldSet(_assertThisInitialized(_this), _backRef, _react.default.createRef());
     return _this;
   }
   _createClass(CategoryView, [{
@@ -45711,7 +45907,12 @@ var CategoryView = /*#__PURE__*/function (_View) {
     }
   }, {
     key: "componentDidMount",
-    value: function componentDidMount() {}
+    value: function componentDidMount() {
+      var _this2 = this;
+      _classPrivateFieldGet(this, _backRef).current.addEventListener('click', function () {
+        _this2.fire('back', {});
+      });
+    }
   }, {
     key: "listChanged",
     value: function listChanged() {
@@ -45721,17 +45922,24 @@ var CategoryView = /*#__PURE__*/function (_View) {
     key: "render",
     value: function render() {
       return _get(_getPrototypeOf(CategoryView.prototype), "render", this).call(this, /*#__PURE__*/_react.default.createElement("div", {
+        style: _CategoryView.default.base
+      }, /*#__PURE__*/_react.default.createElement("div", {
         style: _CategoryView.default.root
-      }, _classPrivateFieldGet(this, _category) ? _classPrivateMethodGet(this, _render, _render2).call(this) : ''));
+      }, _classPrivateFieldGet(this, _category) ? _classPrivateMethodGet(this, _render, _render2).call(this) : ''), /*#__PURE__*/_react.default.createElement("div", {
+        style: _CategoryView.default.foot
+      }, /*#__PURE__*/_react.default.createElement(_Button.default, {
+        ref: _classPrivateFieldGet(this, _backRef),
+        label: 'BACK'
+      }))));
     }
   }]);
   return CategoryView;
 }(_View2.default);
 function _render2() {
-  var _this2 = this;
+  var _this3 = this;
   var select = function select(word, category, selected) {
     word.selected = selected;
-    _this2.fire('select', {
+    _this3.fire('select', {
       word: word,
       category: category,
       selected: selected
@@ -45741,15 +45949,15 @@ function _render2() {
     style: _CategoryView.default.scroll
   }, _classPrivateFieldGet(this, _category).words.map(function (word, index) {
     return /*#__PURE__*/_react.default.createElement(_WordItem.default, {
-      key: _classPrivateFieldGet(_this2, _category).name.toLowerCase().replaceAll(' ', '_') + '.' + word.maori,
-      category: _classPrivateFieldGet(_this2, _category),
+      key: _classPrivateFieldGet(_this3, _category).name.toLowerCase().replaceAll(' ', '_') + '.' + word.maori,
+      category: _classPrivateFieldGet(_this3, _category),
       word: word,
       select: select
     });
   }));
 }
 var _default = exports.default = CategoryView;
-},{"react":"node_modules/react/index.js","../../components/view/View":"src/components/view/View.js","./CategoryView.style":"src/view/category_view/CategoryView.style.js","./WordItem":"src/view/category_view/WordItem.js"}],"src/view/my_list_view/MyListView.style.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../../components/view/View":"src/components/view/View.js","./CategoryView.style":"src/view/category_view/CategoryView.style.js","./WordItem":"src/view/category_view/WordItem.js","../../components/button/Button":"src/components/button/Button.js"}],"src/view/my_list_view/MyListView.style.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -45774,9 +45982,12 @@ var style = {
   },
   foot: {
     paddingTop: 10,
-    height: 70,
+    height: 80,
     display: 'flex',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingRight: 20
+    // backgroundColor: 'pink'  
   },
   scroll: {
     width: '100%'
@@ -45974,99 +46185,7 @@ function _select2() {
   this.props.select(this.props.word, _classPrivateFieldGet(this, _inputRef).current.checked);
 }
 var _default = exports.default = WordItem;
-},{"react":"node_modules/react/index.js","../../components/EventComponent":"src/components/EventComponent.js","./WordItem.style":"src/view/my_list_view/WordItem.style.js","../../system/Utils":"src/system/Utils.js"}],"src/components/button/Button.style.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var style = {
-  root: {
-    display: 'inline-block',
-    border: 'solid 4px #000000',
-    borderRadius: 5,
-    minWidth: 60,
-    padding: '0px 10px 0px 10px',
-    backgroundColor: 'white',
-    margin: 5
-  }
-};
-var _default = exports.default = style;
-},{}],"src/components/button/Button.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-var _react = _interopRequireDefault(require("react"));
-var _EventComponent2 = _interopRequireDefault(require("../EventComponent"));
-var _Button = _interopRequireDefault(require("./Button.style"));
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }
-function _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError("Cannot initialize the same private elements twice on an object"); } }
-function _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get"); return _classApplyDescriptorGet(receiver, descriptor); }
-function _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }
-function _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }
-function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError("attempted to " + action + " private field on non-instance"); } return privateMap.get(receiver); }
-function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
-;
-var _rootRef = /*#__PURE__*/new WeakMap();
-var _label = /*#__PURE__*/new WeakMap();
-var Button = /*#__PURE__*/function (_EventComponent) {
-  _inherits(Button, _EventComponent);
-  var _super = _createSuper(Button);
-  function Button(props) {
-    var _this;
-    _classCallCheck(this, Button);
-    _this = _super.call(this, props, ['click']);
-    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _rootRef, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _label, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldSet(_assertThisInitialized(_this), _rootRef, _react.default.createRef());
-    _classPrivateFieldSet(_assertThisInitialized(_this), _label, _this.props.label || '');
-    return _this;
-  }
-  _createClass(Button, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-      _classPrivateFieldGet(this, _rootRef).current.addEventListener('click', function () {
-        _this2.fire('click', {});
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return /*#__PURE__*/_react.default.createElement("div", {
-        ref: _classPrivateFieldGet(this, _rootRef),
-        style: _Button.default.root
-      }, _classPrivateFieldGet(this, _label));
-    }
-  }]);
-  return Button;
-}(_EventComponent2.default);
-var _default = exports.default = Button;
-},{"react":"node_modules/react/index.js","../EventComponent":"src/components/EventComponent.js","./Button.style":"src/components/button/Button.style.js"}],"src/view/my_list_view/MyListView.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../../components/EventComponent":"src/components/EventComponent.js","./WordItem.style":"src/view/my_list_view/WordItem.style.js","../../system/Utils":"src/system/Utils.js"}],"src/view/my_list_view/MyListView.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46206,11 +46325,54 @@ exports.default = void 0;
 var style = {
   root: {
     fontSize: 40,
-    backgroundColor: 'yellow',
+    backgroundColor: 'white',
     width: '100%',
     height: 'calc(100% - 10px)',
     userSelect: 'none',
+    overflowY: 'auto',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  content: {
+    fontSize: 40,
+    backgroundColor: '',
+    width: '400px',
+    borderRadius: 20,
+    padding: 20,
+    userSelect: 'none',
     overflowY: 'auto'
+  },
+  title: {
+    textAlign: 'center',
+    color: '#008080',
+    paddingBottom: 20
+  },
+  message: {
+    textAlign: 'center'
+  },
+  buttons: {
+    marginTop: 20,
+    textAlign: 'center'
+  },
+  button: {
+    display: 'inline-block',
+    backgroundColor: 'yellow',
+    border: '3px solid #422800',
+    borderRadius: '30px',
+    boxSshadow: '#422800 4px 4px 0 0',
+    color: '#422800',
+    cursor: 'pointer',
+    fontWeight: 600,
+    fontSize: '18px',
+    padding: '0 18px',
+    marginRight: '20px',
+    lineHeight: '50px',
+    textAlign: 'center',
+    textDecoration: 'none',
+    userSelect: 'none',
+    WebkitUserSelect: 'none',
+    touchAction: 'manipulation'
   }
 };
 var _default = exports.default = style;
@@ -46224,6 +46386,7 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 var _View2 = _interopRequireDefault(require("../view/View"));
 var _MessageView = _interopRequireDefault(require("./MessageView.style"));
+var _Button = _interopRequireDefault(require("../button/Button"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46249,6 +46412,8 @@ function _classExtractFieldDescriptor(receiver, privateMap, action) { if (!priva
 function _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError("attempted to set read only private field"); } descriptor.value = value; } }
 var _rootRef = /*#__PURE__*/new WeakMap();
 var _category = /*#__PURE__*/new WeakMap();
+var _yesRef = /*#__PURE__*/new WeakMap();
+var _noRef = /*#__PURE__*/new WeakMap();
 var _args = /*#__PURE__*/new WeakMap();
 var MessageView = /*#__PURE__*/function (_View) {
   _inherits(MessageView, _View);
@@ -46264,11 +46429,21 @@ var MessageView = /*#__PURE__*/function (_View) {
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _yesRef, {
+      writable: true,
+      value: void 0
+    });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _noRef, {
+      writable: true,
+      value: void 0
+    });
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _args, {
       writable: true,
       value: void 0
     });
     _classPrivateFieldSet(_assertThisInitialized(_this), _rootRef, _react.default.createRef());
+    _classPrivateFieldSet(_assertThisInitialized(_this), _yesRef, _react.default.createRef());
+    _classPrivateFieldSet(_assertThisInitialized(_this), _noRef, _react.default.createRef());
     return _this;
   }
   _createClass(MessageView, [{
@@ -46280,13 +46455,21 @@ var MessageView = /*#__PURE__*/function (_View) {
       }
     }
   }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
+    key: "componentDidMount",
+    value: function componentDidMount() {
       var _this2 = this;
       if (_classPrivateFieldGet(this, _rootRef).current) {
-        _classPrivateFieldGet(this, _rootRef).current.addEventListener('click', function () {
+        _classPrivateFieldGet(this, _yesRef).current.addEventListener('click', function () {
           _this2.fire('close', {
-            result: 'OK',
+            result: 'YES',
+            context: _classPrivateFieldGet(_this2, _args).context,
+            callback: _classPrivateFieldGet(_this2, _args).callback,
+            view: _classPrivateFieldGet(_this2, _args).view
+          });
+        });
+        _classPrivateFieldGet(this, _noRef).current.addEventListener('click', function () {
+          _this2.fire('close', {
+            result: 'NO',
             context: _classPrivateFieldGet(_this2, _args).context,
             callback: _classPrivateFieldGet(_this2, _args).callback,
             view: _classPrivateFieldGet(_this2, _args).view
@@ -46300,13 +46483,28 @@ var MessageView = /*#__PURE__*/function (_View) {
       return _get(_getPrototypeOf(MessageView.prototype), "render", this).call(this, /*#__PURE__*/_react.default.createElement("div", {
         ref: _classPrivateFieldGet(this, _rootRef),
         style: _MessageView.default.root
-      }, _classPrivateFieldGet(this, _args) ? _classPrivateFieldGet(this, _args).message : ''));
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        style: _MessageView.default.content
+      }, /*#__PURE__*/_react.default.createElement("div", {
+        style: _MessageView.default.title
+      }, _classPrivateFieldGet(this, _args) ? _classPrivateFieldGet(this, _args).title : ''), /*#__PURE__*/_react.default.createElement("div", {
+        style: _MessageView.default.message
+      }, _classPrivateFieldGet(this, _args) ? _classPrivateFieldGet(this, _args).messages[0] : ''), /*#__PURE__*/_react.default.createElement("div", {
+        style: _MessageView.default.buttons
+      }, /*#__PURE__*/_react.default.createElement(_Button.default, {
+        ref: _classPrivateFieldGet(this, _yesRef),
+        style: _MessageView.default.button,
+        label: 'YES'
+      }), /*#__PURE__*/_react.default.createElement(_Button.default, {
+        ref: _classPrivateFieldGet(this, _noRef),
+        label: 'NO'
+      })))));
     }
   }]);
   return MessageView;
 }(_View2.default);
 var _default = exports.default = MessageView;
-},{"react":"node_modules/react/index.js","../view/View":"src/components/view/View.js","./MessageView.style":"src/components/message/MessageView.style.js"}],"src/view/ReoApp.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../view/View":"src/components/view/View.js","./MessageView.style":"src/components/message/MessageView.style.js","../button/Button":"src/components/button/Button.js"}],"src/view/ReoApp.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -46433,10 +46631,9 @@ var ReoApp = /*#__PURE__*/function (_App) {
 
     //init the categories and words
     _classPrivateMethodGet(_assertThisInitialized(_this), _initCategories, _initCategories2).call(_assertThisInitialized(_this));
-    _Categories.default[1].selected = true;
-    +console.log(_Categories.default);
 
-    // console.log('ff', FontFace);
+    //select default category
+    _Categories.default[1].selected = true;
 
     // Create a new FontFace instance with the font name and the font source
 
@@ -46522,6 +46719,9 @@ var ReoApp = /*#__PURE__*/function (_App) {
         _classPrivateFieldGet(_this2, _categoriesViewRef).current.addEventListener('select', function (sender, args) {
           _classPrivateMethodGet(_this2, _loadCategories, _loadCategories2).call(_this2);
         });
+        _classPrivateFieldGet(_this2, _categoriesViewRef).current.addEventListener('start', function (sender, args) {
+          _this2.setView('question_view');
+        });
         _classPrivateFieldGet(_this2, _categoriesViewRef).current.addEventListener('edit', function (sender, args) {
           if (args.category == _classPrivateFieldGet(_this2, _myList)) {
             _classPrivateMethodGet(_this2, _editMyList, _editMyList2).call(_this2);
@@ -46540,6 +46740,9 @@ var ReoApp = /*#__PURE__*/function (_App) {
             _classPrivateFieldGet(_this2, _myListViewRef).current.remove(args.word);
           }
         });
+        _classPrivateFieldGet(_this2, _categoryViewRef).current.addEventListener('back', function (sender, args) {
+          _classPrivateFieldGet(_this2, _contentViewerRef).current.view = 'categories_view';
+        });
         _classPrivateFieldGet(_this2, _myListViewRef).current.addEventListener('select', function (sender, args) {
           _Controller.C.removeFromMyList(args.category, args.word);
           _classPrivateFieldGet(_this2, _categoryViewRef).current.listChanged();
@@ -46554,7 +46757,13 @@ var ReoApp = /*#__PURE__*/function (_App) {
 
         //hack ...needs to be moved to App base class
         _classPrivateFieldGet(_this2, _myMessageViewRef).current.addEventListener('close', function (sender, args) {
-          _classPrivateFieldGet(_this2, _contentViewerRef).current.view = args.view;
+          if (args.result == 'YES') {
+            _classPrivateFieldGet(_this2, _contentViewerRef).current.view = args.view;
+            //change the menu button
+            _classPrivateFieldGet(_this2, _menuRef).current.menuState = _MenuSelect.MENU_STATE.CLOSED;
+          } else {
+            _classPrivateFieldGet(_this2, _contentViewerRef).current.view = 'categories_view';
+          }
           args.callback(args.context);
         });
         _classPrivateMethodGet(_this2, _loadCategories, _loadCategories2).call(_this2);
@@ -46602,10 +46811,11 @@ var ReoApp = /*#__PURE__*/function (_App) {
     }
   }], [{
     key: "message",
-    value: function message(_message, context, callback) {
+    value: function message(title, messages, context, callback) {
       //alert(message);        
       inst.setView('message_view', {
-        message: _message,
+        title: title,
+        messages: messages,
         context: context,
         callback: callback
       });
@@ -46651,7 +46861,6 @@ function _initCategories2() {
     });
   });
   _Categories.default.unshift(_classPrivateFieldGet(this, _myList));
-  console.log('my list', _classPrivateFieldGet(this, _myList));
 }
 function _editCategory2(category) {
   _classPrivateFieldGet(this, _categoryViewRef).current.category = category;
@@ -46702,7 +46911,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57264" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54146" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
