@@ -35731,7 +35731,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var Categories = [{
-  "name": "*Kupu Mahi",
+  "name": "*Kupu Mahi 1",
   "words": [{
     "maori": "haere",
     "english": ["go"],
@@ -35769,8 +35769,8 @@ var Categories = [{
     "passive": ""
   }, {
     "maori": "moe",
-    "english": [""],
-    "url": "sleep",
+    "english": ["sleep"],
+    "url": "",
     "passive": ""
   }, {
     "maori": "tū",
@@ -35792,7 +35792,10 @@ var Categories = [{
     "english": ["chase"],
     "url": "",
     "passive": ""
-  }, {
+  }]
+}, {
+  "name": "*Kupu Mahi 2",
+  "words": [{
     "maori": "whātoro",
     "english": ["stretch"],
     "url": "",
@@ -35852,7 +35855,10 @@ var Categories = [{
     "english": ["hang up"],
     "url": "",
     "passive": ""
-  }, {
+  }]
+}, {
+  "name": "*Kupu Mahi 3",
+  "words": [{
     "maori": "tangi",
     "english": ["cry"],
     "url": "",
@@ -35912,7 +35918,10 @@ var Categories = [{
     "english": ["see"],
     "url": "",
     "passive": ""
-  }, {
+  }]
+}, {
+  "name": "*Kupu Mahi 4",
+  "words": [{
     "maori": "hītako",
     "english": ["yawn"],
     "url": "",
@@ -35977,7 +35986,10 @@ var Categories = [{
     "english": ["sigh"],
     "url": "",
     "passive": ""
-  }, {
+  }]
+}, {
+  "name": "*Kupu Mahi 5",
+  "words": [{
     "maori": "tūngou",
     "english": ["nod"],
     "url": "",
@@ -47268,7 +47280,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56760" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49876" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
