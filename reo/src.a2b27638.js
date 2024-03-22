@@ -46985,7 +46985,11 @@ var ReoApp = /*#__PURE__*/function (_App) {
     _classPrivateMethodGet(_assertThisInitialized(_this), _initCategories, _initCategories2).call(_assertThisInitialized(_this));
 
     //select default category
-    _Categories.default[0].selected = true;
+    if (_Categories.default[0].words.length) {
+      _Categories.default[0].selected = true;
+    } else {
+      _Categories.default[1].selected = true;
+    }
 
     // Create a new FontFace instance with the font name and the font source
 
@@ -47264,7 +47268,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49877" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56760" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
