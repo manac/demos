@@ -35731,6 +35731,24 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var Categories = [{
+  "name": "Dev",
+  "words": [{
+    "maori": "haere",
+    "english": ["go"],
+    "url": "",
+    "passive": ""
+  }, {
+    "maori": "peke",
+    "english": ["jump"],
+    "url": "",
+    "passive": ""
+  }, {
+    "maori": "oma",
+    "english": ["run"],
+    "url": "",
+    "passive": ""
+  }]
+}, {
   "name": "*Kupu Mahi 1",
   "words": [{
     "maori": "haere",
@@ -44642,6 +44660,7 @@ var _words = /*#__PURE__*/new WeakMap();
 var _currentWord = /*#__PURE__*/new WeakMap();
 var _activeWords = /*#__PURE__*/new WeakMap();
 var _wordCount = /*#__PURE__*/new WeakMap();
+var _quizWordCount = /*#__PURE__*/new WeakMap();
 var _remainingWords = /*#__PURE__*/new WeakMap();
 var _componentLocation = /*#__PURE__*/new WeakMap();
 var _clickCount = /*#__PURE__*/new WeakMap();
@@ -44800,6 +44819,10 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _quizWordCount, {
+      writable: true,
+      value: void 0
+    });
     /**the words that are yet to be quizzed on */
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _remainingWords, {
       writable: true,
@@ -44889,6 +44912,18 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     key: "categories",
     set: function set(categories) {
       var _this2 = this;
+      console.clear();
+      console.log('missing word start check');
+      categories.forEach(function (cat) {
+        cat.words.forEach(function (word) {
+          word.english.forEach(function (e) {
+            if (e == "") {
+              console.log(word.maori);
+            }
+          });
+        });
+      });
+      console.log('missing word start finish');
       _classPrivateFieldSet(this, _incorrectAnswers, {});
 
       //add hash for categories and words
@@ -44902,8 +44937,11 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
         });
       });
       words = _classPrivateMethodGet(this, _shuffle, _shuffle2).call(this, words);
-      console.clear();
-      console.log('start', words);
+      _classPrivateFieldSet(this, _quizWordCount, words.length);
+
+      // console.clear();
+      //    console.log('start', words);
+
       _classPrivateFieldSet(this, _wordIndex, 0);
       _classPrivateFieldSet(this, _words, words);
       _classPrivateFieldSet(this, _remainingWords, _toConsumableArray(words));
@@ -45295,8 +45333,12 @@ function _checkAnswer2() {
     //quiz complete
     if (_classPrivateFieldGet(this, _wordIndex) == 0) {
       //check to see if there any errors
-      console.log('errors', _classPrivateFieldGet(this, _incorrectAnswers));
-      _ReoApp.default.message('Category Complete', ['Practice Again?'], [{
+      var errorCount = Object.keys(_classPrivateFieldGet(this, _incorrectAnswers)).length;
+      console.log('errors', Object.keys(_classPrivateFieldGet(this, _incorrectAnswers)).length, _classPrivateFieldGet(this, _activeWords), _classPrivateFieldGet(this, _quizWordCount), errorCount, _classPrivateFieldGet(this, _incorrectAnswers));
+      var message = errorCount ? [_classPrivateFieldGet(this, _quizWordCount) - errorCount + '/' + _classPrivateFieldGet(this, _quizWordCount) + ' correct', 'Practice Again?'] : ['Tika', 'Practice Again?'];
+      //reset errors
+      _classPrivateFieldSet(this, _incorrectAnswers, {});
+      _ReoApp.default.message('Category Complete', message, [{
         label: 'YES',
         stle: {}
       }, {
@@ -47280,7 +47322,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49876" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52342" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
