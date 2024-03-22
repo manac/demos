@@ -35733,11 +35733,6 @@ exports.default = void 0;
 var Categories = [{
   "name": "Dev",
   "words": [{
-    "maori": "haere",
-    "english": ["go"],
-    "url": "",
-    "passive": ""
-  }, {
     "maori": "peke",
     "english": ["jump"],
     "url": "",
@@ -35745,6 +35740,16 @@ var Categories = [{
   }, {
     "maori": "oma",
     "english": ["run"],
+    "url": "",
+    "passive": ""
+  }, {
+    "maori": "hikoi",
+    "english": ["walk"],
+    "url": "",
+    "passive": ""
+  }, {
+    "maori": "moe",
+    "english": ["sleep"],
     "url": "",
     "passive": ""
   }]
@@ -44605,6 +44610,7 @@ var _WordComponent = _interopRequireDefault(require("./WordComponent"));
 var _Utils = require("../../system/Utils");
 var _EventComponent2 = _interopRequireDefault(require("../EventComponent"));
 var _ReoApp = _interopRequireDefault(require("../../view/ReoApp"));
+var _Categories = _interopRequireDefault(require("../../data/Categories"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -44661,6 +44667,7 @@ var _currentWord = /*#__PURE__*/new WeakMap();
 var _activeWords = /*#__PURE__*/new WeakMap();
 var _wordCount = /*#__PURE__*/new WeakMap();
 var _quizWordCount = /*#__PURE__*/new WeakMap();
+var _allWords = /*#__PURE__*/new WeakMap();
 var _remainingWords = /*#__PURE__*/new WeakMap();
 var _componentLocation = /*#__PURE__*/new WeakMap();
 var _clickCount = /*#__PURE__*/new WeakMap();
@@ -44673,6 +44680,7 @@ var _incorrectAnswers = /*#__PURE__*/new WeakMap();
 var _setDropText = /*#__PURE__*/new WeakSet();
 var _animateAnswer = /*#__PURE__*/new WeakSet();
 var _selectElements = /*#__PURE__*/new WeakSet();
+var _selectElements3 = /*#__PURE__*/new WeakSet();
 var _layoutComponents = /*#__PURE__*/new WeakSet();
 var _layoutLandscape = /*#__PURE__*/new WeakSet();
 var _layoutPortrait = /*#__PURE__*/new WeakSet();
@@ -44721,6 +44729,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _layoutPortrait);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _layoutLandscape);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _layoutComponents);
+    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _selectElements3);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _selectElements);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _animateAnswer);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _setDropText);
@@ -44823,6 +44832,10 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _allWords, {
+      writable: true,
+      value: void 0
+    });
     /**the words that are yet to be quizzed on */
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _remainingWords, {
       writable: true,
@@ -44879,6 +44892,14 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     _classPrivateFieldSet(_assertThisInitialized(_this), _clickCount, 0);
     _classPrivateFieldSet(_assertThisInitialized(_this), _correctSound, new Audio('audio/correct.mp3'));
     _classPrivateFieldSet(_assertThisInitialized(_this), _errorSound, new Audio('audio/error.mp3'));
+
+    //hack
+    _classPrivateFieldSet(_assertThisInitialized(_this), _allWords, []);
+    _Categories.default.forEach(function (cat) {
+      cat.words.forEach(function (word) {
+        _classPrivateFieldGet(_assertThisInitialized(_this), _allWords).push(word);
+      });
+    });
     return _this;
   }
   _createClass(WordDropComponent, [{
@@ -44923,7 +44944,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
           });
         });
       });
-      console.log('missing word start finish');
+      console.log('missing word start finish', _classPrivateFieldGet(this, _allWords).length);
       _classPrivateFieldSet(this, _incorrectAnswers, {});
 
       //add hash for categories and words
@@ -44938,17 +44959,9 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       });
       words = _classPrivateMethodGet(this, _shuffle, _shuffle2).call(this, words);
       _classPrivateFieldSet(this, _quizWordCount, words.length);
-
-      // console.clear();
-      //    console.log('start', words);
-
       _classPrivateFieldSet(this, _wordIndex, 0);
       _classPrivateFieldSet(this, _words, words);
       _classPrivateFieldSet(this, _remainingWords, _toConsumableArray(words));
-      _classPrivateFieldSet(this, _activeWords, _classPrivateFieldGet(this, _remainingWords).slice(0, _classPrivateFieldGet(this, _wordCount)));
-      _classPrivateFieldGet(this, _remainingWords).splice(0, _classPrivateFieldGet(this, _wordCount));
-
-      //temp
       this.loadRandomWord();
     }
   }, {
@@ -44984,12 +44997,15 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
         _classPrivateMethodGet(this, _removeDraggable, _removeDraggable2).call(this, _classPrivateFieldGet(this, _wordComponents)[i]);
       }
       _classPrivateFieldSet(this, _wordComponents, []);
+      _classPrivateFieldSet(this, _currentWord, _classPrivateFieldGet(this, _words)[_classPrivateFieldGet(this, _wordIndex)]);
+      _classPrivateFieldSet(this, _activeWords, _classPrivateMethodGet(this, _selectElements3, _selectElements4).call(this, _classPrivateFieldGet(this, _allWords), _classPrivateFieldGet(this, _wordCount) - 1));
+      _classPrivateFieldGet(this, _activeWords).push(_classPrivateFieldGet(this, _currentWord));
       _classPrivateFieldGet(this, _activeWords).forEach(function (w) {
         _classPrivateFieldGet(_this4, _wordComponents).push(_classPrivateMethodGet(_this4, _addDraggable, _addDraggable2).call(_this4, w));
       });
-      _classPrivateFieldSet(this, _activeWords, _classPrivateMethodGet(this, _selectElements, _selectElements2).call(this, _classPrivateFieldGet(this, _words), _classPrivateFieldGet(this, _wordIndex), _classPrivateFieldGet(this, _wordCount)));
       console.log('active', _classPrivateFieldGet(this, _activeWords));
-      _classPrivateFieldSet(this, _currentWord, _classPrivateFieldGet(this, _activeWords)[0]);
+      // this.#currentWord = this.#activeWords[0];
+      console.log('current', _classPrivateFieldGet(this, _currentWord), _classPrivateFieldGet(this, _activeWords));
       _classPrivateMethodGet(this, _setDropText, _setDropText2).call(this);
       _classPrivateFieldSet(this, _wordIndex, _classPrivateFieldGet(this, _wordIndex) < _classPrivateFieldGet(this, _words).length - 1 ? _classPrivateFieldGet(this, _wordIndex) + 1 : 0);
       console.log('check', _classPrivateFieldGet(this, _wordIndex), _classPrivateFieldGet(this, _words).length);
@@ -45072,6 +45088,19 @@ function _selectElements2(array, index, n) {
     result.push(array[currentIndex]);
   }
   // Return the result array
+  return result;
+}
+function _selectElements4(array, n) {
+  n = Math.min(n, array.length);
+  var result = new Array(n),
+    len = array.length,
+    taken = new Array(len);
+  if (n > len) throw new RangeError("getRandomElements: more elements taken than available");
+  while (n--) {
+    var x = Math.floor(Math.random() * len);
+    result[n] = array[x in taken ? taken[x] : x];
+    taken[x] = --len in taken ? taken[len] : len;
+  }
   return result;
 }
 function _layoutComponents2() {
@@ -45415,7 +45444,7 @@ WordDropComponent.Mode = {
     a: 'maori'
   }
 };
-},{"react":"node_modules/react/index.js","./WordDropComponent.style":"src/components/word_drop/WordDropComponent.style.js","gsap":"node_modules/gsap/index.js","../../controller/Controller":"src/controller/Controller.js","./WordComponent":"src/components/word_drop/WordComponent.js","../../system/Utils":"src/system/Utils.js","../EventComponent":"src/components/EventComponent.js","../../view/ReoApp":"src/view/ReoApp.js"}],"src/view/question_view/QuestionView.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","./WordDropComponent.style":"src/components/word_drop/WordDropComponent.style.js","gsap":"node_modules/gsap/index.js","../../controller/Controller":"src/controller/Controller.js","./WordComponent":"src/components/word_drop/WordComponent.js","../../system/Utils":"src/system/Utils.js","../EventComponent":"src/components/EventComponent.js","../../view/ReoApp":"src/view/ReoApp.js","../../data/Categories":"src/data/Categories.js"}],"src/view/question_view/QuestionView.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
