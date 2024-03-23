@@ -44668,7 +44668,6 @@ var _activeWords = /*#__PURE__*/new WeakMap();
 var _wordCount = /*#__PURE__*/new WeakMap();
 var _quizWordCount = /*#__PURE__*/new WeakMap();
 var _allWords = /*#__PURE__*/new WeakMap();
-var _remainingWords = /*#__PURE__*/new WeakMap();
 var _componentLocation = /*#__PURE__*/new WeakMap();
 var _clickCount = /*#__PURE__*/new WeakMap();
 var _isPortrait = /*#__PURE__*/new WeakMap();
@@ -44837,10 +44836,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       value: void 0
     });
     /**the words that are yet to be quizzed on */
-    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _remainingWords, {
-      writable: true,
-      value: void 0
-    });
+    //#remainingWords;
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _componentLocation, {
       writable: true,
       value: void 0
@@ -44949,19 +44945,19 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
 
       //add hash for categories and words
       _classPrivateFieldSet(this, _categoriesHash, {});
-      var words = [];
+      _classPrivateFieldSet(this, _words, []);
       categories.forEach(function (category) {
         category.words.map(function (w) {
           _classPrivateFieldGet(_this2, _categoriesHash)[w.url] = category;
-          //words.push(new Word(w));
-          words.push(w);
+          _classPrivateFieldGet(_this2, _words).push(w);
         });
       });
-      words = _classPrivateMethodGet(this, _shuffle, _shuffle2).call(this, words);
-      _classPrivateFieldSet(this, _quizWordCount, words.length);
+      _classPrivateFieldSet(this, _quizWordCount, _classPrivateFieldGet(this, _words).length);
       _classPrivateFieldSet(this, _wordIndex, 0);
-      _classPrivateFieldSet(this, _words, words);
-      _classPrivateFieldSet(this, _remainingWords, _toConsumableArray(words));
+      // this.#words = words;
+      _classPrivateFieldSet(this, _words, _classPrivateMethodGet(this, _shuffle, _shuffle2).call(this, _classPrivateFieldGet(this, _words)));
+      // this.#remainingWords = [...this.#words];
+
       this.loadRandomWord();
     }
   }, {
@@ -45367,6 +45363,9 @@ function _checkAnswer2() {
       var message = errorCount ? [_classPrivateFieldGet(this, _quizWordCount) - errorCount + '/' + _classPrivateFieldGet(this, _quizWordCount) + ' correct', 'Practice Again?'] : ['Tika', 'Practice Again?'];
       //reset errors
       _classPrivateFieldSet(this, _incorrectAnswers, {});
+      _classPrivateFieldSet(this, _words, _classPrivateMethodGet(this, _shuffle, _shuffle2).call(this, _classPrivateFieldGet(this, _words)));
+      // this.#remainingWords = [...this.#words];
+
       _ReoApp.default.message('Category Complete', message, [{
         label: 'YES',
         stle: {}
@@ -47351,7 +47350,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52342" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51063" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
