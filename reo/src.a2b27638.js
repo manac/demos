@@ -35948,72 +35948,86 @@ var Categories = [{
     "maori": "hītako",
     "english": ["yawn"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/1263.mp3"
   }, {
     "maori": "waiata",
     "english": ["sing"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/9026.mp3"
   }, {
     "maori": "matihe",
     "english": ["sneeze"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/3891.mp3"
   }, {
     "maori": "tokopuaha",
     "english": ["burp"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/8386.mp3"
   }, {
     "maori": "kūpā",
     "english": ["burp"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/15246.mp3"
   }, {
     "maori": "tokomauri",
     "english": ["hiccup"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/8384.mp3"
   }, {
     "maori": "kōrero",
     "english": ["speak"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/3003.mp3"
   }, {
     "maori": "ūmere",
     "english": ["yell"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/8884.mp3"
   }, {
     "maori": "mātakitaki",
     "english": ["watch"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/3773.mp3"
   }, {
     "maori": "whakarongo",
     "english": ["listen"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/9838.mp3"
   }, {
     "maori": "whakaaro",
     "english": ["think"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/9369.mp3"
   }, {
     "maori": "mare",
     "english": ["cough"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/3704.mp3"
   }, {
     "maori": "wharo",
     "english": ["cough"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/10186.mp3"
   }, {
     "maori": "mapu",
     "english": ["sigh"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/3657.mp3"
   }]
 }, {
   "name": "*Kupu Mahi 5",
@@ -44682,6 +44696,7 @@ var _errorSound = /*#__PURE__*/new WeakMap();
 var _correctSound = /*#__PURE__*/new WeakMap();
 var _incorrectAnswers = /*#__PURE__*/new WeakMap();
 var _setDropText = /*#__PURE__*/new WeakSet();
+var _korero = /*#__PURE__*/new WeakSet();
 var _speak = /*#__PURE__*/new WeakSet();
 var _animateAnswer = /*#__PURE__*/new WeakSet();
 var _selectElements = /*#__PURE__*/new WeakSet();
@@ -44738,6 +44753,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _selectElements);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _animateAnswer);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _speak);
+    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _korero);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _setDropText);
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _containerRef, {
       writable: true,
@@ -45074,12 +45090,19 @@ function _setDropText2() {
   console.log(_classPrivateFieldGet(this, _currentWord));
   var text;
   if (_classPrivateFieldGet(this, _questionMode).q == 'maori') {
-    text = _classPrivateFieldGet(this, _currentWord)[_classPrivateFieldGet(this, _questionMode).q];
+    text = _classPrivateFieldGet(this, _currentWord).maori;
+    _classPrivateMethodGet(this, _korero, _korero2).call(this, _classPrivateFieldGet(this, _currentWord).audio);
   } else {
     text = _classPrivateFieldGet(this, _currentWord).english[0];
     _classPrivateMethodGet(this, _speak, _speak2).call(this, text);
   }
   _classPrivateFieldGet(this, _dropRef).current.innerHTML = text;
+}
+function _korero2(url) {
+  if (url) {
+    var audio = new Audio(url);
+    audio.play();
+  }
 }
 function _speak2(text) {
   if ('speechSynthesis' in window) {
