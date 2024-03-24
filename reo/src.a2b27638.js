@@ -36000,7 +36000,12 @@ var Categories = [{
     "url": "",
     "passive": ""
   }, {
-    "maori": "mare wharo",
+    "maori": "mare",
+    "english": ["cough"],
+    "url": "",
+    "passive": ""
+  }, {
+    "maori": "wharo",
     "english": ["cough"],
     "url": "",
     "passive": ""
@@ -44677,6 +44682,7 @@ var _errorSound = /*#__PURE__*/new WeakMap();
 var _correctSound = /*#__PURE__*/new WeakMap();
 var _incorrectAnswers = /*#__PURE__*/new WeakMap();
 var _setDropText = /*#__PURE__*/new WeakSet();
+var _speak = /*#__PURE__*/new WeakSet();
 var _animateAnswer = /*#__PURE__*/new WeakSet();
 var _selectElements = /*#__PURE__*/new WeakSet();
 var _selectElements3 = /*#__PURE__*/new WeakSet();
@@ -44731,6 +44737,7 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _selectElements3);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _selectElements);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _animateAnswer);
+    _classPrivateMethodInitSpec(_assertThisInitialized(_this), _speak);
     _classPrivateMethodInitSpec(_assertThisInitialized(_this), _setDropText);
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _containerRef, {
       writable: true,
@@ -45065,7 +45072,36 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
 }(_EventComponent2.default);
 function _setDropText2() {
   console.log(_classPrivateFieldGet(this, _currentWord));
-  _classPrivateFieldGet(this, _dropRef).current.innerHTML = _classPrivateFieldGet(this, _questionMode).q == 'maori' ? _classPrivateFieldGet(this, _currentWord)[_classPrivateFieldGet(this, _questionMode).q] : _classPrivateFieldGet(this, _currentWord).english[0];
+  var text;
+  if (_classPrivateFieldGet(this, _questionMode).q == 'maori') {
+    text = _classPrivateFieldGet(this, _currentWord)[_classPrivateFieldGet(this, _questionMode).q];
+  } else {
+    text = _classPrivateFieldGet(this, _currentWord).english[0];
+    _classPrivateMethodGet(this, _speak, _speak2).call(this, text);
+  }
+  _classPrivateFieldGet(this, _dropRef).current.innerHTML = text;
+}
+function _speak2(text) {
+  if ('speechSynthesis' in window) {
+    // Create a new SpeechSynthesisUtterance object
+    var message = new SpeechSynthesisUtterance();
+
+    // Set the text you want to convert to speech
+    message.text = text;
+
+    // Optional: Set the voice and other properties
+    // You can customize the voice, pitch, rate, and volume
+    // For example:
+    // message.voice = speechSynthesis.getVoices()[0]; // Choose a specific voice
+    // message.pitch = 1; // Pitch (0 to 2)
+    // message.rate = 1; // Speaking rate (0.1 to 10)
+    // message.volume = 1; // Volume (0 to 1)
+
+    // Speak the text
+    speechSynthesis.speak(message);
+  } else {
+    console.error("Web Speech API is not supported in this browser.");
+  }
 }
 function _animateAnswer2(wordComponent) {
   //fadeout all of the other WordComponents
