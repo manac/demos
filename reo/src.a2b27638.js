@@ -44945,14 +44945,18 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       _classPrivateFieldGet(this, _wordComponents).forEach(function (wc) {
         return wc.visible = val;
       });
-      switch (val) {
-        case 1:
-          _classPrivateMethodGet(this, _layoutComponents, _layoutComponents2).call(this);
-          break;
-        case 2:
-          if (_classPrivateFieldGet(this, _answered)) {
-            this.loadRandomWord();
+      if (val == 1) {
+        _classPrivateMethodGet(this, _layoutComponents, _layoutComponents2).call(this);
+      } else if (val >= 2) {
+        if (_classPrivateFieldGet(this, _answered)) {
+          this.loadRandomWord();
+        } else {
+          if (_classPrivateFieldGet(this, _questionMode).q == 'maori') {
+            _classPrivateMethodGet(this, _korero, _korero2).call(this, _classPrivateFieldGet(this, _currentWord).audio);
+          } else {
+            _classPrivateMethodGet(this, _speak, _speak2).call(this, _classPrivateFieldGet(this, _currentWord).english[0]);
           }
+        }
       }
     }
   }, {
@@ -45104,10 +45108,10 @@ function _setDropText2() {
   var text;
   if (_classPrivateFieldGet(this, _questionMode).q == 'maori') {
     text = _classPrivateFieldGet(this, _currentWord).maori;
-    _classPrivateMethodGet(this, _korero, _korero2).call(this, _classPrivateFieldGet(this, _currentWord).audio);
+    // this.#korero(this.#currentWord.audio);
   } else {
     text = _classPrivateFieldGet(this, _currentWord).english[0];
-    _classPrivateMethodGet(this, _speak, _speak2).call(this, text);
+    // this.#speak(text);
   }
   _classPrivateFieldGet(this, _dropRef).current.innerHTML = text;
 }
