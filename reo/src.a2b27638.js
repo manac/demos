@@ -35759,62 +35759,74 @@ var Categories = [{
     "maori": "haere",
     "english": ["go"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/715.mp3"
   }, {
     "maori": "peke",
     "english": ["jump"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/5447.mp3"
   }, {
     "maori": "oma",
     "english": ["run"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/4742.mp3"
   }, {
     "maori": "hikoi",
     "english": ["walk"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/1173.mp3"
   }, {
     "maori": "noho",
     "english": ["sit"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/4438.mp3"
   }, {
     "maori": "noho hītengi",
     "english": ["crouch on toes"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/4441.mp3"
   }, {
     "maori": "piko",
     "english": ["bend"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/5595.mp3"
   }, {
     "maori": "moe",
     "english": ["sleep"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/4127.mp3"
   }, {
     "maori": "tū",
     "english": ["stand"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/8559.mp3"
   }, {
     "maori": "piki",
     "english": ["climb"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/5582.mp3"
   }, {
     "maori": "tatari",
     "english": ["wait"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/7648.mp3"
   }, {
     "maori": "whai",
     "english": ["chase"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/10744.mp3"
   }]
 }, {
   "name": "*Kupu Mahi 2",
@@ -35822,62 +35834,74 @@ var Categories = [{
     "maori": "whātoro",
     "english": ["stretch"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "tohu",
     "english": ["point"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "awhi",
     "english": ["embrace"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "paki",
     "english": ["clap"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "hiki",
     "english": ["lift"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "ūkui",
     "english": ["erase"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "kukume",
     "english": ["pull"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "pā",
     "english": ["touch"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "whiu",
     "english": ["throw"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "pana",
     "english": ["push"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "rūrū",
     "english": ["shake"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }, {
     "maori": "whakairi",
     "english": ["hang up"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": ""
   }]
 }, {
   "name": "*Kupu Mahi 3",
@@ -35885,62 +35909,74 @@ var Categories = [{
     "maori": "tangi",
     "english": ["cry"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/7423.mp3"
   }, {
     "maori": "patero",
     "english": ["fart"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/5362.mp3"
   }, {
     "maori": "tuhi",
     "english": ["write"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/8645.mp3"
   }, {
     "maori": "moemoeā",
     "english": ["dream"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/4131.mp3"
   }, {
     "maori": "menemene",
     "english": ["smile"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/47601.mp3"
   }, {
     "maori": "kata",
     "english": ["laugh"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/2370.mp3"
   }, {
     "maori": "kai",
     "english": ["eat"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/1894.mp3"
   }, {
     "maori": "takoto",
     "english": ["lie face up"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/7304.mp3"
   }, {
     "maori": "titiro",
     "english": ["look"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/8226.mp3"
   }, {
     "maori": "tāpapa",
     "english": ["lie face down"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/7456.mp3"
   }, {
     "maori": "tīhae",
     "english": ["rip"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/8021.mp3"
   }, {
     "maori": "kite",
     "english": ["see"],
     "url": "",
-    "passive": ""
+    "passive": "",
+    "audio": "https://storage.googleapis.com/maori-dictionary-prod2-web-assets/public/2722.mp3"
   }]
 }, {
   "name": "*Kupu Mahi 4",
@@ -45101,6 +45137,7 @@ function _setDropText2() {
 function _korero2(url) {
   if (url) {
     var audio = new Audio(url);
+    audio.load();
     audio.play();
   }
 }
@@ -47427,7 +47464,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51063" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56863" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
