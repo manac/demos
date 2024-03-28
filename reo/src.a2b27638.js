@@ -35731,29 +35731,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 var Categories = [{
-  "name": "Dev",
-  "words": [{
-    "maori": "peke",
-    "english": ["jump"],
-    "url": "",
-    "passive": ""
-  }, {
-    "maori": "oma",
-    "english": ["run"],
-    "url": "",
-    "passive": ""
-  }, {
-    "maori": "hikoi",
-    "english": ["walk"],
-    "url": "",
-    "passive": ""
-  }, {
-    "maori": "moe",
-    "english": ["sleep"],
-    "url": "",
-    "passive": ""
-  }]
-}, {
   "name": "*Kupu Mahi 1",
   "words": [{
     "maori": "haere",
