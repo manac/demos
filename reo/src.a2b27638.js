@@ -36286,15 +36286,15 @@ var Categories = [{
     "url": "https://kupu.maori.nz/kupu/waho"
   }, {
     "maori": "konei",
-    "english": ["here", "this place (near to or in conection to the speaker)"],
+    "english": ["here"],
     "url": "https://kupu.maori.nz/kupu/konei"
   }, {
     "maori": "konā",
-    "english": ["there", "that place or thereabouts (by the person spoken to)"],
+    "english": ["there"],
     "url": "https://kupu.maori.nz/kupu/kon%C4%81"
   }, {
     "maori": "korā",
-    "english": ["over there", "yonder", "that place or there abouts (away from the speaker and listener)"],
+    "english": ["over there", "yonder"],
     "url": "https://kupu.maori.nz/kupu/kor%C4%81"
   }, {
     "maori": "hea",
@@ -36302,7 +36302,7 @@ var Categories = [{
     "url": "https://kupu.maori.nz/kupu/hea"
   }, {
     "maori": "reira",
-    "english": ["there", "the aforementioned place or time"],
+    "english": ["there"],
     "url": "https://kupu.maori.nz/kupu/reira"
   }, {
     "maori": "tātahi",
@@ -36324,119 +36324,6 @@ var Categories = [{
     "maori": "tai",
     "english": ["seaward"],
     "url": "https://kupu.maori.nz/kupu/tai"
-  }]
-}, {
-  "name": "Pōwhiri / Pōhiri (Welcoming Ceremony)",
-  "words": [{
-    "maori": "karanga",
-    "english": ["to call", "to be called", "call of welcome"],
-    "url": "https://kupu.maori.nz/kupu/karanga(tia)",
-    "passive": "karangatia"
-  }, {
-    "maori": "kuia",
-    "english": ["elderly woman"],
-    "url": "https://kupu.maori.nz/kupu/kuia"
-  }, {
-    "maori": "kaumātua",
-    "english": ["elder"],
-    "url": "https://kupu.maori.nz/kupu/kaum%C4%81tua"
-  }, {
-    "maori": "koroua",
-    "english": ["elderly man"],
-    "url": "https://kupu.maori.nz/kupu/koroua"
-  }, {
-    "maori": "manuhiri",
-    "english": ["visitors"],
-    "url": "https://kupu.maori.nz/kupu/manuhiri---manuwhiri"
-  }, {
-    "maori": "manuwhiri",
-    "english": ["visitors"],
-    "url": "https://kupu.maori.nz/kupu/manuhiri---manuwhiri"
-  }, {
-    "maori": "wero",
-    "english": ["to challenge", "be challenged (referring to traditional welcome to visitors)", "a challenge"],
-    "url": "https://kupu.maori.nz/kupu/wero(hia)",
-    "passive": "werohia"
-  }, {
-    "maori": "hongi",
-    "english": ["the pressing of noses"],
-    "url": "https://kupu.maori.nz/kupu/hongi"
-  }, {
-    "maori": "whaikōrero",
-    "english": ["to make a speech", "main speech"],
-    "url": "https://kupu.maori.nz/kupu/whaik%C5%8Drero"
-  }, {
-    "maori": "waiata",
-    "english": ["to sing", "song"],
-    "url": "https://kupu.maori.nz/kupu/waiata(tia)",
-    "passive": "waiatatia"
-  }, {
-    "maori": "karakia",
-    "english": ["incantation", "chant", "prayer", "to pray"],
-    "url": "https://kupu.maori.nz/kupu/karakia"
-  }, {
-    "maori": "whakaeke",
-    "english": ["to arrive", "ascend (onto a Marae)"],
-    "url": "https://kupu.maori.nz/kupu/whakaeke(a)",
-    "passive": "whakaekea"
-  }, {
-    "maori": "manaaki",
-    "english": ["look after", "care for", "show respect or kindness to"],
-    "url": "https://kupu.maori.nz/kupu/manaaki(tia)",
-    "passive": "manaakitia"
-  }, {
-    "maori": "mihi",
-    "english": ["to greet", "acknowledge", "thank", "pay tribute"],
-    "url": "https://kupu.maori.nz/kupu/mihi"
-  }, {
-    "maori": "pōwhiri",
-    "english": ["to welcome", "a welcoming ceremony"],
-    "url": "https://kupu.maori.nz/kupu/p%C5%8Dwhiri(tia)---p%C5%8Dhiri(tia)",
-    "passive": "pōwhiritia"
-  }, {
-    "maori": "pōhiri",
-    "english": ["to welcome", "a welcoming ceremony"],
-    "url": "https://kupu.maori.nz/kupu/p%C5%8Dwhiri(tia)---p%C5%8Dhiri(tia)",
-    "passive": "pōhiritia"
-  }, {
-    "maori": "hākari",
-    "english": ["feast"],
-    "url": "https://kupu.maori.nz/kupu/h%C4%81kari(a)",
-    "passive": "hākaria"
-  }, {
-    "maori": "kawa",
-    "english": ["protocol"],
-    "url": "https://kupu.maori.nz/kupu/kawa"
-  }, {
-    "maori": "pūkana",
-    "english": ["fierce facial expressions."],
-    "url": "https://kupu.maori.nz/kupu/p%C5%ABkana"
-  }, {
-    "maori": "tangata whenua",
-    "english": ["people of the land", "marae"],
-    "url": "https://kupu.maori.nz/kupu/tangata-whenua"
-  }, {
-    "maori": "harirū",
-    "english": ["to shake hands", "handshake"],
-    "url": "https://kupu.maori.nz/kupu/harir%C5%AB(tia)",
-    "passive": "harirūtia"
-  }, {
-    "maori": "tikanga",
-    "english": ["custom"],
-    "url": "https://kupu.maori.nz/kupu/tikanga"
-  }, {
-    "maori": "takahi",
-    "english": ["to tramp", "tread", "abuse", "disregard"],
-    "url": "https://kupu.maori.nz/kupu/takahi(a)",
-    "passive": "takahia"
-  }, {
-    "maori": "iwi",
-    "english": ["tribe"],
-    "url": "https://kupu.maori.nz/kupu/iwi"
-  }, {
-    "maori": "hui",
-    "english": ["to gather", "assemble", "a meeting"],
-    "url": "https://kupu.maori.nz/kupu/hui"
   }]
 }, {
   "name": "My Occupation",
@@ -36717,10 +36604,6 @@ var Categories = [{
     "english": ["the bereaved family"],
     "url": "https://kupu.maori.nz/kupu/wh%C4%81nau-pani"
   }, {
-    "maori": "kawakawa",
-    "english": ["a plant", "the leaves of which are worn by women as a sign of mourning"],
-    "url": "https://kupu.maori.nz/kupu/kawakawa"
-  }, {
     "maori": "aituā",
     "english": ["fatality", "misfortune"],
     "url": "https://kupu.maori.nz/kupu/aitu%C4%81"
@@ -36756,17 +36639,9 @@ var Categories = [{
     "url": "https://kupu.maori.nz/kupu/nehu(a)",
     "passive": "nehua"
   }, {
-    "maori": "moenga roa",
-    "english": ["long sleep", "eternal rest - euphemism for when a person dies"],
-    "url": "https://kupu.maori.nz/kupu/moenga-roa"
-  }, {
     "maori": "ope",
     "english": ["party of visitors"],
     "url": "https://kupu.maori.nz/kupu/ope"
-  }, {
-    "maori": "whare tauā",
-    "english": ["the place where the corpse lies"],
-    "url": "https://kupu.maori.nz/kupu/whare-tau%C4%81"
   }]
 }, {
   "name": "At School",
@@ -36821,10 +36696,6 @@ var Categories = [{
     "english": ["to read", "a notice"],
     "url": "https://kupu.maori.nz/kupu/p%C4%81nui(tia)",
     "passive": "pānuitia"
-  }, {
-    "maori": "wānanga",
-    "english": ["place of higher learning"],
-    "url": "https://kupu.maori.nz/kupu/w%C4%81nanga"
   }, {
     "maori": "kura",
     "english": ["school"],
@@ -36904,10 +36775,6 @@ var Categories = [{
     "maori": "whānui",
     "english": ["broad", "wide"],
     "url": "https://kupu.maori.nz/kupu/wh%C4%81nui"
-  }, {
-    "maori": "Pākehā",
-    "english": ["New Zealander of European descent"],
-    "url": "https://kupu.maori.nz/kupu/P%C4%81keh%C4%81"
   }, {
     "maori": "noho",
     "english": ["stay", "sit", "live"],
@@ -37056,7 +36923,7 @@ var Categories = [{
     "url": "https://kupu.maori.nz/kupu/harakeke"
   }, {
     "maori": "manaaki",
-    "english": ["look after", "care for", "show respect or kindness to"],
+    "english": ["look after", "care for"],
     "url": "https://kupu.maori.nz/kupu/manaaki(tia)",
     "passive": "manaakitia"
   }, {
@@ -37575,10 +37442,6 @@ var Categories = [{
     "maori": "hau",
     "english": ["wind"],
     "url": "https://kupu.maori.nz/kupu/hau"
-  }, {
-    "maori": "Tāwhirimātea",
-    "english": ["Atua of the wind and storms"],
-    "url": "https://kupu.maori.nz/kupu/T%C4%81whirim%C4%81tea"
   }]
 }, {
   "name": "Verbs that take 'ki'",
@@ -37665,14 +37528,6 @@ var Categories = [{
     "english": ["brother of a girl"],
     "url": "https://kupu.maori.nz/kupu/tung%C4%81ne"
   }, {
-    "maori": "tuakana",
-    "english": ["elder sibling (of the same sex)"],
-    "url": "https://kupu.maori.nz/kupu/tuakana"
-  }, {
-    "maori": "teina",
-    "english": ["younger sibling (of the same sex)"],
-    "url": "https://kupu.maori.nz/kupu/teina"
-  }, {
     "maori": "pōtiki",
     "english": ["youngest"],
     "url": "https://kupu.maori.nz/kupu/p%C5%8Dtiki"
@@ -37741,14 +37596,6 @@ var Categories = [{
     "english": ["grandchild"],
     "url": "https://kupu.maori.nz/kupu/mokopuna"
   }, {
-    "maori": "taokete",
-    "english": ["brother-", "sister-in-law (of same gender)"],
-    "url": "https://kupu.maori.nz/kupu/taokete"
-  }, {
-    "maori": "hungarei",
-    "english": ["mother-", "father-in-law"],
-    "url": "https://kupu.maori.nz/kupu/hungarei"
-  }, {
     "maori": "ingoa",
     "english": ["name"],
     "url": "https://kupu.maori.nz/kupu/ingoa"
@@ -37771,10 +37618,6 @@ var Categories = [{
     "maori": "hora",
     "english": ["to be spread out"],
     "url": "https://kupu.maori.nz/kupu/hora"
-  }, {
-    "maori": "i",
-    "english": ["by", "due to (in stative sentences only); preposition", "past time and place location - at", "in"],
-    "url": "https://kupu.maori.nz/kupu/i"
   }, {
     "maori": "kī",
     "english": ["to be full"],
@@ -38052,7 +37895,7 @@ var Categories = [{
     "url": "https://kupu.maori.nz/kupu/ko-te-%C4%81hua-nei"
   }, {
     "maori": "me",
-    "english": ["and (conjunction for two objects", "things)"],
+    "english": ["and", "things)"],
     "url": "https://kupu.maori.nz/kupu/me-(conjunction)",
     "passive": "conjunction"
   }, {
@@ -38163,7 +38006,7 @@ var Categories = [{
     "url": "https://kupu.maori.nz/kupu/Hereturik%C5%8Dk%C4%81"
   }, {
     "maori": "hukapapa",
-    "english": ["snow or frost (on the ground)"],
+    "english": ["snow", "frost"],
     "url": "https://kupu.maori.nz/kupu/hukapapa"
   }, {
     "maori": "tiakareti wera",
@@ -38171,12 +38014,8 @@ var Categories = [{
     "url": "https://kupu.maori.nz/kupu/tiakareti-wera"
   }, {
     "maori": "hukarere",
-    "english": ["snow (falling)"],
+    "english": ["snow"],
     "url": "https://kupu.maori.nz/kupu/hukarere"
-  }, {
-    "maori": "Tāwhirimātea",
-    "english": ["Atua of the wind and storms"],
-    "url": "https://kupu.maori.nz/kupu/T%C4%81whirim%C4%81tea"
   }]
 }];
 var _default = exports.default = Categories;
@@ -44947,15 +44786,15 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       });
       if (val == 1) {
         _classPrivateMethodGet(this, _layoutComponents, _layoutComponents2).call(this);
+        if (_classPrivateFieldGet(this, _questionMode).q == 'maori') {
+          _classPrivateMethodGet(this, _korero, _korero2).call(this, _classPrivateFieldGet(this, _currentWord).audio);
+        } else {
+          _classPrivateMethodGet(this, _speak, _speak2).call(this, _classPrivateFieldGet(this, _currentWord).english[0]);
+        }
       } else if (val >= 2) {
         if (_classPrivateFieldGet(this, _answered)) {
           this.loadRandomWord();
-        } else {
-          if (_classPrivateFieldGet(this, _questionMode).q == 'maori') {
-            _classPrivateMethodGet(this, _korero, _korero2).call(this, _classPrivateFieldGet(this, _currentWord).audio);
-          } else {
-            _classPrivateMethodGet(this, _speak, _speak2).call(this, _classPrivateFieldGet(this, _currentWord).english[0]);
-          }
+          //  }else{
         }
       }
     }
@@ -47445,7 +47284,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56863" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64926" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
