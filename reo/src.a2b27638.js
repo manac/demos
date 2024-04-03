@@ -44544,6 +44544,7 @@ var _clickCount = /*#__PURE__*/new WeakMap();
 var _isPortrait = /*#__PURE__*/new WeakMap();
 var _wordIndex = /*#__PURE__*/new WeakMap();
 var _categoriesHash = /*#__PURE__*/new WeakMap();
+var _categories = /*#__PURE__*/new WeakMap();
 var _errorSound = /*#__PURE__*/new WeakMap();
 var _correctSound = /*#__PURE__*/new WeakMap();
 var _incorrectAnswers = /*#__PURE__*/new WeakMap();
@@ -44732,6 +44733,10 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
       writable: true,
       value: void 0
     });
+    _classPrivateFieldInitSpec(_assertThisInitialized(_this), _categories, {
+      writable: true,
+      value: void 0
+    });
     _classPrivateFieldInitSpec(_assertThisInitialized(_this), _errorSound, {
       writable: true,
       value: void 0
@@ -44810,31 +44815,32 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
     }
   }, {
     key: "categories",
-    set: function set(categories) {
+    get: function get() {
+      return _classPrivateFieldGet(this, _categories);
+    },
+    set: function set(val) {
       var _this2 = this;
-      //  console.clear();
-      console.log('missing word start check');
-      categories.forEach(function (cat) {
-        cat.words.forEach(function (word) {
-          word.english.forEach(function (e) {
-            if (e == "") {
-              console.log(word.maori);
-            }
-          });
-        });
-      });
-      console.log('missing word start finish', _classPrivateFieldGet(this, _allWords).length);
+      _classPrivateFieldSet(this, _categories, val);
       _classPrivateFieldSet(this, _incorrectAnswers, {});
 
       //add hash for categories and words
       _classPrivateFieldSet(this, _categoriesHash, {});
-      _classPrivateFieldSet(this, _words, []);
-      categories.forEach(function (category) {
+
+      // this.#words = [];
+      var words = [];
+      val.forEach(function (category) {
         category.words.map(function (w) {
           _classPrivateFieldGet(_this2, _categoriesHash)[w.url] = category;
-          _classPrivateFieldGet(_this2, _words).push(w);
+          words.push(w);
         });
       });
+      this.words = words;
+    }
+  }, {
+    key: "words",
+    set: function set(val) {
+      _classPrivateFieldSet(this, _words, val);
+      console.log('set words', val);
       _classPrivateFieldSet(this, _quizWordCount, _classPrivateFieldGet(this, _words).length);
       _classPrivateFieldSet(this, _wordIndex, 0);
       // this.#words = words;
@@ -44924,6 +44930,14 @@ var WordDropComponent = exports.WordDropComponent = /*#__PURE__*/function (_Even
         _classPrivateMethodGet(_this5, _layoutComponents, _layoutComponents2).call(_this5);
       });
       _classPrivateFieldSet(this, _isPortrait, _Utils.Utils.getPortrait());
+    }
+  }, {
+    key: "incorrectAnswers",
+    get: function get() {
+      return _classPrivateFieldGet(this, _incorrectAnswers);
+    },
+    set: function set(val) {
+      _classPrivateFieldSet(this, _incorrectAnswers, val);
     }
   }, {
     key: "render",
@@ -45285,17 +45299,31 @@ function _checkAnswer2() {
       console.log('errors', Object.keys(_classPrivateFieldGet(this, _incorrectAnswers)).length, _classPrivateFieldGet(this, _activeWords), _classPrivateFieldGet(this, _quizWordCount), errorCount, _classPrivateFieldGet(this, _incorrectAnswers));
       var message = errorCount ? [_classPrivateFieldGet(this, _quizWordCount) - errorCount + '/' + _classPrivateFieldGet(this, _quizWordCount) + ' correct.', 'Practice mistakes again?'] : ['Tika', 'Practice again?'];
       //reset errors
-      _classPrivateFieldSet(this, _incorrectAnswers, {});
+      if (errorCount == 0) {
+        _classPrivateFieldSet(this, _incorrectAnswers, null);
+      } else {}
       _classPrivateFieldSet(this, _words, _classPrivateMethodGet(this, _shuffle, _shuffle2).call(this, _classPrivateFieldGet(this, _words)));
-      // this.#remainingWords = [...this.#words];
-
       _ReoApp.default.message('Category Complete', message, [{
         label: 'YES',
         stle: {}
       }, {
         label: 'NO'
-      }], this, function (context, response) {
-        context.loadRandomWord();
+      }], this, function (context, result) {
+        //no errors 
+        if (context.incorrectAnswers == null) {
+          //reload the categories to refresh the word list
+          context.categories = context.categories;
+          // context.incorrectAnswers = {};
+          // context.loadRandomWord();
+        } else {
+          var words = [];
+          var keys = Object.keys(context.incorrectAnswers);
+          keys.forEach(function (key) {
+            words.push(context.incorrectAnswers[key]);
+          });
+          context.incorrectAnswers = {};
+          context.words = words;
+        }
       });
     } else {
       this.loadRandomWord();
@@ -46990,11 +47018,11 @@ var ReoApp = /*#__PURE__*/function (_App) {
     _classPrivateMethodGet(_assertThisInitialized(_this), _initCategories, _initCategories2).call(_assertThisInitialized(_this));
 
     //select default category
-    if (_Categories.default[0].words.length) {
-      _Categories.default[0].selected = true;
-    } else {
-      _Categories.default[1].selected = true;
-    }
+    // if(Categories[0].words.length){
+    //     Categories[0].selected = true; 
+    // }else{
+    _Categories.default[1].selected = true;
+    // }
 
     // Create a new FontFace instance with the font name and the font source
 
@@ -47135,7 +47163,7 @@ var ReoApp = /*#__PURE__*/function (_App) {
           } else {
             _classPrivateFieldGet(_this2, _contentViewerRef).current.view = 'categories_view';
           }
-          args.callback(args.context);
+          args.callback(args.context, args.result);
         });
         _classPrivateMethodGet(_this2, _loadCategories, _loadCategories2).call(_this2);
       });
@@ -47284,7 +47312,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64926" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54542" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
