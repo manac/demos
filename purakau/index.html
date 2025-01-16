@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div id="intro-view" class="view">
+            <h1 id="categoryLabel"></h1>
+            <select id="storySelect" class="select" style="display: none;"></select>            
+        </div>
+        <div id="story-view" class="view" style="display: none;">
+            <h1 id="storyLabel"></h1>
+            <div class="content">
+                <div id="sentenceContainer" class="sentenceContainer"></div>
+                <div id="detailsContainer" class="details"></div>
+                <div class="button-container">
+                    <button id="backButton">Back</button>
+                    <button id="detailButton">Detail Mode</button>
+                    <button id="nextButton">Next</button>
+                </div>
+            </div>
+            <button class="backButton" onclick="showIntroView()">Back</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
