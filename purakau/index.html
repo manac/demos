@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPA Example</title>
+    <title>Pūrākau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="app">
-        <div id="intro-view" class="view">
-            <h1 id="categoryLabel"></h1>
-            <select id="storySelect" class="select" style="display: none;"></select>            
+    <div id="app">        
+        <!-- Category View: Shows a group of stories-->
+        <div id="categories-view" class="view">
+            <h3 id="categoriesLabel">Categories</h3>
+            <select id="categorySelect" class="select"></select>            
         </div>
+
+        <!-- Category View: Shows a group of stories-->
+        <div id="category-view" class="view">
+            <h3 id="categoryLabel"></h3>
+            <select id="storySelect" class="select"></select>            
+        </div>
+        <!-- Story View: Shows the selected story-->
         <div id="story-view" class="view" style="display: none;">
-            <h1 id="storyLabel"></h1>
+            <h3 id="storyLabel"></h3>
             <div class="content">
                 <div id="sentenceContainer" class="sentenceContainer"></div>
                 <div id="detailsContainer" class="details"></div>

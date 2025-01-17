@@ -4,6 +4,7 @@ html {
     padding: 0;
     height: 100%;
     overflow: hidden;
+    font-family: 'Roboto', sans-serif;
 }
 
 #app {
@@ -17,7 +18,7 @@ html {
     overflow: auto;    
 }
 
-.view h1 {
+.view h3 {
     flex-shrink: 0;
     text-align: center;
     margin: 20px 0;
@@ -95,3 +96,7 @@ button:disabled {
     flex-wrap: wrap;
     text-align: center;
 }
+
+/* .details{
+    background-color: yellow;
+} */

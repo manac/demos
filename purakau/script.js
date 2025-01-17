@@ -1,3 +1,4 @@
+let categories = [];
 let stories = [];
 let currentStory = {};
 let currentIndex = 0;
@@ -7,141 +8,205 @@ let maoriMode = true;
 
 const ui = {
     buttons: {},
-    displays: {}
+    displays: {},
+    views: {}
 };
 
-document.addEventListener("DOMContentLoaded", function() {
-    const filePath = "Ngā Haerenga a Tama.json"; // Specify the path to your file
+function getElement(id) {
+    return document.getElementById(id);
+}
 
-    ui.buttons.detail = document.getElementById('detailButton');
+document.addEventListener("DOMContentLoaded", function () {
+
+    const filePath = "stories/Ngā Haerenga a Tama.json"; // Specify the path to your file
+
+    ui.views.categories = getElement('categories-view');
+    ui.displays.categorySelect = getElement('categorySelect');
+    ui.displays.categorySelect.addEventListener('change', (event) => {
+        const selectedIndex = event.target.value;
+        loadCategory(selectedIndex);
+    });
+
+    //load up the views
+    ui.views.category = getElement('category-view');
+    ui.displays.storySelect = getElement('storySelect');
+    ui.displays.storySelect.addEventListener('change', (event) => {
+        const selectedIndex = event.target.value;
+        loadStory(selectedIndex);
+    });
+
+    ui.views.story = getElement('story-view');
+
+    //load up the story view elements
+    ui.buttons.detail = getElement('detailButton');
     ui.buttons.detail.addEventListener('click', () => {
-        detailMode = !detailMode;        
-        ui.buttons.detail.innerText = detailMode? "Simple Mode" : "Detail Mode";
+        //toggle detail mode
+        detailMode = !detailMode;
+        ui.buttons.detail.innerText = detailMode ? "Simple Mode" : "Detail Mode";
+
+        //make sure any details are cleared
+        ui.displays.detailsContainer.innerHTML = '';
         displaySentence();
     });
 
+    ui.buttons.back = getElement('backButton');
+    ui.buttons.back.addEventListener('click', () => {
+        if (currentStory.sentences.length > 0 && currentIndex > 0) {
+            currentIndex--;
+            displaySentence();
+            updateButtons();
+        }
+    });    
+    
+    ui.buttons.next = getElement('nextButton');
+    ui.buttons.next.addEventListener('click', () => {
+        if (currentStory.sentences.length > 0 && currentIndex < currentStory.sentences.length - 1) {
+            currentIndex++;
+            displaySentence();
+            updateButtons();
+        }
+    });
 
-    console.log('ui', ui);
+    ui.displays.sentenceContainer = getElement('sentenceContainer');
+    ui.displays.sentenceContainer.addEventListener('click', () => {
+        if (!detailMode) {
+            maoriMode = !maoriMode;
+            displaySentenceSimple();
+        }
+    });
 
-    fetch(filePath)
+    ui.displays.detailsContainer = getElement('detailsContainer');
+
+
+    //load category
+    fetch('categories.json')
         .then(response => response.json())
         .then(data => {
-            document.getElementById('categoryLabel').innerText = data.category;
-
-            stories = data.stories;
-            populateStorySelect();            
-            document.getElementById('storySelect').style.display = 'inline-block';            
-            // updateButtons();
+            //load up the tuatahi category
+            //`  loadCategory(categories.length-1)            
+            categories = data;
+            loadCategories();
         })
         .catch(error => {
             console.error("Error loading the file:", error);
         });
+
+
 });
 
-document.getElementById('storySelect').addEventListener('change', (event) => {
-    const selectedIndex = event.target.value;
-    loadStory(selectedIndex);
-});
+function loadCategories() {
+    //ui.displays.categorySelect
+    // console.log('cat', categories);
+    populateSelect(ui.displays.categorySelect, categories, 'name');
+}
 
-function populateStorySelect() {
-    const storySelect = document.getElementById('storySelect');
-    storySelect.innerHTML = '';
+function loadCategory(index) {
+    if (index != -1) {
+        showView(ui.views.categories, false);
+        showView(ui.views.story, false);
+        showView(ui.views.category, true);
+
+        category = categories[index];
+        document.getElementById('categoryLabel').innerText = category.name;
+
+        fetch(category.path)
+            .then(response => response.json())
+            .then(data => {
+                
+
+                stories = data.stories;
+                populateSelect(ui.displays.storySelect, stories, 'title.maori');
+
+            })
+            .catch(error => {
+                console.error("Error loading the file:", error);
+            });
+    }
+}
+
+function populateSelect(select, data, property) {
+    select.innerHTML = '';
 
     //insert an initial blank select option
     let option = document.createElement('option');
     option.value = -1;
-    storySelect.appendChild(option);
+    select.appendChild(option);
 
-    stories.forEach((story, index) => {
+    data.forEach((item, index) => {
+        const properties = property.split('.')
+        let text = item[properties[0]];
+        for(let i = 1; i < properties.length; i++){
+            text = text[properties[i]]
+        }
+        
         option = document.createElement('option');
         option.value = index;
-        option.text = story.title;
-        storySelect.appendChild(option);
+        option.text = text;
+        select.appendChild(option);
     });
 }
 
-document.getElementById('backButton').addEventListener('click', () => {
-    if (currentStory.sentences.length > 0 && currentIndex > 0) {
-        currentIndex--;
-        displaySentence();
-        updateButtons();
-    }
-});
-
-document.getElementById('nextButton').addEventListener('click', () => {
-    if (currentStory.sentences.length > 0 && currentIndex < currentStory.sentences.length - 1) {
-        currentIndex++;
-        displaySentence();
-        updateButtons();
-    }
-});
-
-document.getElementById('sentenceContainer').addEventListener('click', () => {
-    if(!detailMode){
-        maoriMode = !maoriMode;
-        displaySentenceSimple();
-    }    
-});
-
 function loadStory(index) {
-    if(index != -1){
+    if (index != -1) {
         currentStory = stories[index];
         currentIndex = 0;
-    
-        document.getElementById('intro-view').style.display = 'none';
-        document.getElementById('story-view').style.display = 'flex';
-    
-        document.getElementById('storyLabel').innerText = currentStory.title;
+
+        showView(ui.views.category, false);
+        showView(ui.views.story, true);
+
+        document.getElementById('storyLabel').innerText = typeof currentStory.title === 'string'? currentStory.title : currentStory.title.maori + ' (' + currentStory.title.english + ')';
         console.log(currentStory);
-        
+
         displaySentence();
         updateButtons();
-    }else{
+    } else {
         alert('black');
-    }    
+    }
 }
 
 function displaySentence() {
     maoriMode = true;
-    
-    if(detailMode){
-        displaySentenceDetail();        
-    }else{
+
+    if (detailMode) {
+        displaySentenceDetail();
+    } else {
         displaySentenceSimple();
     }
 }
 
 function displaySentenceSimple() {
-    const sentenceContainer = document.getElementById('sentenceContainer');
+
     const sentence = currentStory.sentences[currentIndex];
-    sentenceContainer.innerHTML = maoriMode? sentence.maori : sentence.english;
+    ui.displays.sentenceContainer.innerHTML = maoriMode ? sentence.maori : sentence.english;
 }
 
 function displaySentenceDetail() {
-    const sentenceContainer = document.getElementById('sentenceContainer');
-    const detailsContainer = document.getElementById('detailsContainer');
-    sentenceContainer.innerHTML = '';
-    detailsContainer.innerHTML = '';
+
+    ui.displays.sentenceContainer.innerHTML = '';
+    ui.displays.detailsContainer.innerHTML = '';
     const sentence = currentStory.sentences[currentIndex];
 
-    console.log('sentence', sentence);
+    //temp in case a sentence does not have any notes
+    const notes = sentence.notes || [];
 
-    sentence.notes.forEach(phrase => {
+    notes.forEach(phrase => {
         const phraseDiv = document.createElement('div');
         phraseDiv.className = 'phrase';
         phraseDiv.innerText = phrase.text;
         phraseDiv.addEventListener('click', () => {
-            
+
             if (selectedPhrase) {
                 selectedPhrase.classList.remove('selected');
             }
             phraseDiv.classList.add('selected');
             selectedPhrase = phraseDiv;
+            const role = phrase.role || '';
+
             detailsContainer.innerHTML = `
                 <p><strong>Text:</strong> ${phrase.text}</p>
                 <p><strong>Translation:</strong> ${phrase.translation}</p>
                 <p><strong>Type:</strong> ${phrase.type}</p>
-                <p><strong>Role:</strong> ${phrase.role}</p>
+                <p><strong>Role:</strong> ${role}</p>
                 <p><strong>Explanations:</strong></p>
                 <ul>
                     ${phrase.explanations.map(explanation => `
@@ -155,11 +220,15 @@ function displaySentenceDetail() {
 }
 
 function updateButtons() {
-    document.getElementById('backButton').disabled = currentIndex === 0;
-    document.getElementById('nextButton').disabled = currentIndex === currentStory.sentences.length - 1;
+    ui.buttons.back.disabled = currentIndex === 0;
+    ui.buttons.next.disabled = currentIndex === currentStory.sentences.length - 1;
 }
 
 function showIntroView() {
-    document.getElementById('story-view').style.display = 'none';
-    document.getElementById('intro-view').style.display = 'flex';
+    showView(ui.views.story, false);
+    showView(ui.views.category, true);
+}
+
+function showView(view, visible) {
+    view.style.display = visible ? 'flex' : 'none';
 }
