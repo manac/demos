@@ -1,0 +1,2546 @@
+{
+  "category": "Ngā Haerenga o Chocolate rāua ko Tiger",
+  "stories": [
+    {
+      "title": {
+        "maori": "Tiger rāua ko Chocolate",
+        "english": "Tiger and Chocolate"
+      },
+      "sentences": [
+        {
+          "maori": "I tētahi rā, i tākaro a Tiger rāua ko Chocolate ki te pōro a Tiger.",
+          "english": "One day, Tiger and Chocolate were playing with Tiger's ball.",
+          "notes": [
+            {
+              "text": "I tētahi rā",
+              "type": "phrase",
+              "translation": "One day",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "tētahi",
+                  "explanation": "Used to refer to a specific but unspecified thing."
+                },
+                {
+                  "token": "rā",
+                  "explanation": "Noun meaning 'day.'"
+                }
+              ],
+              "role": "time"
+            },
+            {
+              "text": "i tākaro a Tiger rāua ko Chocolate",
+              "type": "phrase",
+              "translation": "Tiger and Chocolate were playing",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "tākaro",
+                  "explanation": "Verb meaning 'playing.'"
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "rāua ko",
+                  "explanation": "Conjunction meaning 'and' (used to connect two names)."
+                },
+                {
+                  "token": "Tiger",
+                  "explanation": "The name of the first person."
+                },
+                {
+                  "token": "Chocolate",
+                  "explanation": "The name of the second person."
+                }
+              ],
+              "role": "subject"
+            },
+            {
+              "text": "ki te pōro a Tiger",
+              "type": "phrase",
+              "translation": "with Tiger's ball",
+              "explanations": [
+                {
+                  "token": "ki",
+                  "explanation": "Preposition meaning 'with.'"
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the.'"
+                },
+                {
+                  "token": "pōro",
+                  "explanation": "Noun meaning 'ball.'"
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "Tiger",
+                  "explanation": "The name of the person."
+                }
+              ],
+              "role": "object"
+            }
+          ]
+        },
+        {
+          "maori": "Ahakoa he rerekē ā rāua momo, he tino hoa rātou.",
+          "english": "Even though they are different species, they are best friends.",
+          "notes": [
+            {
+              "text": "Ahakoa he rerekē ā rāua momo",
+              "type": "phrase",
+              "translation": "Even though they are different species",
+              "explanations": [
+                {
+                  "token": "Ahakoa",
+                  "explanation": "Conjunction meaning 'even though.'"
+                },
+                {
+                  "token": "he",
+                  "explanation": "Indicates a state or condition."
+                },
+                {
+                  "token": "rerekē",
+                  "explanation": "Adjective meaning 'different.'"
+                },
+                {
+                  "token": "ā",
+                  "explanation": "Possessive particle meaning 'of.'"
+                },
+                {
+                  "token": "rāua",
+                  "explanation": "Pronoun meaning 'they' (dual)."
+                },
+                {
+                  "token": "momo",
+                  "explanation": "Noun meaning 'species.'"
+                }
+              ],
+              "role": "condition"
+            },
+            {
+              "text": "he tino hoa rātou",
+              "type": "phrase",
+              "translation": "they are best friends",
+              "explanations": [
+                {
+                  "token": "he",
+                  "explanation": "Indicates a state or condition."
+                },
+                {
+                  "token": "tino",
+                  "explanation": "Adverb meaning 'very' or 'best.'"
+                },
+                {
+                  "token": "hoa",
+                  "explanation": "Noun meaning 'friend.'"
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they' (plural)."
+                }
+              ],
+              "role": "subject"
+            }
+          ]
+        },
+        {
+          "maori": "I whiua e Tiger te pōro, ā, i oma a Chocolate ki te hopu i te pōro.",
+          "english": "Tiger threw the ball, and Chocolate ran to catch it.",
+          "notes": [
+            {
+              "text": "I whiua e Tiger te pōro",
+              "type": "phrase",
+              "translation": "Tiger threw the ball",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "whiua",
+                  "explanation": "Verb meaning 'threw.'"
+                },
+                {
+                  "token": "e",
+                  "explanation": "Particle used before the subject of the verb."
+                },
+                {
+                  "token": "Tiger",
+                  "explanation": "The name of the person."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the.'"
+                },
+                {
+                  "token": "pōro",
+                  "explanation": "Noun meaning 'ball.'"
+                }
+              ],
+              "role": "action"
+            },
+            {
+              "text": "ā, i oma a Chocolate ki te hopu i te pōro",
+              "type": "phrase",
+              "translation": "and Chocolate ran to catch it",
+              "explanations": [
+                {
+                  "token": "ā",
+                  "explanation": "Conjunction meaning 'and.'"
+                },
+                {
+                  "token": "i",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "oma",
+                  "explanation": "Verb meaning 'ran.'"
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "Chocolate",
+                  "explanation": "The name of the person."
+                },
+                {
+                  "token": "ki",
+                  "explanation": "Preposition meaning 'to.'"
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the.'"
+                },
+                {
+                  "token": "hopu",
+                  "explanation": "Verb meaning 'catch.'"
+                },
+                {
+                  "token": "i",
+                  "explanation": "Indicates the object of the action."
+                },
+                {
+                  "token": "te pōro",
+                  "explanation": "Noun phrase meaning 'the ball.'"
+                }
+              ],
+              "role": "action"
+            }
+          ]
+        },
+        {
+          "maori": "I hoki mai a Chocolate me te pōro i roto i tōna waha, ā, i koa a Tiger.",
+          "english": "Chocolate came back with the ball in his mouth, and Tiger was happy.",
+          "notes": [
+            {
+              "text": "I hoki mai a Chocolate me te pōro i roto i tōna waha",
+              "type": "phrase",
+              "translation": "Chocolate came back with the ball in his mouth",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "hoki mai",
+                  "explanation": "Verb phrase meaning 'came back.'"
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "Chocolate",
+                  "explanation": "The name of the person."
+                },
+                {
+                  "token": "me",
+                  "explanation": "Conjunction meaning 'with.'"
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the.'"
+                },
+                {
+                  "token": "pōro",
+                  "explanation": "Noun meaning 'ball.'"
+                },
+                {
+                  "token": "i roto i",
+                  "explanation": "Prepositional phrase meaning 'in.'"
+                },
+                {
+                  "token": "tōna",
+                  "explanation": "Possessive pronoun meaning 'his.'"
+                },
+                {
+                  "token": "waha",
+                  "explanation": "Noun meaning 'mouth.'"
+                }
+              ],
+              "role": "action"
+            },
+            {
+              "text": "ā, i koa a Tiger",
+              "type": "phrase",
+              "translation": "and Tiger was happy",
+              "explanations": [
+                {
+                  "token": "ā",
+                  "explanation": "Conjunction meaning 'and.'"
+                },
+                {
+                  "token": "i",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "koa",
+                  "explanation": "Adjective meaning 'happy.'"
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "Tiger",
+                  "explanation": "The name of the person."
+                }
+              ],
+              "role": "emotion"
+            }
+          ]
+        },
+        {
+          "maori": "I tākaro rātou mō te wā roa, ā, i ngenge rātou i te mutunga.",
+          "english": "They played for a long time, and they were tired in the end.",
+          "notes": [
+            {
+              "text": "I tākaro rātou mō te wā roa",
+              "type": "phrase",
+              "translation": "They played for a long time",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "tākaro",
+                  "explanation": "Verb meaning 'played.'"
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they' (plural)."
+                },
+                {
+                  "token": "mō",
+                  "explanation": "Preposition meaning 'for.'"
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the.'"
+                },
+                {
+                  "token": "wā roa",
+                  "explanation": "Noun phrase meaning 'long time.'"
+                }
+              ],
+              "role": "action"
+            },
+            {
+              "text": "ā, i ngenge rātou i te mutunga",
+              "type": "phrase",
+              "translation": "and they were tired in the end",
+              "explanations": [
+                {
+                  "token": "ā",
+                  "explanation": "Conjunction meaning 'and.'"
+                },
+                {
+                  "token": "i",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "ngenge",
+                  "explanation": "Adjective meaning 'tired.'"
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they' (plural)."
+                },
+                {
+                  "token": "i te mutunga",
+                  "explanation": "Prepositional phrase meaning 'in the end.'"
+                }
+              ],
+              "role": "condition"
+            }
+          ]
+        },
+        {
+          "maori": "I moe a Tiger rāua ko Chocolate i raro i te rākau, ā, i moemoeā rātou mō ngā tākaro āpōpō.",
+          "english": "Tiger and Chocolate slept under the tree, dreaming of tomorrow's games.",
+          "notes": [
+            {
+              "text": "I moe a Tiger rāua ko Chocolate i raro i te rākau",
+              "type": "phrase",
+              "translation": "Tiger and Chocolate slept under the tree",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "moe",
+                  "explanation": "Verb meaning 'slept.'"
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "rāua ko",
+                  "explanation": "Conjunction meaning 'and' (used to connect two names)."
+                },
+                {
+                  "token": "Tiger",
+                  "explanation": "The name of the first person."
+                },
+                {
+                  "token": "Chocolate",
+                  "explanation": "The name of the second person."
+                },
+                {
+                  "token": "i raro i",
+                  "explanation": "Prepositional phrase meaning 'under.'"
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the.'"
+                },
+                {
+                  "token": "rākau",
+                  "explanation": "Noun meaning 'tree.'"
+                }
+              ],
+              "role": "action"
+            },
+            {
+              "text": "ā, i moemoeā rātou mō ngā tākaro āpōpō",
+              "type": "phrase",
+              "translation": "dreaming of tomorrow's games",
+              "explanations": [
+                {
+                  "token": "ā",
+                  "explanation": "Conjunction meaning 'and.'"
+                },
+                {
+                  "token": "i",
+                  "explanation": "Indicates the time of an action."
+                },
+                {
+                  "token": "moemoeā",
+                  "explanation": "Verb meaning 'dreaming.'"
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they' (plural)."
+                },
+                {
+                  "token": "mō",
+                  "explanation": "Preposition meaning 'of.'"
+                },
+                {
+                  "token": "ngā",
+                  "explanation": "Determiner meaning 'the' (plural)."
+                },
+                {
+                  "token": "tākaro",
+                  "explanation": "Noun meaning 'games.'"
+                },
+                {
+                  "token": "āpōpō",
+                  "explanation": "Noun meaning 'tomorrow.'"
+                }
+              ],
+              "role": "action"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "maori": "Te Pōro Ngaro",
+        "english": "The Lost Ball"
+      },
+      "sentences": [
+        {
+          "maori": "I tētahi rā, i tākaro a Tiger rāua ko Chocolate ki te pōro a Tiger.",
+          "english": "One day, Tiger and Chocolate were playing with Tiger's ball.",
+          "notes": [
+            {
+              "text": "I tētahi rā",
+              "type": "phrase",
+              "translation": "One day",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "tētahi",
+                  "explanation": "Indefinite article meaning 'a' or 'one'."
+                },
+                {
+                  "token": "rā",
+                  "explanation": "Noun meaning 'day'."
+                }
+              ]
+            },
+            {
+              "text": "i tākaro",
+              "type": "phrase",
+              "translation": "were playing",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "tākaro",
+                  "explanation": "Verb meaning 'to play'."
+                }
+              ]
+            },
+            {
+              "text": "a Tiger rāua ko Chocolate",
+              "type": "phrase",
+              "translation": "Tiger and Chocolate",
+              "explanations": [
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "rāua ko",
+                  "explanation": "Conjunction meaning 'and' when joining two names."
+                }
+              ]
+            },
+            {
+              "text": "ki te pōro a Tiger",
+              "type": "phrase",
+              "translation": "with Tiger's ball",
+              "explanations": [
+                {
+                  "token": "ki",
+                  "explanation": "Preposition meaning 'with'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "pōro",
+                  "explanation": "Noun meaning 'ball'."
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I whiua e Tiger te pōro, ā, i ngaro te pōro i roto i te ngahere.",
+          "english": "Tiger threw the ball, and it got lost in the forest.",
+          "notes": [
+            {
+              "text": "I whiua e Tiger te pōro",
+              "type": "phrase",
+              "translation": "Tiger threw the ball",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "whiua",
+                  "explanation": "Verb meaning 'threw'."
+                },
+                {
+                  "token": "e",
+                  "explanation": "Agent marker."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "pōro",
+                  "explanation": "Noun meaning 'ball'."
+                }
+              ]
+            },
+            {
+              "text": "ā, i ngaro te pōro i roto i te ngahere",
+              "type": "phrase",
+              "translation": "and it got lost in the forest",
+              "explanations": [
+                {
+                  "token": "ā",
+                  "explanation": "Conjunction meaning 'and'."
+                },
+                {
+                  "token": "i",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "ngaro",
+                  "explanation": "Verb meaning 'got lost'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "pōro",
+                  "explanation": "Noun meaning 'ball'."
+                },
+                {
+                  "token": "i roto i",
+                  "explanation": "Preposition meaning 'in'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "ngahere",
+                  "explanation": "Noun meaning 'forest'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I rapu a Tiger rāua ko Chocolate i te pōro mō te wā roa.",
+          "english": "Tiger and Chocolate searched for the ball for a long time.",
+          "notes": [
+            {
+              "text": "I rapu",
+              "type": "phrase",
+              "translation": "searched",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "rapu",
+                  "explanation": "Verb meaning 'searched'."
+                }
+              ]
+            },
+            {
+              "text": "a Tiger rāua ko Chocolate",
+              "type": "phrase",
+              "translation": "Tiger and Chocolate",
+              "explanations": [
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "rāua ko",
+                  "explanation": "Conjunction meaning 'and' when joining two names."
+                }
+              ]
+            },
+            {
+              "text": "i te pōro",
+              "type": "phrase",
+              "translation": "for the ball",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Preposition meaning 'for'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "pōro",
+                  "explanation": "Noun meaning 'ball'."
+                }
+              ]
+            },
+            {
+              "text": "mō te wā roa",
+              "type": "phrase",
+              "translation": "for a long time",
+              "explanations": [
+                {
+                  "token": "mō",
+                  "explanation": "Preposition meaning 'for'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "wā",
+                  "explanation": "Noun meaning 'time'."
+                },
+                {
+                  "token": "roa",
+                  "explanation": "Adjective meaning 'long'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I te mutunga, i kitea e Chocolate te pōro i raro i tētahi rākau.",
+          "english": "In the end, Chocolate found the ball under a tree.",
+          "notes": [
+            {
+              "text": "I te mutunga",
+              "type": "phrase",
+              "translation": "In the end",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "mutunga",
+                  "explanation": "Noun meaning 'end'."
+                }
+              ]
+            },
+            {
+              "text": "i kitea e Chocolate te pōro",
+              "type": "phrase",
+              "translation": "Chocolate found the ball",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "kitea",
+                  "explanation": "Verb meaning 'found'."
+                },
+                {
+                  "token": "e",
+                  "explanation": "Agent marker."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "pōro",
+                  "explanation": "Noun meaning 'ball'."
+                }
+              ]
+            },
+            {
+              "text": "i raro i tētahi rākau",
+              "type": "phrase",
+              "translation": "under a tree",
+              "explanations": [
+                {
+                  "token": "i raro i",
+                  "explanation": "Preposition meaning 'under'."
+                },
+                {
+                  "token": "tētahi",
+                  "explanation": "Indefinite article meaning 'a' or 'one'."
+                },
+                {
+                  "token": "rākau",
+                  "explanation": "Noun meaning 'tree'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I koa a Tiger, ā, i mihi ia ki a Chocolate mō tōna āwhina.",
+          "english": "Tiger was happy and thanked Chocolate for his help.",
+          "notes": [
+            {
+              "text": "I koa a Tiger",
+              "type": "phrase",
+              "translation": "Tiger was happy",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "koa",
+                  "explanation": "Adjective meaning 'happy'."
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                }
+              ]
+            },
+            {
+              "text": "ā, i mihi ia ki a Chocolate",
+              "type": "phrase",
+              "translation": "and thanked Chocolate",
+              "explanations": [
+                {
+                  "token": "ā",
+                  "explanation": "Conjunction meaning 'and'."
+                },
+                {
+                  "token": "i",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "mihi",
+                  "explanation": "Verb meaning 'thanked'."
+                },
+                {
+                  "token": "ia",
+                  "explanation": "Pronoun meaning 'he/she'."
+                },
+                {
+                  "token": "ki",
+                  "explanation": "Preposition meaning 'to'."
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                }
+              ]
+            },
+            {
+              "text": "mō tōna āwhina",
+              "type": "phrase",
+              "translation": "for his help",
+              "explanations": [
+                {
+                  "token": "mō",
+                  "explanation": "Preposition meaning 'for'."
+                },
+                {
+                  "token": "tōna",
+                  "explanation": "Possessive pronoun meaning 'his/her'."
+                },
+                {
+                  "token": "āwhina",
+                  "explanation": "Noun meaning 'help'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I ako rātou i te hiranga o te mahi tahi me te āwhina i a rāua anō.",
+          "english": "They learned the importance of working together and helping each other.",
+          "notes": [
+            {
+              "text": "I ako rātou",
+              "type": "phrase",
+              "translation": "They learned",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "ako",
+                  "explanation": "Verb meaning 'learned'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they'."
+                }
+              ]
+            },
+            {
+              "text": "i te hiranga o te mahi tahi",
+              "type": "phrase",
+              "translation": "the importance of working together",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Preposition meaning 'of'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "hiranga",
+                  "explanation": "Noun meaning 'importance'."
+                },
+                {
+                  "token": "o",
+                  "explanation": "Preposition meaning 'of'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "mahi tahi",
+                  "explanation": "Noun meaning 'working together'."
+                }
+              ]
+            },
+            {
+              "text": "me te āwhina i a rāua anō",
+              "type": "phrase",
+              "translation": "and helping each other",
+              "explanations": [
+                {
+                  "token": "me",
+                  "explanation": "Conjunction meaning 'and'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "āwhina",
+                  "explanation": "Noun meaning 'helping'."
+                },
+                {
+                  "token": "i",
+                  "explanation": "Preposition meaning 'each'."
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "rāua",
+                  "explanation": "Pronoun meaning 'they'."
+                },
+                {
+                  "token": "anō",
+                  "explanation": "Adverb meaning 'again' or 'each other'."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "maori": "Te Pō Taratara",
+        "english": "The Spiky Ball"
+      },
+      "sentences": [
+        {
+          "maori": "I tētahi pō, i pupuhi te hau, ā, i heke te ua kaha.",
+          "english": "One night, the wind blew, and it rained heavily.",
+          "notes": [
+            {
+              "text": "I tētahi pō",
+              "type": "phrase",
+              "translation": "One night",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "tētahi",
+                  "explanation": "Indefinite article meaning 'a' or 'one'."
+                },
+                {
+                  "token": "pō",
+                  "explanation": "Noun meaning 'night'."
+                }
+              ]
+            },
+            {
+              "text": "i pupuhi te hau",
+              "type": "phrase",
+              "translation": "the wind blew",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "pupuhi",
+                  "explanation": "Verb meaning 'blew'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "hau",
+                  "explanation": "Noun meaning 'wind'."
+                }
+              ]
+            },
+            {
+              "text": "ā, i heke te ua kaha",
+              "type": "phrase",
+              "translation": "and it rained heavily",
+              "explanations": [
+                {
+                  "token": "ā",
+                  "explanation": "Conjunction meaning 'and'."
+                },
+                {
+                  "token": "i",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "heke",
+                  "explanation": "Verb meaning 'rained'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "ua",
+                  "explanation": "Noun meaning 'rain'."
+                },
+                {
+                  "token": "kaha",
+                  "explanation": "Adjective meaning 'heavily'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I mataku a Tiger rāua ko Chocolate i te haruru o te whatitiri.",
+          "english": "Tiger and Chocolate were scared of the thunder.",
+          "notes": [
+            {
+              "text": "I mataku",
+              "type": "phrase",
+              "translation": "were scared",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "mataku",
+                  "explanation": "Verb meaning 'were scared'."
+                }
+              ]
+            },
+            {
+              "text": "a Tiger rāua ko Chocolate",
+              "type": "phrase",
+              "translation": "Tiger and Chocolate",
+              "explanations": [
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "rāua ko",
+                  "explanation": "Conjunction meaning 'and' when joining two names."
+                }
+              ]
+            },
+            {
+              "text": "i te haruru o te whatitiri",
+              "type": "phrase",
+              "translation": "of the thunder",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Preposition meaning 'of'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "haruru",
+                  "explanation": "Noun meaning 'sound'."
+                },
+                {
+                  "token": "o",
+                  "explanation": "Preposition meaning 'of'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "whatitiri",
+                  "explanation": "Noun meaning 'thunder'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I noho rātou tata ki a rāua anō ki te whakamārie i a rāua anō.",
+          "english": "They stayed close to each other to comfort each other.",
+          "notes": [
+            {
+              "text": "I noho rātou",
+              "type": "phrase",
+              "translation": "They stayed",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "noho",
+                  "explanation": "Verb meaning 'stayed'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they'."
+                }
+              ]
+            },
+            {
+              "text": "tata ki a rāua anō",
+              "type": "phrase",
+              "translation": "close to each other",
+              "explanations": [
+                {
+                  "token": "tata",
+                  "explanation": "Adjective meaning 'close'."
+                },
+                {
+                  "token": "ki",
+                  "explanation": "Preposition meaning 'to'."
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "rāua",
+                  "explanation": "Pronoun meaning 'they'."
+                },
+                {
+                  "token": "anō",
+                  "explanation": "Adverb meaning 'each other'."
+                }
+              ]
+            },
+            {
+              "text": "ki te whakamārie i a rāua anō",
+              "type": "phrase",
+              "translation": "to comfort each other",
+              "explanations": [
+                {
+                  "token": "ki",
+                  "explanation": "Preposition meaning 'to'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "whakamārie",
+                  "explanation": "Verb meaning 'comfort'."
+                },
+                {
+                  "token": "i",
+                  "explanation": "Preposition meaning 'each'."
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "rāua",
+                  "explanation": "Pronoun meaning 'they'."
+                },
+                {
+                  "token": "anō",
+                  "explanation": "Adverb meaning 'each other'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I kōrero rātou mō ngā wā pai i tākaro rātou i waho.",
+          "english": "They talked about the good times they had playing outside.",
+          "notes": [
+            {
+              "text": "I kōrero rātou",
+              "type": "phrase",
+              "translation": "They talked",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "kōrero",
+                  "explanation": "Verb meaning 'talked'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they'."
+                }
+              ]
+            },
+            {
+              "text": "mō ngā wā pai",
+              "type": "phrase",
+              "translation": "about the good times",
+              "explanations": [
+                {
+                  "token": "mō",
+                  "explanation": "Preposition meaning 'about'."
+                },
+                {
+                  "token": "ngā",
+                  "explanation": "Determiner meaning 'the' (plural)."
+                },
+                {
+                  "token": "wā",
+                  "explanation": "Noun meaning 'times'."
+                },
+                {
+                  "token": "pai",
+                  "explanation": "Adjective meaning 'good'."
+                }
+              ]
+            },
+            {
+              "text": "i tākaro rātou i waho",
+              "type": "phrase",
+              "translation": "they had playing outside",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "tākaro",
+                  "explanation": "Verb meaning 'played'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they'."
+                },
+                {
+                  "token": "i waho",
+                  "explanation": "Prepositional phrase meaning 'outside'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I te mutunga, i moe rātou i raro i te moenga, ā, i moemoeā rātou mō ngā rā pai āpōpō.",
+          "english": "In the end, they slept under the bed, dreaming of better days ahead.",
+          "notes": [
+            {
+              "text": "I te mutunga",
+              "type": "phrase",
+              "translation": "In the end",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "mutunga",
+                  "explanation": "Noun meaning 'end'."
+                }
+              ]
+            },
+            {
+              "text": "i moe rātou i raro i te moenga",
+              "type": "phrase",
+              "translation": "they slept under the bed",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "moe",
+                  "explanation": "Verb meaning 'slept'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they'."
+                },
+                {
+                  "token": "i raro i",
+                  "explanation": "Preposition meaning 'under'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "moenga",
+                  "explanation": "Noun meaning 'bed'."
+                }
+              ]
+            },
+            {
+              "text": "ā, i moemoeā rātou mō ngā rā pai āpōpō",
+              "type": "phrase",
+              "translation": "dreaming of better days ahead",
+              "explanations": [
+                {
+                  "token": "ā",
+                  "explanation": "Conjunction meaning 'and'."
+                },
+                {
+                  "token": "i",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "moemoeā",
+                  "explanation": "Verb meaning 'dreamed'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they'."
+                },
+                {
+                  "token": "mō",
+                  "explanation": "Preposition meaning 'of'."
+                },
+                {
+                  "token": "ngā",
+                  "explanation": "Determiner meaning 'the' (plural)."
+                },
+                {
+                  "token": "rā",
+                  "explanation": "Noun meaning 'days'."
+                },
+                {
+                  "token": "pai",
+                  "explanation": "Adjective meaning 'better'."
+                },
+                {
+                  "token": "āpōpō",
+                  "explanation": "Noun meaning 'tomorrow' or 'future'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I ako rātou i te hiranga o te tautoko i a rāua anō i ngā wā uaua.",
+          "english": "They learned the importance of supporting each other during tough times.",
+          "notes": [
+            {
+              "text": "I ako rātou",
+              "type": "phrase",
+              "translation": "They learned",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Past tense marker."
+                },
+                {
+                  "token": "ako",
+                  "explanation": "Verb meaning 'learned'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Pronoun meaning 'they'."
+                }
+              ]
+            },
+            {
+              "text": "i te hiranga o te tautoko",
+              "type": "phrase",
+              "translation": "the importance of supporting",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Preposition meaning 'of'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "hiranga",
+                  "explanation": "Noun meaning 'importance'."
+                },
+                {
+                  "token": "o",
+                  "explanation": "Preposition meaning 'of'."
+                },
+                {
+                  "token": "te",
+                  "explanation": "Determiner meaning 'the'."
+                },
+                {
+                  "token": "tautoko",
+                  "explanation": "Noun meaning 'supporting'."
+                }
+              ]
+            },
+            {
+              "text": "i a rāua anō i ngā wā uaua",
+              "type": "phrase",
+              "translation": "each other during tough times",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Preposition meaning 'each'."
+                },
+                {
+                  "token": "a",
+                  "explanation": "Particle used before a personal name."
+                },
+                {
+                  "token": "rāua",
+                  "explanation": "Pronoun meaning 'they'."
+                },
+                {
+                  "token": "anō",
+                  "explanation": "Adverb meaning 'each other'."
+                },
+                {
+                  "token": "i",
+                  "explanation": "Preposition meaning 'during'."
+                },
+                {
+                  "token": "ngā",
+                  "explanation": "Determiner meaning 'the' (plural)."
+                },
+                {
+                  "token": "wā",
+                  "explanation": "Noun meaning 'times'."
+                },
+                {
+                  "token": "uaua",
+                  "explanation": "Adjective meaning 'tough'."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "maori": "Te Whakaoranga i te Māra",
+        "english": "The Rescue in the Garden"
+      },
+      "sentences": [
+        {
+          "maori": "I tētahi rā, i tākaro a Tiger rāua ko Chocolate i te māra.",
+          "english": "One day, Tiger and Chocolate were playing in the garden.",
+          "notes": [
+            {
+              "text": "I tētahi rā, i tākaro a Tiger rāua ko Chocolate i te māra.",
+              "type": "sentence",
+              "translation": "One day, Tiger and Chocolate were playing in the garden.",
+              "explanations": [
+                {
+                  "token": "I tētahi rā",
+                  "explanation": "One day"
+                },
+                {
+                  "token": "i tākaro",
+                  "explanation": "were playing"
+                },
+                {
+                  "token": "a Tiger rāua ko Chocolate",
+                  "explanation": "Tiger and Chocolate"
+                },
+                {
+                  "token": "i te māra",
+                  "explanation": "in the garden"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I kite rātou i tētahi manu iti kua mau ki roto i tētahi kupenga.",
+          "english": "They saw a small bird trapped in a net.",
+          "notes": [
+            {
+              "text": "I kite rātou i tētahi manu iti kua mau ki roto i tētahi kupenga.",
+              "type": "sentence",
+              "translation": "They saw a small bird trapped in a net.",
+              "explanations": [
+                {
+                  "token": "I kite rātou",
+                  "explanation": "They saw"
+                },
+                {
+                  "token": "i tētahi manu iti",
+                  "explanation": "a small bird"
+                },
+                {
+                  "token": "kua mau",
+                  "explanation": "trapped"
+                },
+                {
+                  "token": "ki roto i tētahi kupenga",
+                  "explanation": "in a net"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I whakatau rātou ki te āwhina i te manu.",
+          "english": "They decided to help the bird.",
+          "notes": [
+            {
+              "text": "I whakatau rātou ki te āwhina i te manu.",
+              "type": "sentence",
+              "translation": "They decided to help the bird.",
+              "explanations": [
+                {
+                  "token": "I whakatau rātou",
+                  "explanation": "They decided"
+                },
+                {
+                  "token": "ki te āwhina",
+                  "explanation": "to help"
+                },
+                {
+                  "token": "i te manu",
+                  "explanation": "the bird"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I tapahi a Chocolate i te kupenga ki ōna niho, ā, i āwhina a Tiger ki te pupuri i te kupenga.",
+          "english": "Chocolate cut the net with his teeth, and Tiger helped hold the net.",
+          "notes": [
+            {
+              "text": "I tapahi a Chocolate i te kupenga ki ōna niho, ā, i āwhina a Tiger ki te pupuri i te kupenga.",
+              "type": "sentence",
+              "translation": "Chocolate cut the net with his teeth, and Tiger helped hold the net.",
+              "explanations": [
+                {
+                  "token": "I tapahi",
+                  "explanation": "cut"
+                },
+                {
+                  "token": "a Chocolate",
+                  "explanation": "Chocolate"
+                },
+                {
+                  "token": "i te kupenga",
+                  "explanation": "the net"
+                },
+                {
+                  "token": "ki ōna niho",
+                  "explanation": "with his teeth"
+                },
+                {
+                  "token": "ā",
+                  "explanation": "and"
+                },
+                {
+                  "token": "i āwhina",
+                  "explanation": "helped"
+                },
+                {
+                  "token": "a Tiger",
+                  "explanation": "Tiger"
+                },
+                {
+                  "token": "ki te pupuri",
+                  "explanation": "to hold"
+                },
+                {
+                  "token": "i te kupenga",
+                  "explanation": "the net"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I te mutunga, i tukuna te manu kia rere anō.",
+          "english": "In the end, they set the bird free.",
+          "notes": [
+            {
+              "text": "I te mutunga, i tukuna te manu kia rere anō.",
+              "type": "sentence",
+              "translation": "In the end, they set the bird free.",
+              "explanations": [
+                {
+                  "token": "I te mutunga",
+                  "explanation": "In the end"
+                },
+                {
+                  "token": "i tukuna",
+                  "explanation": "set free"
+                },
+                {
+                  "token": "te manu",
+                  "explanation": "the bird"
+                },
+                {
+                  "token": "kia rere anō",
+                  "explanation": "to fly again"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I koa rātou mō tō rātou mahi pai, ā, i ako rātou i te hiranga o te manaaki i ngā mea ora katoa.",
+          "english": "They were happy with their good deed and learned the importance of caring for all living things.",
+          "notes": [
+            {
+              "text": "I koa rātou mō tō rātou mahi pai, ā, i ako rātou i te hiranga o te manaaki i ngā mea ora katoa.",
+              "type": "sentence",
+              "translation": "They were happy with their good deed and learned the importance of caring for all living things.",
+              "explanations": [
+                {
+                  "token": "I koa rātou",
+                  "explanation": "They were happy"
+                },
+                {
+                  "token": "mō tō rātou mahi pai",
+                  "explanation": "with their good deed"
+                },
+                {
+                  "token": "ā",
+                  "explanation": "and"
+                },
+                {
+                  "token": "i ako rātou",
+                  "explanation": "they learned"
+                },
+                {
+                  "token": "i te hiranga",
+                  "explanation": "the importance"
+                },
+                {
+                  "token": "o te manaaki",
+                  "explanation": "of caring"
+                },
+                {
+                  "token": "i ngā mea ora katoa",
+                  "explanation": "for all living things"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "maori": "Te Mīharo o te Pikiniki",
+        "english": "The Wonder of the Picnic"
+      },
+      "sentences": [
+        {
+          "maori": "I tētahi rā, i whakaritea e Tiger rāua ko Chocolate tētahi pikiniki.",
+          "english": "One day, Tiger and Chocolate prepared a picnic.",
+          "notes": [
+            {
+              "text": "I tētahi rā, i whakaritea e Tiger rāua ko Chocolate tētahi pikiniki.",
+              "type": "sentence",
+              "translation": "One day, Tiger and Chocolate prepared a picnic.",
+              "explanations": [
+                {
+                  "token": "I tētahi rā",
+                  "explanation": "One day"
+                },
+                {
+                  "token": "i whakaritea e",
+                  "explanation": "prepared by"
+                },
+                {
+                  "token": "Tiger rāua ko Chocolate",
+                  "explanation": "Tiger and Chocolate"
+                },
+                {
+                  "token": "tētahi pikiniki",
+                  "explanation": "a picnic"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I kawea e rātou ngā kai reka ki te papa rēhia.",
+          "english": "They brought delicious food to the park.",
+          "notes": [
+            {
+              "text": "I kawea e rātou ngā kai reka ki te papa rēhia.",
+              "type": "sentence",
+              "translation": "They brought delicious food to the park.",
+              "explanations": [
+                {
+                  "token": "I kawea e rātou",
+                  "explanation": "They brought"
+                },
+                {
+                  "token": "ngā kai reka",
+                  "explanation": "delicious food"
+                },
+                {
+                  "token": "ki te papa rēhia",
+                  "explanation": "to the park"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I kite rātou i tētahi ngeru iti e noho mokemoke ana i raro i tētahi rākau.",
+          "english": "They saw a small kitten sitting alone under a tree.",
+          "notes": [
+            {
+              "text": "I kite rātou i tētahi ngeru iti e noho mokemoke ana i raro i tētahi rākau.",
+              "type": "sentence",
+              "translation": "They saw a small kitten sitting alone under a tree.",
+              "explanations": [
+                {
+                  "token": "I kite rātou",
+                  "explanation": "They saw"
+                },
+                {
+                  "token": "i tētahi ngeru iti",
+                  "explanation": "a small kitten"
+                },
+                {
+                  "token": "e noho mokemoke ana",
+                  "explanation": "sitting alone"
+                },
+                {
+                  "token": "i raro i tētahi rākau",
+                  "explanation": "under a tree"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I whakatau rātou ki te tono i te ngeru iti ki tō rātou pikiniki.",
+          "english": "They decided to invite the kitten to their picnic.",
+          "notes": [
+            {
+              "text": "I whakatau rātou ki te tono i te ngeru iti ki tō rātou pikiniki.",
+              "type": "sentence",
+              "translation": "They decided to invite the kitten to their picnic.",
+              "explanations": [
+                {
+                  "token": "I whakatau rātou",
+                  "explanation": "They decided"
+                },
+                {
+                  "token": "ki te tono",
+                  "explanation": "to invite"
+                },
+                {
+                  "token": "i te ngeru iti",
+                  "explanation": "the kitten"
+                },
+                {
+                  "token": "ki tō rātou pikiniki",
+                  "explanation": "to their picnic"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I kai rātou katoa i ngā kai reka, ā, i tākaro rātou i ngā kēmu.",
+          "english": "They all ate the delicious food and played games.",
+          "notes": [
+            {
+              "text": "I kai rātou katoa i ngā kai reka, ā, i tākaro rātou i ngā kēmu.",
+              "type": "sentence",
+              "translation": "They all ate the delicious food and played games.",
+              "explanations": [
+                {
+                  "token": "I kai rātou katoa",
+                  "explanation": "They all ate"
+                },
+                {
+                  "token": "i ngā kai reka",
+                  "explanation": "the delicious food"
+                },
+                {
+                  "token": "ā",
+                  "explanation": "and"
+                },
+                {
+                  "token": "i tākaro rātou",
+                  "explanation": "they played"
+                },
+                {
+                  "token": "i ngā kēmu",
+                  "explanation": "games"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I te mutunga, i whai hoa hou te ngeru iti, ā, i ako rātou i te hiranga o te manaaki i ngā tāngata hou.",
+          "english": "In the end, the kitten made new friends, and they learned the importance of welcoming new people.",
+          "notes": [
+            {
+              "text": "I te mutunga, i whai hoa hou te ngeru iti, ā, i ako rātou i te hiranga o te manaaki i ngā tāngata hou.",
+              "type": "sentence",
+              "translation": "In the end, the kitten made new friends, and they learned the importance of welcoming new people.",
+              "explanations": [
+                {
+                  "token": "I te mutunga",
+                  "explanation": "In the end"
+                },
+                {
+                  "token": "i whai hoa hou",
+                  "explanation": "made new friends"
+                },
+                {
+                  "token": "te ngeru iti",
+                  "explanation": "the kitten"
+                },
+                {
+                  "token": "ā",
+                  "explanation": "and"
+                },
+                {
+                  "token": "i ako rātou",
+                  "explanation": "they learned"
+                },
+                {
+                  "token": "i te hiranga",
+                  "explanation": "the importance"
+                },
+                {
+                  "token": "o te manaaki",
+                  "explanation": "of welcoming"
+                },
+                {
+                  "token": "i ngā tāngata hou",
+                  "explanation": "new people"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "maori": "Te Āwhina o te Pāwhara",
+        "english": "The Help of the Shark"
+      },
+      "sentences": [
+        {
+          "maori": "I tētahi rā, i kite a Tiger rāua ko Chocolate i tētahi kurī kua mau ki roto i tētahi awa.",
+          "english": "One day, Tiger and Chocolate saw a dog trapped in a river.",
+          "notes": [
+            {
+              "text": "I tētahi rā, i kite a Tiger rāua ko Chocolate i tētahi kurī kua mau ki roto i tētahi awa.",
+              "type": "sentence",
+              "translation": "One day, Tiger and Chocolate saw a dog trapped in a river.",
+              "explanations": [
+                {
+                  "token": "I tētahi rā",
+                  "explanation": "One day"
+                },
+                {
+                  "token": "i kite a Tiger rāua ko Chocolate",
+                  "explanation": "Tiger and Chocolate saw"
+                },
+                {
+                  "token": "i tētahi kurī",
+                  "explanation": "a dog"
+                },
+                {
+                  "token": "kua mau ki roto i tētahi awa",
+                  "explanation": "trapped in a river"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I whakatau rātou ki te āwhina i te kurī.",
+          "english": "They decided to help the dog.",
+          "notes": [
+            {
+              "text": "I whakatau rātou ki te āwhina i te kurī.",
+              "type": "sentence",
+              "translation": "They decided to help the dog.",
+              "explanations": [
+                {
+                  "token": "I whakatau rātou",
+                  "explanation": "They decided"
+                },
+                {
+                  "token": "ki te āwhina",
+                  "explanation": "to help"
+                },
+                {
+                  "token": "i te kurī",
+                  "explanation": "the dog"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I kaukau a Chocolate ki te awa, ā, i pupuri a Tiger i te kurī ki tōna pāwhara.",
+          "english": "Chocolate swam to the river, and Tiger held the dog with his paw.",
+          "notes": [
+            {
+              "text": "I kaukau a Chocolate ki te awa, ā, i pupuri a Tiger i te kurī ki tōna pāwhara.",
+              "type": "sentence",
+              "translation": "Chocolate swam to the river, and Tiger held the dog with his paw.",
+              "explanations": [
+                {
+                  "token": "I kaukau",
+                  "explanation": "swam"
+                },
+                {
+                  "token": "a Chocolate",
+                  "explanation": "Chocolate"
+                },
+                {
+                  "token": "ki te awa",
+                  "explanation": "to the river"
+                },
+                {
+                  "token": "ā",
+                  "explanation": "and"
+                },
+                {
+                  "token": "i pupuri a Tiger",
+                  "explanation": "Tiger held"
+                },
+                {
+                  "token": "i te kurī",
+                  "explanation": "the dog"
+                },
+                {
+                  "token": "ki tōna pāwhara",
+                  "explanation": "with his paw"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I te mutunga, i whakaorangia te kurī, ā, i koa te kurī mō tō rātou āwhina.",
+          "english": "In the end, they rescued the dog, and the dog was grateful for their help.",
+          "notes": [
+            {
+              "text": "I te mutunga, i whakaorangia te kurī, ā, i koa te kurī mō tō rātou āwhina.",
+              "type": "sentence",
+              "translation": "In the end, they rescued the dog, and the dog was grateful for their help.",
+              "explanations": [
+                {
+                  "token": "I te mutunga",
+                  "explanation": "In the end"
+                },
+                {
+                  "token": "i whakaorangia",
+                  "explanation": "rescued"
+                },
+                {
+                  "token": "te kurī",
+                  "explanation": "the dog"
+                },
+                {
+                  "token": "ā",
+                  "explanation": "and"
+                },
+                {
+                  "token": "i koa te kurī",
+                  "explanation": "the dog was grateful"
+                },
+                {
+                  "token": "mō tō rātou āwhina",
+                  "explanation": "for their help"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I ako rātou i te hiranga o te āwhina i ngā tāngata katoa, ahakoa ko wai rātou.",
+          "english": "They learned the importance of helping everyone, no matter who they are.",
+          "notes": [
+            {
+              "text": "I ako rātou i te hiranga o te āwhina i ngā tāngata katoa, ahakoa ko wai rātou.",
+              "type": "sentence",
+              "translation": "They learned the importance of helping everyone, no matter who they are.",
+              "explanations": [
+                {
+                  "token": "I ako rātou",
+                  "explanation": "They learned"
+                },
+                {
+                  "token": "i te hiranga",
+                  "explanation": "the importance"
+                },
+                {
+                  "token": "o te āwhina",
+                  "explanation": "of helping"
+                },
+                {
+                  "token": "i ngā tāngata katoa",
+                  "explanation": "everyone"
+                },
+                {
+                  "token": "ahakoa ko wai rātou",
+                  "explanation": "no matter who they are"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "maori": "Te Mīharo o te Rā Whānau",
+        "english": "The Wonder of the Birthday"
+      },
+      "sentences": [
+        {
+          "maori": "I tētahi rā, i whakaritea e Chocolate tētahi mīharo mō te rā whānau o Tiger.",
+          "english": "One day, Chocolate prepared a surprise for Tiger's birthday.",
+          "notes": [
+            {
+              "text": "I tētahi rā",
+              "type": "phrase",
+              "translation": "One day",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "tētahi",
+                  "explanation": "Means 'one' or 'a certain'."
+                },
+                {
+                  "token": "rā",
+                  "explanation": "Means 'day'."
+                }
+              ]
+            },
+            {
+              "text": "i whakaritea e Chocolate",
+              "type": "phrase",
+              "translation": "Chocolate prepared",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "whakaritea",
+                  "explanation": "Means 'prepared'."
+                },
+                {
+                  "token": "e",
+                  "explanation": "Indicates the agent performing the action."
+                },
+                {
+                  "token": "Chocolate",
+                  "explanation": "Name of the character."
+                }
+              ]
+            },
+            {
+              "text": "tētahi mīharo",
+              "type": "phrase",
+              "translation": "a surprise",
+              "explanations": [
+                {
+                  "token": "tētahi",
+                  "explanation": "Means 'one' or 'a certain'."
+                },
+                {
+                  "token": "mīharo",
+                  "explanation": "Means 'surprise'."
+                }
+              ]
+            },
+            {
+              "text": "mō te rā whānau o Tiger",
+              "type": "phrase",
+              "translation": "for Tiger's birthday",
+              "explanations": [
+                {
+                  "token": "mō",
+                  "explanation": "Means 'for'."
+                },
+                {
+                  "token": "te rā whānau",
+                  "explanation": "Means 'birthday'."
+                },
+                {
+                  "token": "o",
+                  "explanation": "Indicates possession."
+                },
+                {
+                  "token": "Tiger",
+                  "explanation": "Name of the character."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I whakaritea e ia tētahi keke nui me ngā tāonga maha.",
+          "english": "He prepared a big cake and many gifts.",
+          "notes": [
+            {
+              "text": "I whakaritea e ia",
+              "type": "phrase",
+              "translation": "He prepared",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "whakaritea",
+                  "explanation": "Means 'prepared'."
+                },
+                {
+                  "token": "e",
+                  "explanation": "Indicates the agent performing the action."
+                },
+                {
+                  "token": "ia",
+                  "explanation": "Means 'he' or 'she'."
+                }
+              ]
+            },
+            {
+              "text": "tētahi keke nui",
+              "type": "phrase",
+              "translation": "a big cake",
+              "explanations": [
+                {
+                  "token": "tētahi",
+                  "explanation": "Means 'one' or 'a certain'."
+                },
+                {
+                  "token": "keke",
+                  "explanation": "Means 'cake'."
+                },
+                {
+                  "token": "nui",
+                  "explanation": "Means 'big'."
+                }
+              ]
+            },
+            {
+              "text": "me ngā tāonga maha",
+              "type": "phrase",
+              "translation": "and many gifts",
+              "explanations": [
+                {
+                  "token": "me",
+                  "explanation": "Means 'and'."
+                },
+                {
+                  "token": "ngā",
+                  "explanation": "Plural article, means 'the'."
+                },
+                {
+                  "token": "tāonga",
+                  "explanation": "Means 'gifts'."
+                },
+                {
+                  "token": "maha",
+                  "explanation": "Means 'many'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I te taenga mai o Tiger, i mīharo ia ki te kite i te keke me ngā tāonga.",
+          "english": "When Tiger arrived, he was surprised to see the cake and gifts.",
+          "notes": [
+            {
+              "text": "I te taenga mai o Tiger",
+              "type": "phrase",
+              "translation": "When Tiger arrived",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "te taenga mai",
+                  "explanation": "Means 'arrival'."
+                },
+                {
+                  "token": "o",
+                  "explanation": "Indicates possession."
+                },
+                {
+                  "token": "Tiger",
+                  "explanation": "Name of the character."
+                }
+              ]
+            },
+            {
+              "text": "i mīharo ia",
+              "type": "phrase",
+              "translation": "he was surprised",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "mīharo",
+                  "explanation": "Means 'surprised'."
+                },
+                {
+                  "token": "ia",
+                  "explanation": "Means 'he' or 'she'."
+                }
+              ]
+            },
+            {
+              "text": "ki te kite i te keke me ngā tāonga",
+              "type": "phrase",
+              "translation": "to see the cake and gifts",
+              "explanations": [
+                {
+                  "token": "ki",
+                  "explanation": "Means 'to'."
+                },
+                {
+                  "token": "te kite",
+                  "explanation": "Means 'see'."
+                },
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "te keke",
+                  "explanation": "Means 'the cake'."
+                },
+                {
+                  "token": "me",
+                  "explanation": "Means 'and'."
+                },
+                {
+                  "token": "ngā tāonga",
+                  "explanation": "Means 'the gifts'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I kai rātou i te keke, ā, i tākaro rātou i ngā kēmu.",
+          "english": "They ate the cake and played games.",
+          "notes": [
+            {
+              "text": "I kai rātou",
+              "type": "phrase",
+              "translation": "They ate",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "kai",
+                  "explanation": "Means 'ate'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Means 'they'."
+                }
+              ]
+            },
+            {
+              "text": "i te keke",
+              "type": "phrase",
+              "translation": "the cake",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "te keke",
+                  "explanation": "Means 'the cake'."
+                }
+              ]
+            },
+            {
+              "text": "ā, i tākaro rātou",
+              "type": "phrase",
+              "translation": "and played",
+              "explanations": [
+                {
+                  "token": "ā",
+                  "explanation": "Means 'and'."
+                },
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "tākaro",
+                  "explanation": "Means 'played'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Means 'they'."
+                }
+              ]
+            },
+            {
+              "text": "i ngā kēmu",
+              "type": "phrase",
+              "translation": "games",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "ngā",
+                  "explanation": "Plural article, means 'the'."
+                },
+                {
+                  "token": "kēmu",
+                  "explanation": "Means 'games'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I te mutunga, i mihi a Tiger ki a Chocolate mō tōna manaaki.",
+          "english": "In the end, Tiger thanked Chocolate for his kindness.",
+          "notes": [
+            {
+              "text": "I te mutunga",
+              "type": "phrase",
+              "translation": "In the end",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "te mutunga",
+                  "explanation": "Means 'the end'."
+                }
+              ]
+            },
+            {
+              "text": "i mihi a Tiger",
+              "type": "phrase",
+              "translation": "Tiger thanked",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "mihi",
+                  "explanation": "Means 'thanked'."
+                },
+                {
+                  "token": "a",
+                  "explanation": "Personal article used before names."
+                },
+                {
+                  "token": "Tiger",
+                  "explanation": "Name of the character."
+                }
+              ]
+            },
+            {
+              "text": "ki a Chocolate",
+              "type": "phrase",
+              "translation": "Chocolate",
+              "explanations": [
+                {
+                  "token": "ki",
+                  "explanation": "Means 'to'."
+                },
+                {
+                  "token": "a",
+                  "explanation": "Personal article used before names."
+                },
+                {
+                  "token": "Chocolate",
+                  "explanation": "Name of the character."
+                }
+              ]
+            },
+            {
+              "text": "mō tōna manaaki",
+              "type": "phrase",
+              "translation": "for his kindness",
+              "explanations": [
+                {
+                  "token": "mō",
+                  "explanation": "Means 'for'."
+                },
+                {
+                  "token": "tōna",
+                  "explanation": "Means 'his' or 'her'."
+                },
+                {
+                  "token": "manaaki",
+                  "explanation": "Means 'kindness'."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "maori": "I ako rātou i te hiranga o te manaaki i ngā hoa i ngā wā motuhake.",
+          "english": "They learned the importance of caring for friends during special times.",
+          "notes": [
+            {
+              "text": "I ako rātou",
+              "type": "phrase",
+              "translation": "They learned",
+              "explanations": [
+                {
+                  "token": "I",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "ako",
+                  "explanation": "Means 'learned'."
+                },
+                {
+                  "token": "rātou",
+                  "explanation": "Means 'they'."
+                }
+              ]
+            },
+            {
+              "text": "i te hiranga",
+              "type": "phrase",
+              "translation": "the importance",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "te hiranga",
+                  "explanation": "Means 'the importance'."
+                }
+              ]
+            },
+            {
+              "text": "o te manaaki",
+              "type": "phrase",
+              "translation": "of caring",
+              "explanations": [
+                {
+                  "token": "o",
+                  "explanation": "Indicates possession."
+                },
+                {
+                  "token": "te manaaki",
+                  "explanation": "Means 'the caring'."
+                }
+              ]
+            },
+            {
+              "text": "i ngā hoa",
+              "type": "phrase",
+              "translation": "for friends",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "ngā",
+                  "explanation": "Plural article, means 'the'."
+                },
+                {
+                  "token": "hoa",
+                  "explanation": "Means 'friends'."
+                }
+              ]
+            },
+            {
+              "text": "i ngā wā motuhake",
+              "type": "phrase",
+              "translation": "during special times",
+              "explanations": [
+                {
+                  "token": "i",
+                  "explanation": "Indicates past tense."
+                },
+                {
+                  "token": "ngā wā",
+                  "explanation": "Means 'the times'."
+                },
+                {
+                  "token": "motuhake",
+                  "explanation": "Means 'special'."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
