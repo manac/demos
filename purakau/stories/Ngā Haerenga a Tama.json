@@ -1,5 +1,6 @@
 {
   "category": "Ngā Haerenga a Tama",
+  
   "stories": [
     {
       "title": {
@@ -2241,6 +2242,318 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "tētahi",
+          "translation": "a",
+          "explanation": "determiner"
+        },
+        {
+          "word": "kāinga",
+          "translation": "village",
+          "explanation": "noun"
+        },
+        {
+          "word": "iti",
+          "translation": "small",
+          "explanation": "adjective"
+        },
+        {
+          "word": "noho",
+          "translation": "live",
+          "explanation": "verb"
+        },
+        {
+          "word": "takere",
+          "translation": "base",
+          "explanation": "noun"
+        },
+        {
+          "word": "maunga",
+          "translation": "mountain",
+          "explanation": "noun"
+        },
+        {
+          "word": "nui",
+          "translation": "great",
+          "explanation": "adjective"
+        },
+        {
+          "word": "reira",
+          "translation": "there",
+          "explanation": "adverb"
+        },
+        {
+          "word": "tama",
+          "translation": "boy",
+          "explanation": "noun"
+        },
+        {
+          "word": "ingoa",
+          "translation": "name",
+          "explanation": "noun"
+        },
+        {
+          "word": "tapu",
+          "translation": "sacred",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tāngata",
+          "translation": "people",
+          "explanation": "noun"
+        },
+        {
+          "word": "whānau",
+          "translation": "family",
+          "explanation": "noun"
+        },
+        {
+          "word": "tiaki",
+          "translation": "watch over",
+          "explanation": "verb"
+        },
+        {
+          "word": "hoatu",
+          "translation": "give",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaha",
+          "translation": "strength",
+          "explanation": "noun"
+        },
+        {
+          "word": "mōhio",
+          "translation": "know",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaitiaki",
+          "translation": "guardian",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakaute",
+          "translation": "respect",
+          "explanation": "verb"
+        },
+        {
+          "word": "wairua",
+          "translation": "spirit",
+          "explanation": "noun"
+        },
+        {
+          "word": "rere",
+          "translation": "flow",
+          "explanation": "verb"
+        },
+        {
+          "word": "toto",
+          "translation": "veins",
+          "explanation": "noun"
+        },
+        {
+          "word": "māia",
+          "translation": "courage",
+          "explanation": "noun"
+        },
+        {
+          "word": "māramatanga",
+          "translation": "wisdom",
+          "explanation": "noun"
+        },
+        {
+          "word": "kōrero",
+          "translation": "stories",
+          "explanation": "noun"
+        },
+        {
+          "word": "tiakitanga",
+          "translation": "protection",
+          "explanation": "noun"
+        },
+        {
+          "word": "ārahitanga",
+          "translation": "guidance",
+          "explanation": "noun"
+        },
+        {
+          "word": "rongo",
+          "translation": "feel",
+          "explanation": "verb"
+        },
+        {
+          "word": "hononga",
+          "translation": "connection",
+          "explanation": "noun"
+        },
+        {
+          "word": "aroaro",
+          "translation": "presence",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakatau",
+          "translation": "decide",
+          "explanation": "verb"
+        },
+        {
+          "word": "wāhi",
+          "translation": "place",
+          "explanation": "noun"
+        },
+        {
+          "word": "motuhake",
+          "translation": "special",
+          "explanation": "adjective"
+        },
+        {
+          "word": "hīkoi",
+          "translation": "walk",
+          "explanation": "verb"
+        },
+        {
+          "word": "kōhimuhimu",
+          "translation": "whispers",
+          "explanation": "noun"
+        },
+        {
+          "word": "hau",
+          "translation": "wind",
+          "explanation": "noun"
+        },
+        {
+          "word": "rau",
+          "translation": "leaves",
+          "explanation": "noun"
+        },
+        {
+          "word": "ngangau",
+          "translation": "rustling",
+          "explanation": "verb"
+        },
+        {
+          "word": "waiata",
+          "translation": "songs",
+          "explanation": "noun"
+        },
+        {
+          "word": "tūpuna",
+          "translation": "ancestors",
+          "explanation": "noun"
+        },
+        {
+          "word": "kī",
+          "translation": "said",
+          "explanation": "verb"
+        },
+        {
+          "word": "māmā",
+          "translation": "easy",
+          "explanation": "adjective"
+        },
+        {
+          "word": "haerenga",
+          "translation": "journey",
+          "explanation": "noun"
+        },
+        {
+          "word": "tūtaki",
+          "translation": "encounter",
+          "explanation": "verb"
+        },
+        {
+          "word": "ara",
+          "translation": "paths",
+          "explanation": "noun"
+        },
+        {
+          "word": "pari",
+          "translation": "steep",
+          "explanation": "adjective"
+        },
+        {
+          "word": "ngahere",
+          "translation": "forests",
+          "explanation": "noun"
+        },
+        {
+          "word": "kerekere",
+          "translation": "dense",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mataku",
+          "translation": "afraid",
+          "explanation": "adjective"
+        },
+        {
+          "word": "maumahara",
+          "translation": "remember",
+          "explanation": "verb"
+        },
+        {
+          "word": "hou",
+          "translation": "new",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tonu",
+          "translation": "continue",
+          "explanation": "verb"
+        },
+        {
+          "word": "mutu",
+          "translation": "finally",
+          "explanation": "adverb"
+        },
+        {
+          "word": "noho",
+          "translation": "sit",
+          "explanation": "verb"
+        },
+        {
+          "word": "kati",
+          "translation": "close",
+          "explanation": "verb"
+        },
+        {
+          "word": "karu",
+          "translation": "eyes",
+          "explanation": "noun"
+        },
+        {
+          "word": "awhi",
+          "translation": "embrace",
+          "explanation": "verb"
+        },
+        {
+          "word": "ngā mihi",
+          "translation": "thank you",
+          "explanation": "phrase"
+        },
+        {
+          "word": "mahana",
+          "translation": "warm",
+          "explanation": "adjective"
+        },
+        {
+          "word": "whakahīhī",
+          "translation": "pride",
+          "explanation": "noun"
+        },
+        {
+          "word": "wero",
+          "translation": "challenges",
+          "explanation": "noun"
+        },
+        {
+          "word": "titiro",
+          "translation": "look",
+          "explanation": "verb"
+        }
       ]
     },
     {
@@ -2697,6 +3010,103 @@
             ]
           }
         ]
+      ],
+      "vocabulary": [
+        {
+          "word": "tētahi",
+          "translation": "one",
+          "explanation": "noun"
+        },
+        {
+          "word": "rā",
+          "translation": "day",
+          "explanation": "noun"
+        },
+        {
+          "word": "kai",
+          "translation": "eat",
+          "explanation": "verb"
+        },
+        {
+          "word": "aihikirīmi",
+          "translation": "ice cream",
+          "explanation": "noun"
+        },
+        {
+          "word": "maha",
+          "translation": "many",
+          "explanation": "adjective"
+        },
+        {
+          "word": "rawa",
+          "translation": "too much",
+          "explanation": "adverb"
+        },
+        {
+          "word": "tuatahi",
+          "translation": "first",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tino",
+          "translation": "very",
+          "explanation": "adverb"
+        },
+        {
+          "word": "harikoa",
+          "translation": "happy",
+          "explanation": "adjective"
+        },
+        {
+          "word": "engari",
+          "translation": "but",
+          "explanation": "conjunction"
+        },
+        {
+          "word": "kāore",
+          "translation": "not",
+          "explanation": "adverb"
+        },
+        {
+          "word": "roa",
+          "translation": "long",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tīmata",
+          "translation": "start",
+          "explanation": "verb"
+        },
+        {
+          "word": "puku",
+          "translation": "stomach",
+          "explanation": "noun"
+        },
+        {
+          "word": "mamae",
+          "translation": "hurt",
+          "explanation": "verb"
+        },
+        {
+          "word": "mutunga",
+          "translation": "end",
+          "explanation": "noun"
+        },
+        {
+          "word": "taea",
+          "translation": "able",
+          "explanation": "verb"
+        },
+        {
+          "word": "tākaro",
+          "translation": "play",
+          "explanation": "verb"
+        },
+        {
+          "word": "hoa",
+          "translation": "friends",
+          "explanation": "noun"
+        }
       ]
     },
     {
@@ -3237,6 +3647,168 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "tētahi",
+          "translation": "one",
+          "explanation": "pronoun"
+        },
+        {
+          "word": "rā",
+          "translation": "day",
+          "explanation": "noun"
+        },
+        {
+          "word": "haere",
+          "translation": "go",
+          "explanation": "verb"
+        },
+        {
+          "word": "ngahere",
+          "translation": "forest",
+          "explanation": "noun"
+        },
+        {
+          "word": "kite",
+          "translation": "see",
+          "explanation": "verb"
+        },
+        {
+          "word": "rākau",
+          "translation": "tree",
+          "explanation": "noun"
+        },
+        {
+          "word": "Kauri",
+          "translation": "Kauri",
+          "explanation": "noun"
+        },
+        {
+          "word": "nui",
+          "translation": "big",
+          "explanation": "adjective"
+        },
+        {
+          "word": "ako",
+          "translation": "learn",
+          "explanation": "verb"
+        },
+        {
+          "word": "hiranga",
+          "translation": "importance",
+          "explanation": "noun"
+        },
+        {
+          "word": "ahurea",
+          "translation": "culture",
+          "explanation": "noun"
+        },
+        {
+          "word": "Māori",
+          "translation": "Māori",
+          "explanation": "noun"
+        },
+        {
+          "word": "rongo",
+          "translation": "hear",
+          "explanation": "verb"
+        },
+        {
+          "word": "kōrero",
+          "translation": "story",
+          "explanation": "noun"
+        },
+        {
+          "word": "tapu",
+          "translation": "sacred",
+          "explanation": "adjective"
+        },
+        {
+          "word": "hoki",
+          "translation": "return",
+          "explanation": "verb"
+        },
+        {
+          "word": "kāinga",
+          "translation": "home",
+          "explanation": "noun"
+        },
+        {
+          "word": "tāngata",
+          "translation": "people",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakatau",
+          "translation": "decide",
+          "explanation": "verb"
+        },
+        {
+          "word": "tiaki",
+          "translation": "protect",
+          "explanation": "verb"
+        },
+        {
+          "word": "karanga",
+          "translation": "call",
+          "explanation": "verb"
+        },
+        {
+          "word": "hapori",
+          "translation": "community",
+          "explanation": "noun"
+        },
+        {
+          "word": "āwhina",
+          "translation": "help",
+          "explanation": "noun"
+        },
+        {
+          "word": "huihui",
+          "translation": "gather",
+          "explanation": "verb"
+        },
+        {
+          "word": "taiao",
+          "translation": "environment",
+          "explanation": "noun"
+        },
+        {
+          "word": "mutunga",
+          "translation": "end",
+          "explanation": "noun"
+        },
+        {
+          "word": "tiakina",
+          "translation": "protected",
+          "explanation": "verb"
+        },
+        {
+          "word": "noho",
+          "translation": "remain",
+          "explanation": "verb"
+        },
+        {
+          "word": "tohu",
+          "translation": "symbol",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakanuia",
+          "translation": "celebrate",
+          "explanation": "verb"
+        },
+        {
+          "word": "angitu",
+          "translation": "success",
+          "explanation": "noun"
+        },
+        {
+          "word": "taonga tuku iho",
+          "translation": "heritage",
+          "explanation": "noun"
+        }
       ]
     },
     {
@@ -3765,6 +4337,128 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "pō",
+          "translation": "night",
+          "explanation": "noun"
+        },
+        {
+          "word": "titiro",
+          "translation": "look",
+          "explanation": "verb"
+        },
+        {
+          "word": "whetū",
+          "translation": "stars",
+          "explanation": "noun"
+        },
+        {
+          "word": "rangi",
+          "translation": "sky",
+          "explanation": "noun"
+        },
+        {
+          "word": "moe",
+          "translation": "sleep/dream",
+          "explanation": "verb"
+        },
+        {
+          "word": "moemoeā",
+          "translation": "dream",
+          "explanation": "noun"
+        },
+        {
+          "word": "haere",
+          "translation": "go",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaimātai whetū",
+          "translation": "astronomer",
+          "explanation": "noun"
+        },
+        {
+          "word": "pukapuka",
+          "translation": "books",
+          "explanation": "noun"
+        },
+        {
+          "word": "kāri whetū",
+          "translation": "star charts",
+          "explanation": "noun"
+        },
+        {
+          "word": "kura",
+          "translation": "school",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūtaiao",
+          "translation": "science",
+          "explanation": "noun"
+        },
+        {
+          "word": "pāngarau",
+          "translation": "mathematics",
+          "explanation": "noun"
+        },
+        {
+          "word": "pakeke",
+          "translation": "grow up",
+          "explanation": "verb"
+        },
+        {
+          "word": "whare wānanga",
+          "translation": "university",
+          "explanation": "noun"
+        },
+        {
+          "word": "ao tukupū",
+          "translation": "universe",
+          "explanation": "noun"
+        },
+        {
+          "word": "whare mātai whetū",
+          "translation": "observatory",
+          "explanation": "noun"
+        },
+        {
+          "word": "tata",
+          "translation": "close",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tutuki",
+          "translation": "achieve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakaaweawe",
+          "translation": "inspire",
+          "explanation": "verb"
+        },
+        {
+          "word": "tamariki",
+          "translation": "children",
+          "explanation": "noun"
+        },
+        {
+          "word": "whai",
+          "translation": "pursue",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakapau kaha",
+          "translation": "hard work",
+          "explanation": "noun"
+        },
+        {
+          "word": "manawanui",
+          "translation": "perseverance",
+          "explanation": "noun"
+        }
       ]
     },
     {
@@ -4285,6 +4979,188 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "pō",
+          "translation": "night",
+          "explanation": "noun"
+        },
+        {
+          "word": "titiro",
+          "translation": "look",
+          "explanation": "verb"
+        },
+        {
+          "word": "whetū",
+          "translation": "stars",
+          "explanation": "noun"
+        },
+        {
+          "word": "rangi",
+          "translation": "sky",
+          "explanation": "noun"
+        },
+        {
+          "word": "moe",
+          "translation": "sleep/dream",
+          "explanation": "verb"
+        },
+        {
+          "word": "moemoeā",
+          "translation": "dream",
+          "explanation": "noun"
+        },
+        {
+          "word": "haere",
+          "translation": "go",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaimātai whetū",
+          "translation": "astronomer",
+          "explanation": "noun"
+        },
+        {
+          "word": "pukapuka",
+          "translation": "books",
+          "explanation": "noun"
+        },
+        {
+          "word": "kāri whetū",
+          "translation": "star charts",
+          "explanation": "noun"
+        },
+        {
+          "word": "kura",
+          "translation": "school",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūtaiao",
+          "translation": "science",
+          "explanation": "noun"
+        },
+        {
+          "word": "pāngarau",
+          "translation": "mathematics",
+          "explanation": "noun"
+        },
+        {
+          "word": "pakeke",
+          "translation": "grow up",
+          "explanation": "verb"
+        },
+        {
+          "word": "whare wānanga",
+          "translation": "university",
+          "explanation": "noun"
+        },
+        {
+          "word": "ao tukupū",
+          "translation": "universe",
+          "explanation": "noun"
+        },
+        {
+          "word": "whare mātai whetū",
+          "translation": "observatory",
+          "explanation": "noun"
+        },
+        {
+          "word": "tata",
+          "translation": "close",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tutuki",
+          "translation": "achieve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakaaweawe",
+          "translation": "inspire",
+          "explanation": "verb"
+        },
+        {
+          "word": "tamariki",
+          "translation": "children",
+          "explanation": "noun"
+        },
+        {
+          "word": "whai",
+          "translation": "pursue",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakapau kaha",
+          "translation": "hard work",
+          "explanation": "noun"
+        },
+        {
+          "word": "manawanui",
+          "translation": "perseverance",
+          "explanation": "noun"
+        },
+        {
+          "word": "pounamu",
+          "translation": "greenstone",
+          "explanation": "noun"
+        },
+        {
+          "word": "awa",
+          "translation": "river",
+          "explanation": "noun"
+        },
+        {
+          "word": "pa",
+          "translation": "touch",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaha",
+          "translation": "power",
+          "explanation": "noun"
+        },
+        {
+          "word": "motuhake",
+          "translation": "special",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mōhio",
+          "translation": "realize",
+          "explanation": "verb"
+        },
+        {
+          "word": "makutu",
+          "translation": "magical",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mau",
+          "translation": "hold",
+          "explanation": "verb"
+        },
+        {
+          "word": "kararehe",
+          "translation": "animals",
+          "explanation": "noun"
+        },
+        {
+          "word": "kiwi",
+          "translation": "kiwi",
+          "explanation": "noun"
+        },
+        {
+          "word": "raru",
+          "translation": "problem",
+          "explanation": "noun"
+        },
+        {
+          "word": "ora",
+          "translation": "save",
+          "explanation": "verb"
+        }
       ]
     },
     {
@@ -4804,6 +5680,253 @@
               "role": "object"
             }
           ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "pō",
+          "translation": "night",
+          "explanation": "noun"
+        },
+        {
+          "word": "titiro",
+          "translation": "look",
+          "explanation": "verb"
+        },
+        {
+          "word": "whetū",
+          "translation": "stars",
+          "explanation": "noun"
+        },
+        {
+          "word": "rangi",
+          "translation": "sky",
+          "explanation": "noun"
+        },
+        {
+          "word": "moe",
+          "translation": "sleep/dream",
+          "explanation": "verb"
+        },
+        {
+          "word": "moemoeā",
+          "translation": "dream",
+          "explanation": "noun"
+        },
+        {
+          "word": "haere",
+          "translation": "go",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaimātai whetū",
+          "translation": "astronomer",
+          "explanation": "noun"
+        },
+        {
+          "word": "pukapuka",
+          "translation": "books",
+          "explanation": "noun"
+        },
+        {
+          "word": "kāri whetū",
+          "translation": "star charts",
+          "explanation": "noun"
+        },
+        {
+          "word": "kura",
+          "translation": "school",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūtaiao",
+          "translation": "science",
+          "explanation": "noun"
+        },
+        {
+          "word": "pāngarau",
+          "translation": "mathematics",
+          "explanation": "noun"
+        },
+        {
+          "word": "pakeke",
+          "translation": "grow up",
+          "explanation": "verb"
+        },
+        {
+          "word": "whare wānanga",
+          "translation": "university",
+          "explanation": "noun"
+        },
+        {
+          "word": "ao tukupū",
+          "translation": "universe",
+          "explanation": "noun"
+        },
+        {
+          "word": "whare mātai whetū",
+          "translation": "observatory",
+          "explanation": "noun"
+        },
+        {
+          "word": "tata",
+          "translation": "close",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tutuki",
+          "translation": "achieve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakaaweawe",
+          "translation": "inspire",
+          "explanation": "verb"
+        },
+        {
+          "word": "tamariki",
+          "translation": "children",
+          "explanation": "noun"
+        },
+        {
+          "word": "whai",
+          "translation": "pursue",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakapau kaha",
+          "translation": "hard work",
+          "explanation": "noun"
+        },
+        {
+          "word": "manawanui",
+          "translation": "perseverance",
+          "explanation": "noun"
+        },
+        {
+          "word": "pounamu",
+          "translation": "greenstone",
+          "explanation": "noun"
+        },
+        {
+          "word": "awa",
+          "translation": "river",
+          "explanation": "noun"
+        },
+        {
+          "word": "pa",
+          "translation": "touch",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaha",
+          "translation": "power",
+          "explanation": "noun"
+        },
+        {
+          "word": "motuhake",
+          "translation": "special",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mōhio",
+          "translation": "realize",
+          "explanation": "verb"
+        },
+        {
+          "word": "makutu",
+          "translation": "magical",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mau",
+          "translation": "hold",
+          "explanation": "verb"
+        },
+        {
+          "word": "kararehe",
+          "translation": "animals",
+          "explanation": "noun"
+        },
+        {
+          "word": "kiwi",
+          "translation": "kiwi",
+          "explanation": "noun"
+        },
+        {
+          "word": "raru",
+          "translation": "problem",
+          "explanation": "noun"
+        },
+        {
+          "word": "ora",
+          "translation": "save",
+          "explanation": "verb"
+        },
+        {
+          "word": "tākaro",
+          "translation": "play",
+          "explanation": "verb"
+        },
+        {
+          "word": "papa tākaro",
+          "translation": "playground",
+          "explanation": "noun"
+        },
+        {
+          "word": "kaitākaro rīki",
+          "translation": "rugby league player",
+          "explanation": "noun"
+        },
+        {
+          "word": "tīma rīki",
+          "translation": "rugby league team",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūkenga",
+          "translation": "skills",
+          "explanation": "noun"
+        },
+        {
+          "word": "mahi tahi",
+          "translation": "teamwork",
+          "explanation": "noun"
+        },
+        {
+          "word": "karapu",
+          "translation": "club",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakapakari",
+          "translation": "improve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whiriwhiria",
+          "translation": "select",
+          "explanation": "verb"
+        },
+        {
+          "word": "kēmu",
+          "translation": "game",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakahīhī",
+          "translation": "pride",
+          "explanation": "noun"
+        },
+        {
+          "word": "wehi",
+          "translation": "fear",
+          "explanation": "noun"
+        },
+        {
+          "word": "toa",
+          "translation": "win",
+          "explanation": "verb"
         }
       ]
     },
@@ -5378,6 +6501,273 @@
               "role": "object"
             }
           ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "pō",
+          "translation": "night",
+          "explanation": "noun"
+        },
+        {
+          "word": "titiro",
+          "translation": "look",
+          "explanation": "verb"
+        },
+        {
+          "word": "whetū",
+          "translation": "stars",
+          "explanation": "noun"
+        },
+        {
+          "word": "rangi",
+          "translation": "sky",
+          "explanation": "noun"
+        },
+        {
+          "word": "moe",
+          "translation": "sleep/dream",
+          "explanation": "verb"
+        },
+        {
+          "word": "moemoeā",
+          "translation": "dream",
+          "explanation": "noun"
+        },
+        {
+          "word": "haere",
+          "translation": "go",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaimātai whetū",
+          "translation": "astronomer",
+          "explanation": "noun"
+        },
+        {
+          "word": "pukapuka",
+          "translation": "books",
+          "explanation": "noun"
+        },
+        {
+          "word": "kāri whetū",
+          "translation": "star charts",
+          "explanation": "noun"
+        },
+        {
+          "word": "kura",
+          "translation": "school",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūtaiao",
+          "translation": "science",
+          "explanation": "noun"
+        },
+        {
+          "word": "pāngarau",
+          "translation": "mathematics",
+          "explanation": "noun"
+        },
+        {
+          "word": "pakeke",
+          "translation": "grow up",
+          "explanation": "verb"
+        },
+        {
+          "word": "whare wānanga",
+          "translation": "university",
+          "explanation": "noun"
+        },
+        {
+          "word": "ao tukupū",
+          "translation": "universe",
+          "explanation": "noun"
+        },
+        {
+          "word": "whare mātai whetū",
+          "translation": "observatory",
+          "explanation": "noun"
+        },
+        {
+          "word": "tata",
+          "translation": "close",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tutuki",
+          "translation": "achieve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakaaweawe",
+          "translation": "inspire",
+          "explanation": "verb"
+        },
+        {
+          "word": "tamariki",
+          "translation": "children",
+          "explanation": "noun"
+        },
+        {
+          "word": "whai",
+          "translation": "pursue",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakapau kaha",
+          "translation": "hard work",
+          "explanation": "noun"
+        },
+        {
+          "word": "manawanui",
+          "translation": "perseverance",
+          "explanation": "noun"
+        },
+        {
+          "word": "pounamu",
+          "translation": "greenstone",
+          "explanation": "noun"
+        },
+        {
+          "word": "awa",
+          "translation": "river",
+          "explanation": "noun"
+        },
+        {
+          "word": "pa",
+          "translation": "touch",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaha",
+          "translation": "power",
+          "explanation": "noun"
+        },
+        {
+          "word": "motuhake",
+          "translation": "special",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mōhio",
+          "translation": "realize",
+          "explanation": "verb"
+        },
+        {
+          "word": "makutu",
+          "translation": "magical",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mau",
+          "translation": "hold",
+          "explanation": "verb"
+        },
+        {
+          "word": "kararehe",
+          "translation": "animals",
+          "explanation": "noun"
+        },
+        {
+          "word": "kiwi",
+          "translation": "kiwi",
+          "explanation": "noun"
+        },
+        {
+          "word": "raru",
+          "translation": "problem",
+          "explanation": "noun"
+        },
+        {
+          "word": "ora",
+          "translation": "save",
+          "explanation": "verb"
+        },
+        {
+          "word": "tākaro",
+          "translation": "play",
+          "explanation": "verb"
+        },
+        {
+          "word": "papa tākaro",
+          "translation": "playground",
+          "explanation": "noun"
+        },
+        {
+          "word": "kaitākaro rīki",
+          "translation": "rugby league player",
+          "explanation": "noun"
+        },
+        {
+          "word": "tīma rīki",
+          "translation": "rugby league team",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūkenga",
+          "translation": "skills",
+          "explanation": "noun"
+        },
+        {
+          "word": "mahi tahi",
+          "translation": "teamwork",
+          "explanation": "noun"
+        },
+        {
+          "word": "karapu",
+          "translation": "club",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakapakari",
+          "translation": "improve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whiriwhiria",
+          "translation": "select",
+          "explanation": "verb"
+        },
+        {
+          "word": "kēmu",
+          "translation": "game",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakahīhī",
+          "translation": "pride",
+          "explanation": "noun"
+        },
+        {
+          "word": "wehi",
+          "translation": "fear",
+          "explanation": "noun"
+        },
+        {
+          "word": "toa",
+          "translation": "win",
+          "explanation": "verb"
+        },
+        {
+          "word": "taniwha",
+          "translation": "taniwha",
+          "explanation": "noun"
+        },
+        {
+          "word": "mataku",
+          "translation": "afraid",
+          "explanation": "verb"
+        },
+        {
+          "word": "kimi",
+          "translation": "find",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaitiaki",
+          "translation": "guardian",
+          "explanation": "noun"
         }
       ]
     },
@@ -5963,6 +7353,358 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "pō",
+          "translation": "night",
+          "explanation": "noun"
+        },
+        {
+          "word": "titiro",
+          "translation": "look",
+          "explanation": "verb"
+        },
+        {
+          "word": "whetū",
+          "translation": "stars",
+          "explanation": "noun"
+        },
+        {
+          "word": "rangi",
+          "translation": "sky",
+          "explanation": "noun"
+        },
+        {
+          "word": "moe",
+          "translation": "sleep/dream",
+          "explanation": "verb"
+        },
+        {
+          "word": "moemoeā",
+          "translation": "dream",
+          "explanation": "noun"
+        },
+        {
+          "word": "haere",
+          "translation": "go",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaimātai whetū",
+          "translation": "astronomer",
+          "explanation": "noun"
+        },
+        {
+          "word": "pukapuka",
+          "translation": "books",
+          "explanation": "noun"
+        },
+        {
+          "word": "kāri whetū",
+          "translation": "star charts",
+          "explanation": "noun"
+        },
+        {
+          "word": "kura",
+          "translation": "school",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūtaiao",
+          "translation": "science",
+          "explanation": "noun"
+        },
+        {
+          "word": "pāngarau",
+          "translation": "mathematics",
+          "explanation": "noun"
+        },
+        {
+          "word": "pakeke",
+          "translation": "grow up",
+          "explanation": "verb"
+        },
+        {
+          "word": "whare wānanga",
+          "translation": "university",
+          "explanation": "noun"
+        },
+        {
+          "word": "ao tukupū",
+          "translation": "universe",
+          "explanation": "noun"
+        },
+        {
+          "word": "whare mātai whetū",
+          "translation": "observatory",
+          "explanation": "noun"
+        },
+        {
+          "word": "tata",
+          "translation": "close",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tutuki",
+          "translation": "achieve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakaaweawe",
+          "translation": "inspire",
+          "explanation": "verb"
+        },
+        {
+          "word": "tamariki",
+          "translation": "children",
+          "explanation": "noun"
+        },
+        {
+          "word": "whai",
+          "translation": "pursue",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakapau kaha",
+          "translation": "hard work",
+          "explanation": "noun"
+        },
+        {
+          "word": "manawanui",
+          "translation": "perseverance",
+          "explanation": "noun"
+        },
+        {
+          "word": "pounamu",
+          "translation": "greenstone",
+          "explanation": "noun"
+        },
+        {
+          "word": "awa",
+          "translation": "river",
+          "explanation": "noun"
+        },
+        {
+          "word": "pa",
+          "translation": "touch",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaha",
+          "translation": "power",
+          "explanation": "noun"
+        },
+        {
+          "word": "motuhake",
+          "translation": "special",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mōhio",
+          "translation": "realize",
+          "explanation": "verb"
+        },
+        {
+          "word": "makutu",
+          "translation": "magical",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mau",
+          "translation": "hold",
+          "explanation": "verb"
+        },
+        {
+          "word": "kararehe",
+          "translation": "animals",
+          "explanation": "noun"
+        },
+        {
+          "word": "kiwi",
+          "translation": "kiwi",
+          "explanation": "noun"
+        },
+        {
+          "word": "raru",
+          "translation": "problem",
+          "explanation": "noun"
+        },
+        {
+          "word": "ora",
+          "translation": "save",
+          "explanation": "verb"
+        },
+        {
+          "word": "tākaro",
+          "translation": "play",
+          "explanation": "verb"
+        },
+        {
+          "word": "papa tākaro",
+          "translation": "playground",
+          "explanation": "noun"
+        },
+        {
+          "word": "kaitākaro rīki",
+          "translation": "rugby league player",
+          "explanation": "noun"
+        },
+        {
+          "word": "tīma rīki",
+          "translation": "rugby league team",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūkenga",
+          "translation": "skills",
+          "explanation": "noun"
+        },
+        {
+          "word": "mahi tahi",
+          "translation": "teamwork",
+          "explanation": "noun"
+        },
+        {
+          "word": "karapu",
+          "translation": "club",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakapakari",
+          "translation": "improve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whiriwhiria",
+          "translation": "select",
+          "explanation": "verb"
+        },
+        {
+          "word": "kēmu",
+          "translation": "game",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakahīhī",
+          "translation": "pride",
+          "explanation": "noun"
+        },
+        {
+          "word": "wehi",
+          "translation": "fear",
+          "explanation": "noun"
+        },
+        {
+          "word": "toa",
+          "translation": "win",
+          "explanation": "verb"
+        },
+        {
+          "word": "taniwha",
+          "translation": "taniwha",
+          "explanation": "noun"
+        },
+        {
+          "word": "mataku",
+          "translation": "afraid",
+          "explanation": "verb"
+        },
+        {
+          "word": "kimi",
+          "translation": "find",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaitiaki",
+          "translation": "guardian",
+          "explanation": "noun"
+        },
+        {
+          "word": "whānau",
+          "translation": "family",
+          "explanation": "noun"
+        },
+        {
+          "word": "puni",
+          "translation": "camping",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakakī",
+          "translation": "pack",
+          "explanation": "verb"
+        },
+        {
+          "word": "waka",
+          "translation": "car",
+          "explanation": "noun"
+        },
+        {
+          "word": "taputapu puni",
+          "translation": "camping gear",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakatū",
+          "translation": "set up",
+          "explanation": "verb"
+        },
+        {
+          "word": "tēneti",
+          "translation": "tent",
+          "explanation": "noun"
+        },
+        {
+          "word": "ahi",
+          "translation": "fire",
+          "explanation": "noun"
+        },
+        {
+          "word": "kōrero pakiwaitara",
+          "translation": "stories",
+          "explanation": "noun"
+        },
+        {
+          "word": "hīkoi",
+          "translation": "hike",
+          "explanation": "verb"
+        },
+        {
+          "word": "manu",
+          "translation": "birds",
+          "explanation": "noun"
+        },
+        {
+          "word": "rākau",
+          "translation": "trees",
+          "explanation": "noun"
+        },
+        {
+          "word": "rerekē",
+          "translation": "different",
+          "explanation": "adjective"
+        },
+        {
+          "word": "kaukau",
+          "translation": "swim",
+          "explanation": "verb"
+        },
+        {
+          "word": "tunu",
+          "translation": "cook",
+          "explanation": "verb"
+        },
+        {
+          "word": "kai",
+          "translation": "food",
+          "explanation": "noun"
+        },
+        {
+          "word": "maharatanga",
+          "translation": "memories",
+          "explanation": "noun"
+        }
       ]
     },
     {
@@ -6535,6 +8277,443 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "pō",
+          "translation": "night",
+          "explanation": "noun"
+        },
+        {
+          "word": "titiro",
+          "translation": "look",
+          "explanation": "verb"
+        },
+        {
+          "word": "whetū",
+          "translation": "stars",
+          "explanation": "noun"
+        },
+        {
+          "word": "rangi",
+          "translation": "sky",
+          "explanation": "noun"
+        },
+        {
+          "word": "moe",
+          "translation": "sleep/dream",
+          "explanation": "verb"
+        },
+        {
+          "word": "moemoeā",
+          "translation": "dream",
+          "explanation": "noun"
+        },
+        {
+          "word": "haere",
+          "translation": "go",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaimātai whetū",
+          "translation": "astronomer",
+          "explanation": "noun"
+        },
+        {
+          "word": "pukapuka",
+          "translation": "books",
+          "explanation": "noun"
+        },
+        {
+          "word": "kāri whetū",
+          "translation": "star charts",
+          "explanation": "noun"
+        },
+        {
+          "word": "kura",
+          "translation": "school",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūtaiao",
+          "translation": "science",
+          "explanation": "noun"
+        },
+        {
+          "word": "pāngarau",
+          "translation": "mathematics",
+          "explanation": "noun"
+        },
+        {
+          "word": "pakeke",
+          "translation": "grow up",
+          "explanation": "verb"
+        },
+        {
+          "word": "whare wānanga",
+          "translation": "university",
+          "explanation": "noun"
+        },
+        {
+          "word": "ao tukupū",
+          "translation": "universe",
+          "explanation": "noun"
+        },
+        {
+          "word": "whare mātai whetū",
+          "translation": "observatory",
+          "explanation": "noun"
+        },
+        {
+          "word": "tata",
+          "translation": "close",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tutuki",
+          "translation": "achieve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakaaweawe",
+          "translation": "inspire",
+          "explanation": "verb"
+        },
+        {
+          "word": "tamariki",
+          "translation": "children",
+          "explanation": "noun"
+        },
+        {
+          "word": "whai",
+          "translation": "pursue",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakapau kaha",
+          "translation": "hard work",
+          "explanation": "noun"
+        },
+        {
+          "word": "manawanui",
+          "translation": "perseverance",
+          "explanation": "noun"
+        },
+        {
+          "word": "pounamu",
+          "translation": "greenstone",
+          "explanation": "noun"
+        },
+        {
+          "word": "awa",
+          "translation": "river",
+          "explanation": "noun"
+        },
+        {
+          "word": "pa",
+          "translation": "touch",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaha",
+          "translation": "power",
+          "explanation": "noun"
+        },
+        {
+          "word": "motuhake",
+          "translation": "special",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mōhio",
+          "translation": "realize",
+          "explanation": "verb"
+        },
+        {
+          "word": "makutu",
+          "translation": "magical",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mau",
+          "translation": "hold",
+          "explanation": "verb"
+        },
+        {
+          "word": "kararehe",
+          "translation": "animals",
+          "explanation": "noun"
+        },
+        {
+          "word": "kiwi",
+          "translation": "kiwi",
+          "explanation": "noun"
+        },
+        {
+          "word": "raru",
+          "translation": "problem",
+          "explanation": "noun"
+        },
+        {
+          "word": "ora",
+          "translation": "save",
+          "explanation": "verb"
+        },
+        {
+          "word": "tākaro",
+          "translation": "play",
+          "explanation": "verb"
+        },
+        {
+          "word": "papa tākaro",
+          "translation": "playground",
+          "explanation": "noun"
+        },
+        {
+          "word": "kaitākaro rīki",
+          "translation": "rugby league player",
+          "explanation": "noun"
+        },
+        {
+          "word": "tīma rīki",
+          "translation": "rugby league team",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūkenga",
+          "translation": "skills",
+          "explanation": "noun"
+        },
+        {
+          "word": "mahi tahi",
+          "translation": "teamwork",
+          "explanation": "noun"
+        },
+        {
+          "word": "karapu",
+          "translation": "club",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakapakari",
+          "translation": "improve",
+          "explanation": "verb"
+        },
+        {
+          "word": "whiriwhiria",
+          "translation": "select",
+          "explanation": "verb"
+        },
+        {
+          "word": "kēmu",
+          "translation": "game",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakahīhī",
+          "translation": "pride",
+          "explanation": "noun"
+        },
+        {
+          "word": "wehi",
+          "translation": "fear",
+          "explanation": "noun"
+        },
+        {
+          "word": "toa",
+          "translation": "win",
+          "explanation": "verb"
+        },
+        {
+          "word": "taniwha",
+          "translation": "taniwha",
+          "explanation": "noun"
+        },
+        {
+          "word": "mataku",
+          "translation": "afraid",
+          "explanation": "verb"
+        },
+        {
+          "word": "kimi",
+          "translation": "find",
+          "explanation": "verb"
+        },
+        {
+          "word": "kaitiaki",
+          "translation": "guardian",
+          "explanation": "noun"
+        },
+        {
+          "word": "whānau",
+          "translation": "family",
+          "explanation": "noun"
+        },
+        {
+          "word": "puni",
+          "translation": "camping",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakakī",
+          "translation": "pack",
+          "explanation": "verb"
+        },
+        {
+          "word": "waka",
+          "translation": "car",
+          "explanation": "noun"
+        },
+        {
+          "word": "taputapu puni",
+          "translation": "camping gear",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakatū",
+          "translation": "set up",
+          "explanation": "verb"
+        },
+        {
+          "word": "tēneti",
+          "translation": "tent",
+          "explanation": "noun"
+        },
+        {
+          "word": "ahi",
+          "translation": "fire",
+          "explanation": "noun"
+        },
+        {
+          "word": "kōrero pakiwaitara",
+          "translation": "stories",
+          "explanation": "noun"
+        },
+        {
+          "word": "hīkoi",
+          "translation": "hike",
+          "explanation": "verb"
+        },
+        {
+          "word": "manu",
+          "translation": "birds",
+          "explanation": "noun"
+        },
+        {
+          "word": "rākau",
+          "translation": "trees",
+          "explanation": "noun"
+        },
+        {
+          "word": "rerekē",
+          "translation": "different",
+          "explanation": "adjective"
+        },
+        {
+          "word": "kaukau",
+          "translation": "swim",
+          "explanation": "verb"
+        },
+        {
+          "word": "tunu",
+          "translation": "cook",
+          "explanation": "verb"
+        },
+        {
+          "word": "kai",
+          "translation": "food",
+          "explanation": "noun"
+        },
+        {
+          "word": "maharatanga",
+          "translation": "memories",
+          "explanation": "noun"
+        },
+        {
+          "word": "tangata",
+          "translation": "person",
+          "explanation": "noun"
+        },
+        {
+          "word": "ta moko",
+          "translation": "traditional Māori tattoo",
+          "explanation": "noun"
+        },
+        {
+          "word": "pātai",
+          "translation": "ask",
+          "explanation": "verb"
+        },
+        {
+          "word": "tikanga",
+          "translation": "meaning",
+          "explanation": "noun"
+        },
+        {
+          "word": "toi tuku iho",
+          "translation": "traditional art",
+          "explanation": "noun"
+        },
+        {
+          "word": "Māori",
+          "translation": "Māori",
+          "explanation": "noun"
+        },
+        {
+          "word": "hoahoa",
+          "translation": "designs",
+          "explanation": "noun"
+        },
+        {
+          "word": "mīharo",
+          "translation": "amazed",
+          "explanation": "verb"
+        },
+        {
+          "word": "ataahua",
+          "translation": "beauty",
+          "explanation": "noun"
+        },
+        {
+          "word": "mahi toi",
+          "translation": "artwork",
+          "explanation": "noun"
+        },
+        {
+          "word": "kaumātua",
+          "translation": "elder",
+          "explanation": "noun"
+        },
+        {
+          "word": "tikanga",
+          "translation": "customs",
+          "explanation": "noun"
+        },
+        {
+          "word": "pūkenga",
+          "translation": "skills",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakapapa",
+          "translation": "genealogy",
+          "explanation": "noun"
+        },
+        {
+          "word": "tohunga ta moko",
+          "translation": "ta moko artist",
+          "explanation": "noun"
+        },
+        {
+          "word": "kōrero tuku iho",
+          "translation": "traditional stories",
+          "explanation": "noun"
+        },
+        {
+          "word": "tiaki",
+          "translation": "preserve",
+          "explanation": "verb"
+        }
       ]
     },
     {
@@ -7074,6 +9253,108 @@
               "role": "object"
             }
           ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "rā",
+          "translation": "day",
+          "explanation": "noun"
+        },
+        {
+          "word": "kite",
+          "translation": "see",
+          "explanation": "verb"
+        },
+        {
+          "word": "kiwi",
+          "translation": "kiwi",
+          "explanation": "noun"
+        },
+        {
+          "word": "whara",
+          "translation": "injured",
+          "explanation": "adjective"
+        },
+        {
+          "word": "pōuri",
+          "translation": "sad",
+          "explanation": "adjective"
+        },
+        {
+          "word": "whakatau",
+          "translation": "decide",
+          "explanation": "verb"
+        },
+        {
+          "word": "āwhina",
+          "translation": "help",
+          "explanation": "verb"
+        },
+        {
+          "word": "mau",
+          "translation": "take",
+          "explanation": "verb"
+        },
+        {
+          "word": "whare tiaki kararehe",
+          "translation": "wildlife sanctuary",
+          "explanation": "noun"
+        },
+        {
+          "word": "ako",
+          "translation": "learn",
+          "explanation": "verb"
+        },
+        {
+          "word": "tiaki",
+          "translation": "care",
+          "explanation": "verb"
+        },
+        {
+          "word": "hari",
+          "translation": "joy",
+          "explanation": "noun"
+        },
+        {
+          "word": "ora",
+          "translation": "recover",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakanuia",
+          "translation": "celebrate",
+          "explanation": "verb"
+        },
+        {
+          "word": "whakaaweawe",
+          "translation": "inspire",
+          "explanation": "verb"
+        },
+        {
+          "word": "kararehe",
+          "translation": "animal",
+          "explanation": "noun"
+        },
+        {
+          "word": "Aotearoa",
+          "translation": "New Zealand",
+          "explanation": "noun"
+        },
+        {
+          "word": "kāinga",
+          "translation": "home",
+          "explanation": "noun"
+        },
+        {
+          "word": "ngākau",
+          "translation": "heart",
+          "explanation": "noun"
+        },
+        {
+          "word": "taiao",
+          "translation": "environment",
+          "explanation": "noun"
         }
       ]
     }

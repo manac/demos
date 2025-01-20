@@ -479,6 +479,83 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "tākaro",
+          "translation": "play",
+          "explanation": "verb"
+        },
+        {
+          "word": "rā",
+          "translation": "day",
+          "explanation": "noun"
+        },
+        {
+          "word": "rāua",
+          "translation": "they (two people)",
+          "explanation": "pronoun"
+        },
+        {
+          "word": "koa",
+          "translation": "happy",
+          "explanation": "adjective"
+        },
+        {
+          "word": "ngenge",
+          "translation": "tired",
+          "explanation": "adjective"
+        },
+        {
+          "word": "moemoeā",
+          "translation": "dream",
+          "explanation": "verb"
+        },
+        {
+          "word": "momo",
+          "translation": "species",
+          "explanation": "noun"
+        },
+        {
+          "word": "hoa",
+          "translation": "friend",
+          "explanation": "noun"
+        },
+        {
+          "word": "whiu",
+          "translation": "throw",
+          "explanation": "verb"
+        },
+        {
+          "word": "oma",
+          "translation": "run",
+          "explanation": "verb"
+        },
+        {
+          "word": "hopu",
+          "translation": "catch",
+          "explanation": "verb"
+        },
+        {
+          "word": "hoki mai",
+          "translation": "return",
+          "explanation": "verb"
+        },
+        {
+          "word": "pōro",
+          "translation": "ball",
+          "explanation": "noun"
+        },
+        {
+          "word": "waha",
+          "translation": "mouth",
+          "explanation": "noun"
+        },
+        {
+          "word": "rākau",
+          "translation": "tree",
+          "explanation": "noun"
+        }
       ]
     },
     {
@@ -951,6 +1028,78 @@
               ]
             }
           ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "tākaro",
+          "translation": "play",
+          "explanation": "verb"
+        },
+        {
+          "word": "rā",
+          "translation": "day",
+          "explanation": "noun"
+        },
+        {
+          "word": "rāua",
+          "translation": "they (two people)",
+          "explanation": "pronoun"
+        },
+        {
+          "word": "koa",
+          "translation": "happy",
+          "explanation": "adjective"
+        },
+        {
+          "word": "ngaro",
+          "translation": "lost",
+          "explanation": "verb"
+        },
+        {
+          "word": "ngahere",
+          "translation": "forest",
+          "explanation": "noun"
+        },
+        {
+          "word": "rapu",
+          "translation": "search",
+          "explanation": "verb"
+        },
+        {
+          "word": "kitea",
+          "translation": "found",
+          "explanation": "verb"
+        },
+        {
+          "word": "mihi",
+          "translation": "thank",
+          "explanation": "verb"
+        },
+        {
+          "word": "āwhina",
+          "translation": "help",
+          "explanation": "noun"
+        },
+        {
+          "word": "ako",
+          "translation": "learn",
+          "explanation": "verb"
+        },
+        {
+          "word": "hiranga",
+          "translation": "importance",
+          "explanation": "noun"
+        },
+        {
+          "word": "mahi tahi",
+          "translation": "working together",
+          "explanation": "verb"
+        },
+        {
+          "word": "āwhina",
+          "translation": "help",
+          "explanation": "verb"
         }
       ]
     },
@@ -1458,6 +1607,98 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "pō",
+          "translation": "night",
+          "explanation": "noun"
+        },
+        {
+          "word": "pupuhi",
+          "translation": "blow",
+          "explanation": "verb"
+        },
+        {
+          "word": "hau",
+          "translation": "wind",
+          "explanation": "noun"
+        },
+        {
+          "word": "heke",
+          "translation": "rain heavily",
+          "explanation": "verb"
+        },
+        {
+          "word": "ua",
+          "translation": "rain",
+          "explanation": "noun"
+        },
+        {
+          "word": "kaha",
+          "translation": "strong",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mataku",
+          "translation": "scared",
+          "explanation": "verb"
+        },
+        {
+          "word": "haruru",
+          "translation": "thunder",
+          "explanation": "noun"
+        },
+        {
+          "word": "noho",
+          "translation": "stay",
+          "explanation": "verb"
+        },
+        {
+          "word": "tata",
+          "translation": "close",
+          "explanation": "adjective"
+        },
+        {
+          "word": "whakamārie",
+          "translation": "comfort",
+          "explanation": "verb"
+        },
+        {
+          "word": "kōrero",
+          "translation": "talk",
+          "explanation": "verb"
+        },
+        {
+          "word": "wā",
+          "translation": "time",
+          "explanation": "noun"
+        },
+        {
+          "word": "waho",
+          "translation": "outside",
+          "explanation": "noun"
+        },
+        {
+          "word": "moe",
+          "translation": "sleep",
+          "explanation": "verb"
+        },
+        {
+          "word": "moenga",
+          "translation": "bed",
+          "explanation": "noun"
+        },
+        {
+          "word": "tautoko",
+          "translation": "support",
+          "explanation": "verb"
+        },
+        {
+          "word": "uaua",
+          "translation": "tough",
+          "explanation": "adjective"
+        }
       ]
     },
     {
@@ -1668,6 +1909,73 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "māra",
+          "translation": "garden",
+          "explanation": "noun"
+        },
+        {
+          "word": "manu",
+          "translation": "bird",
+          "explanation": "noun"
+        },
+        {
+          "word": "iti",
+          "translation": "small",
+          "explanation": "adjective"
+        },
+        {
+          "word": "mau",
+          "translation": "trapped",
+          "explanation": "verb"
+        },
+        {
+          "word": "kupenga",
+          "translation": "net",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakatau",
+          "translation": "decide",
+          "explanation": "verb"
+        },
+        {
+          "word": "tapahi",
+          "translation": "cut",
+          "explanation": "verb"
+        },
+        {
+          "word": "niho",
+          "translation": "teeth",
+          "explanation": "noun"
+        },
+        {
+          "word": "pupuri",
+          "translation": "hold",
+          "explanation": "verb"
+        },
+        {
+          "word": "tuku",
+          "translation": "set free",
+          "explanation": "verb"
+        },
+        {
+          "word": "rere",
+          "translation": "fly",
+          "explanation": "verb"
+        },
+        {
+          "word": "manaaki",
+          "translation": "care for",
+          "explanation": "verb"
+        },
+        {
+          "word": "mea ora",
+          "translation": "living thing",
+          "explanation": "noun"
+        }
       ]
     },
     {
@@ -1866,6 +2174,63 @@
             }
           ]
         }
+      ],
+      "vocabulary": [
+        {
+          "word": "whakaritea",
+          "translation": "prepare",
+          "explanation": "verb"
+        },
+        {
+          "word": "pikiniki",
+          "translation": "picnic",
+          "explanation": "noun"
+        },
+        {
+          "word": "kawea",
+          "translation": "bring",
+          "explanation": "verb"
+        },
+        {
+          "word": "kai reka",
+          "translation": "delicious food",
+          "explanation": "noun"
+        },
+        {
+          "word": "papa rēhia",
+          "translation": "park",
+          "explanation": "noun"
+        },
+        {
+          "word": "ngeru",
+          "translation": "cat",
+          "explanation": "noun"
+        },
+        {
+          "word": "mokemoke",
+          "translation": "lonely",
+          "explanation": "adjective"
+        },
+        {
+          "word": "tono",
+          "translation": "invite",
+          "explanation": "verb"
+        },
+        {
+          "word": "kēmu",
+          "translation": "game",
+          "explanation": "noun"
+        },
+        {
+          "word": "whai hoa",
+          "translation": "make friends",
+          "explanation": "verb"
+        },
+        {
+          "word": "tāngata hou",
+          "translation": "new people",
+          "explanation": "noun"
+        }
       ]
     },
     {
@@ -2038,6 +2403,43 @@
               ]
             }
           ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "kurī",
+          "translation": "dog",
+          "explanation": "noun"
+        },
+        {
+          "word": "awa",
+          "translation": "river",
+          "explanation": "noun"
+        },
+        {
+          "word": "pāwhara",
+          "translation": "paw",
+          "explanation": "noun"
+        },
+        {
+          "word": "whakaora",
+          "translation": "rescue",
+          "explanation": "verb"
+        },
+        {
+          "word": "koa",
+          "translation": "grateful",
+          "explanation": "adjective"
+        },
+        {
+          "word": "āwhina",
+          "translation": "help",
+          "explanation": "verb"
+        },
+        {
+          "word": "ahakoa",
+          "translation": "no matter",
+          "explanation": "conjunction"
         }
       ]
     },
@@ -2539,6 +2941,53 @@
               ]
             }
           ]
+        }
+      ],
+      "vocabulary": [
+        {
+          "word": "mīharo",
+          "translation": "surprise",
+          "explanation": "noun"
+        },
+        {
+          "word": "rā whānau",
+          "translation": "birthday",
+          "explanation": "noun"
+        },
+        {
+          "word": "keke",
+          "translation": "cake",
+          "explanation": "noun"
+        },
+        {
+          "word": "tāonga",
+          "translation": "gifts",
+          "explanation": "noun"
+        },
+        {
+          "word": "taenga",
+          "translation": "arrival",
+          "explanation": "noun"
+        },
+        {
+          "word": "mīharo",
+          "translation": "surprised",
+          "explanation": "adjective"
+        },
+        {
+          "word": "kai",
+          "translation": "eat",
+          "explanation": "verb"
+        },
+        {
+          "word": "manaaki",
+          "translation": "kindness",
+          "explanation": "noun"
+        },
+        {
+          "word": "wā motuhake",
+          "translation": "special times",
+          "explanation": "noun"
         }
       ]
     }
