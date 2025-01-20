@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,34 +8,84 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div id="app">        
+    <div id="app">
         <!-- Category View: Shows a group of stories-->
         <div id="categories-view" class="view">
-            <h3 id="categoriesLabel">Categories</h3>
-            <select id="categorySelect" class="select"></select>            
+            <div id="categoriesLabel" class="x-title">                
+                Categories
+            </div>
+            <div class="x-content">
+                <div id="categories-card-container" class="card-parent">
+                </div>
+            </div>
+            <div class="x-toolbar">
+
+            </div>
         </div>
 
         <!-- Category View: Shows a group of stories-->
         <div id="category-view" class="view">
-            <h3 id="categoryLabel"></h3>
-            <select id="storySelect" class="select"></select>            
+            <div id="categoryLabel" class="x-title"></div>
+            <div class="x-content">
+                <div id="stories-card-container" class="card-parent">
+                </div>                
+            </div>
+            <div class="x-toolbar">
+                <button class="categoriesButton" onclick="showHome()">Categories</button>
+            </div>
         </div>
+
         <!-- Story View: Shows the selected story-->
         <div id="story-view" class="view" style="display: none;">
-            <h3 id="storyLabel"></h3>
-            <div class="content">
-                <div id="sentenceContainer" class="sentenceContainer"></div>
-                <div id="detailsContainer" class="details"></div>
-                <div class="button-container">
-                    <button id="backButton">Back</button>
-                    <button id="detailButton">Detail Mode</button>
-                    <button id="nextButton">Next</button>
+            <div id="storyLabel" class="x-title"></div>
+            <div class="x-content">
+                <!--Create an inner view for displaying the sentences-->
+                <div class="navigate-view">                    
+                    <div class="x-content">
+                        <!--3 column container-->
+                        <div class="y-container">
+                            <div class="y-column y-left">
+                                <img id="nav-back" class="nav-button" src="images/back.svg"/>
+                            </div>
+                            <div class="y-column y-middle">
+                                <div id="sentenceContainer" class="sentenceContainer"></div>
+                                <div id="detailsContainer" class="details"></div>
+                            </div>
+                            <div class="y-column y-right">
+                                <img id="nav-next" class="nav-button" src="images/next.svg"/>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="x-toolbar">
+                        <!-- <button id="backButton">Back</button> -->
+                        <button id="detailButton">Detail Mode</button>
+                        <!-- <button id="nextButton">Next</button> -->
+                    </div>
                 </div>
+                
             </div>
-            <button class="backButton" onclick="showIntroView()">Back</button>
+            <div class="x-toolbar">
+                <button class="categoriesButton" onclick="showIntroView()">Stories</button>
+                <button class="vocabButton" onclick="showVocab()">Vocab</button>
+            </div>
+        </div>
+
+        <!-- Vocabluary View: Shos the vocabulary for a story-->
+        <div id="vocabulary-view" class="view">
+            <div id="vocabLabel" class="x-title"></div>
+            <div class="x-content">
+                <div id="story-vocab" class="vocabContainer"></div>
+            </div>
+            <div class="x-toolbar">
+                <button class="vocabButton" onclick="closeVocab()">Close</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

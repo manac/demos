@@ -1,18 +1,26 @@
 [
     {
         "name": "Ngā Haerenga a Tama",    
-        "path": "stories/Ngā Haerenga a Tama.json"
+        "path": "stories/Ngā Haerenga a Tama.json",
+        "image": "images/tama.jpg",
+        "description" : "Tama's many adventures"
     },
     {
         "name": "Ngā Haerenga a Chocolate raua ko Tiger",    
-        "path": "stories/Ngā Haerenga a Chocolate raua ko Tiger.json"
+        "path": "stories/Ngā Haerenga a Chocolate raua ko Tiger.json",
+        "image": "images/chocolate_tiger.jpg",
+        "description" : "Friends, Chocolate and Tiger go on adventures together"
     },
     {
         "name": "Fairy Tales",    
-        "path": "stories/Fairy Tales.json"
+        "path": "stories/Fairy Tales.json",
+        "image": "images/fairy_tales.png",
+        "description" : "Fairy tales from around the world"
     },    
     {
         "name": "Maui",    
-        "path": "stories/Maui.json"
+        "path": "stories/Maui.json",
+        "image": "images/maui.jpg",
+        "description" : "The epic deeds of Maui"
     }
 ]
