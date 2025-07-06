@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Mockup</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Your code here
+            // console.log("DOM is fully loaded!");
+            run();
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="container" class="container">
+        <header class="header">Daily vehicle pre-journey / Plant pre-start check list</header>
+        <div class="warning">
+            <div class="spaced">As a driver or operator you have a duty of care to check ALL applicable items
+                <strong>DAILY</strong>.
+            </div>
+            <div class="spaced">Please complete and return completed checklist to the office daily.</div>
+        </div>
+
+        <div class="spaced"><strong>V/P</strong> - Vehicle/Plant <strong>TR</strong> - Trailer</div>
+
+
+
+        <table>
+            <tr>
+                <td colspan="2">Driver name (print)
+                    <div contenteditable="true" class="field_input" id="user_name"></div>
+                </td>
+                <td>Date
+                    <input type="date" id="todays_date" name="todays_date">
+                </td>
+            </tr>
+            <tr>
+                <td>Plant No. (1)
+                    <div contenteditable="true" class="field_input" id="plant_no_1"></div>
+                </td>
+                <td>Plant No. (2)
+                    <div contenteditable="true" class="field_input" id="plant_no_2"></div>
+                </td>
+                <td class="no-bottom-border">Location depot
+                </td>
+
+            </tr>
+            <tr>
+                <td>Rego (1)
+                    <div <div contenteditable="true" class="field_input" id="rego_1"></div>
+                </td>
+                <td>Rego (2)
+                    <div <div contenteditable="true" class="field_input" id="rego_2"></div>
+                </td>
+                <td class="no-top-border">
+                    <div <div contenteditable="true" class="field_input" id="location_depot"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>Rego expiry (1)
+                    <input type="date" id="rego_expiry_1" name="rego_expiry_1">
+                </td>
+                <td>Rego expiry (2)
+                    <input type="date" id="rego_expiry_2" name="rego_expiry_2">
+                </td>
+                <td>
+                    <div class="unit_cell">
+                        <div>TSL labels checked</div>
+                        <input id="tsl_labels_checked" type="checkbox" class="check_box" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="unit_cell">
+                        <div>Hubo reading (1)
+                            <div contenteditable="true" class="field_input" id="hubo_reading_1"></div>
+                        </div>
+                        <div>km</div>
+                    </div>
+
+                </td>
+                <td>Hubo reading (2)
+                    <div contenteditable="true" class="field_input" id="hubo_reading_2"></div>
+                </td>
+                <td>
+                    <div class="unit_cell">
+                        <div>Logbook filled in</div>
+                        <input id="logbook_filled_in" type="checkbox" class="check_box" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>RUC expiry (1)
+                    <input type="date" id="ruc_expiry_1" name="ruc_expiry_1">
+                </td>
+                <td>RUC expiry (2)
+                    <input type="date" id="ruc_expiry_2" name="ruc_expiry_2">
+                </td>
+                <td>
+                    <div class="unit_cell">
+                        <div>DG sheets filled in</div>
+                        <input id="dg_sheets_filled_in" type="checkbox" class="check_box" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="unit_cell">
+                        <div>Speedo reading
+                            <div contenteditable="true" class="field_input" id="speedo_reading"></div>
+                        </div>
+                        <div>hr</div>
+                    </div>
+                </td>
+                <td></td>
+                <td class="no-bottom-border">
+                    <div class="unit_cell">
+                        <div>Pre-Check EWP</div>
+                        <input id="pre_check_ewp" type="checkbox" class="check_box" />
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="unit_cell">
+                        <div>Hour reading
+                            <div contenteditable="true" class="field_input" id="hour_reading"></div>
+                        </div>
+                        <div>km/hr</div>
+                    </div>
+                </td>
+                <td>WOF/COF due(1)
+                    <input type="date" id="wof_cof_1" name="wof_cof_1">
+                </td>
+                <td class="no-top-border">Before operation</td>
+            </tr>
+            <tr>
+                <td>Service due
+                    <input type="date" id="service_due" name="service_due">
+                </td>
+                <td>WOF/COF due(2)
+                    <input type="date" id="wof_cof_2" name="wof_cof_2">
+                </td>
+                <td class="no-right-bottom-border"></td>
+            </tr>
+        </table>
+
+        <div style="display: flex;">
+            <!-- 1st Column -->
+            <div class="check_column">
+                <div id="column_1_header" class="check_cell_header">
+                    <div>Vehicle/Plant<br>Checks</div>
+                </div>
+                <div id="column_1_content">
+
+                </div>
+
+
+            </div>
+
+            <!-- 2nd Column -->
+            <div class="check_column">
+                <div id="column_2_header" class="check_cell_header">
+                    <div>Vehicle/Plant<br>Checks</div>
+                </div>
+                <div id="column_2_content">
+
+                </div>
+            </div>
+
+            <!-- 3rd Column -->
+            <div class="check_column">
+                <div id="column_3_header" class="check_cell_header">
+                    <div>Vehicle/Plant<br>Checks</div>
+                </div>
+                <div id="column_3_content">
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <footer class="footer" onclick="auto();">Auto</footer>
+        <footer class="footer" onclick="process();">Process</footer>
+    </div>
+
+    <script src="scripts/main.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+</body>
+
+</html>

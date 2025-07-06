@@ -1,0 +1,197 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 820px;
+    margin: auto;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+    width: 33.33%;
+}
+
+.small_circle-wrapper {
+  width: 24px;
+  height: 24px;
+  border: 2px solid black; /* Circle border color */
+  border-radius: 50%;         /* Makes it a circle */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.big_circle-wrapper {
+  width: 30px;
+  height: 30px;
+  border: 2px solid black; /* Circle border color */
+  border-radius: 50%;         /* Makes it a circle */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+
+.check_box {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    accent-color: white;
+    box-shadow: 0 0 0 1px black;
+    border: none;
+    margin-right: 20px;
+}
+
+.check_box_disabled {
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    accent-color: white;
+    box-shadow: 0 0 0 1px lightgrey;
+    border: none;
+    margin-right: 20px;
+}
+
+.unit_cell {
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.check_column{
+    flex: 1; 
+    padding: 10px;
+}
+
+.check_category{
+    padding: 10px;
+    text-decoration: underline;
+}
+
+.check_cell {
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.check_cell_disabled {
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: lightgray;
+}
+
+.check_cell_header {
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.text {
+    /* background-color: red; */
+    width: 145px;
+    
+}
+
+.right{
+    /* background-color: yellow; */
+    width: 80px;
+}
+
+.right_cell{
+    /* width: 30px; */
+    display: inline-flex;
+    padding: 2px;
+    /* background-color: pink; */
+}
+
+.field_input {
+    display: inline;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.no-bottom-border {
+    border-bottom: none;
+}
+
+.no-right-bottom-border {
+    border-right: none;
+    border-bottom: none;
+}
+
+.no-top-border {
+    border-top: none;
+}
+
+
+.warning {
+    padding-top: 10px;
+    padding-left: 0px;
+    padding-bottom: 20px;
+}
+
+.spaced {
+    line-height: 1.8;
+}
+
+.header,
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.main {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.left-panel,
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.box {
+    background: #e0e0e0;
+    padding: 20px;
+    border-radius: 6px;
+    text-align: center;
+}
