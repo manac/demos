@@ -371,22 +371,36 @@ function process() {
 function generateImage() {
     const constainer = document.getElementById('container');
 
-    // console.log('process', html2canvas);
+    
 
     // html2canvas(container).then(canvas => {
-    //     const link = document.createElement("a");
-    //     link.download = "capture.png";
-    //     link.href = canvas.toDataURL("image/png");
-    //     link.click();
+    //     const img = document.createElement("img");
+    //     img.src = canvas.toDataURL("image/png");
+    //     img.alt = "Captured Image";
+    //     img.style.maxWidth = "100%"; // Optional: scale image to fit container
+    //     document.body.appendChild(img); // Or append to a specific element
     // });
 
     html2canvas(container).then(canvas => {
-        const img = document.createElement("img");
-        img.src = canvas.toDataURL("image/png");
-        img.alt = "Captured Image";
-        img.style.maxWidth = "100%"; // Optional: scale image to fit container
-        document.body.appendChild(img); // Or append to a specific element
+    canvas.toBlob(blob => {
+        const file = new File([blob], "capture.png", { type: "image/png" });
+
+        const shareData = {
+            title: "My Screenshot",
+            text: "Check out this image!",
+            files: [file]
+        };
+
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+            navigator.share(shareData)
+                .then(() => console.log("Shared successfully"))
+                .catch(err => console.error("Share failed:", err));
+        } else {
+            alert("Sharing not supported on this device or browser.");
+        }
     });
+});
+
 }
 
 function auto() {
