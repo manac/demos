@@ -25,350 +25,85 @@ let plant = {
 }
 
 function run() {
-    console.log('run')
-    emailjs.init('ersnyAV0gQv1AH9dn');
-
-
-    const check = {
-        plant_no_1: 'text',
-        plant_no_2: 'text',
-        location_depot: 'string',
-
-        rego_1: 'text',
-        rego_2: 'text',
-
-        rego_expiry_1: 'date',
-        rego_expiry_2: 'date',
-        tsl_labels_checked: 'bool',
-
-        hubo_reading_1: 'number',
-        hubo_reading_2: 'number',
-        logbook_filled_in: 'bool',
-
-        ruc_expiry_1: 'date',
-        ruc_expiry_2: 'date',
-        dg_sheets_filled_in: 'bool',
-
-        speedo_reading: 'number',
-        pre_check_ewp: 'bool',
-
-        hour_reading: 'number',
-        wof_cof_1: 'date',
-
-        service_due: 'date',
-        wof_cof_2: 'date',
-    }
+    // emailjs.init('ersnyAV0gQv1AH9dn');
+    registerEnterListener('plant_no_1');
+    registerEnterListener('rego_1');
 
     //some fake user data retireved on login
-    const user = {
-        name: 'Mana Coromandel'
-    };
+    const user_id = Query.read('user');//1235;    
 
     //register plant type from which user can select a plant type
     //if the machine is identifiable via its plant number or QRCode then this will be  loaded
 
     //examples of registered check profile
-    const checks_template = [
-        {
-            category: null,
-            types: [
-                'V/P'
-            ],
-            types_display: 'header',
-            entries: [
-                {
-                    text: 'Engine oil level',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Coolant level',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Fuel levels',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Hydraulic oil level',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Air system / leaks',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Air tanks drain',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Wipers / Washers',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Trailer coupling',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Brakes',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Handbrake',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Tracks damage',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Track adjustment',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Grease points',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Auto greasers',
-                    types: ['V/P']
-                }]
-        },
-        {
-            category: 'Lights',
-            types: [
-                'V/P', 'TR'
-            ],
-            types_display: 'header',
-            entries: [
-                {
-                    text: 'Beacon',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Brake',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Tail',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Indicators',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Head',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Day lamps',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Reflectors',
-                    types: ['V/P', 'TR']
-                }
-            ]
-        },
-        {
-            category: 'Tyres',
-            types: [
-                'V/P', 'TR'
-            ],
-            types_display: 'none',
-            entries: [
-                {
-                    text: 'Tread',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Inflation',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Damage',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Wheel nuts',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Wheel nut indicators',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Mudflaps/Guards',
-                    types: ['V/P', 'TR']
-                }
-            ]
-        },
-        {
-            category: null, types: [
-                'V/P'
-            ],
-            types_display: 'header',
-            entries: [
-                {
-                    text: 'Windscreen - chipped / cracked',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Reverse camera system',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Reverse alarm warning',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Driver & Passenger Seat belts',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Cutting edges / blades / bucket teeth',
-                    types: ['V/P']
-                },
-                {
-                    text: 'Bucket blade pins & keepers',
-                    types: ['V/P']
-                }
-            ]
-        },
-        {
-            category: null,
-            types: [
-                'V/P', 'TR'
-            ],
-            types_display: 'inlline',
-            entries: [
-                {
-                    text: 'Chains / Twitch',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'DG Signs',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Oversize panels',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Downer branding / ZH stickers',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'Fire Ext (if fitted)',
-                    types: ['V/P', 'TR']
-                },
-                {
-                    text: 'First aid kit (if fitted)',
-                    types: ['V/P', 'TR']
-                }
-            ]
-        }];
+    // const profile_index = Constants.PROFILE_TYPES.findIndex(p => p.id == Query.read('profile'));
 
-    const profile_types = [
-        {
-            code: 'V',
-            description: 'Ute',
-            checks: [
-                [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
-                [1, 1, 1, 1, 1, 1, 1],
-                [1, 1, 1, 0, 0, 1],
-                [1, 1, 1, 1, 0, 0],
-                [0, 0, 0, 1, 1, 1]
-            ]
-        },
+    // const profile_type = Constants.PROFILE_TYPES[profile_index];
 
-        {
-            code: 'V',
-            description: 'Class 1 Truck',
-            checks: [
-                [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0],
-                [1, 1, 1, 1, 1, 1, 1],
-                [1, 1, 1, 1, 1, 1],
-                [1, 1, 1, 1, 0, 0],
-                [0, 0, 0, 1, 1, 1]
-            ]
-        },
+    // loadCheckTemplate(0, profile_type, 'column_1_header', 'column_1_content', Constants.PROFILE_CHECKS_TEMPLATE[0])
+    // loadCheckTemplate(1, profile_type, 'column_2_header', 'column_2_content', Constants.PROFILE_CHECKS_TEMPLATE[1], true)
+    // loadCheckTemplate(2, profile_type, 'column_2_header', 'column_2_content', Constants.PROFILE_CHECKS_TEMPLATE[2], true)
+    // loadCheckTemplate(3, profile_type, 'column_3_header', 'column_3_content', Constants.PROFILE_CHECKS_TEMPLATE[3])
+    // loadCheckTemplate(4, profile_type, 'column_3_header', 'column_3_content', Constants.PROFILE_CHECKS_TEMPLATE[4])
 
-        {
-            code: 'P',
-            description: 'Excavator',
-            checks: [
-                [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1],
-                [1, 1, 1, 1, 1, 1, 1],
-                [0, 0, 0, 0, 0, 0],
-                [1, 1, 1, 1, 1, 1],
-                [0, 0, 0, 1, 1, 1]
-            ]
-        },
-
-        {
-            code: 'TR',
-            description: 'Trailer',
-            checks: [
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 1, 1, 1, 0, 0, 1],
-                [1, 1, 1, 0, 0, 1],
-                [1, 1, 1, 1, 1, 1],
-                [0, 0, 0, 0, 0, 0]
-            ]
-        }
-    ]
-
-    const profile_type = profile_types[0];
-
-    //example equipment profile data
-    const equipment_profile = {
-        profile_type: profile_types[0],
-        plant_no_1: 2984,
-        rego_1: 'TX901',
-        rego_expiry_1: '2025-08-14',
-        hubo_reading_1: 1243546,
-        ruc_expiry_1: '2026-10-14',
-        speedo_reading: 43543,
-        hour_reading: 11111,
-        service_due: '2026-10-1',
-
-        plant_no_2: 1984,
-        rego_2: 'TX902',
-        rego_expiry_2: '2026-08-14',
-        hubo_reading_2: 2243546,
-        ruc_expiry_2: '2027-10-14',
-
-        wof_cof_1: '2027-01-01',
-        wof_cof_2: '2027-02-02',
-
-        tsl_labels_checked: false,
-        logbook_filled_in: true,
-        dg_sheets_filled_in: false,
-        pre_check_ewp: true,
-
-        checks: {}
-    };
-
-    loadCheckTemplate(0, profile_type, 'column_1_header', 'column_1_content', checks_template[0])
-    loadCheckTemplate(1, profile_type, 'column_2_header', 'column_2_content', checks_template[1], true)
-    loadCheckTemplate(2, profile_type, 'column_2_header', 'column_2_content', checks_template[2], true)
-    loadCheckTemplate(3, profile_type, 'column_3_header', 'column_3_content', checks_template[3])
-    loadCheckTemplate(4, profile_type, 'column_3_header', 'column_3_content', checks_template[4])
-
-    loadProfile(user, equipment_profile, check)
+    loadUserProfile(user_id, Constants.CHECK_DATA_TYPES)
 
 }
 
-function loadProfile(user, machine_profile, check) {
+function registerEnterListener(id) {
+    const field = id;
+    const el = document.getElementById(id);
+    el.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Optional: stop default newline behavior
+
+            const search = el.innerHTML;
+            const equipment_profile = Data.EQUIPMENT.find(p => p[id] == search);
+            // console.log("Enter was pressed!", equipment_profile);
+
+            if (equipment_profile) {
+                loadEquipmentProfile(equipment_profile, Constants.CHECK_DATA_TYPES)
+            }
+
+        }
+    });
+}
+
+function loadUserProfile(user_id) {
+    const user = Data.USERS[user_id];
+
     //load up the profile for today
     const today = new Date();
-    document.getElementById('user_name').innerHTML = user.name
+    document.getElementById('user_name').innerHTML = user.first_name + ' ' + user.last_name;
+
+    //load users signature
+    document.getElementById('signature_image').src = 'images/' + user_id + '.png';
 
     //load today's date
-    document.getElementById('todays_date').value = today.toLocaleDateString('en-CA');//today.toISOString().split('T')[0];
+    document.getElementById('todays_date').value = today.toLocaleDateString('en-CA');
 
-    Object.entries(machine_profile).forEach(([id, value]) => {
+    // Object.entries(equipment_profile).forEach(([id, value]) => {
+    //     const setting_type = check[id];
+    //     let pre = '*';
+    //     switch (setting_type) {
+    //         case 'text':
+    //             renderText(id, value);
+    //             break;
+    //         case 'number':
+    //             renderNumber(id, value);
+    //             break;
+    //         case 'bool':
+    //             renderBool(id, value);
+    //             break;
+    //         case 'date':
+    //             renderDate(id, value);
+    //             break;
+    //     }
+    // });
+}
+
+function loadEquipmentProfile(equipment_profile, check) {
+    Object.entries(equipment_profile).forEach(([id, value]) => {
         const setting_type = check[id];
         let pre = '*';
         switch (setting_type) {
@@ -386,17 +121,26 @@ function loadProfile(user, machine_profile, check) {
                 break;
         }
     });
+
+    const profile_index = Constants.PROFILE_TYPES.findIndex(p => p.id == equipment_profile.profile_type);
+
+    const profile_type = Constants.PROFILE_TYPES[profile_index];
+
+    // console.log(profile_type);
+
+    loadCheckTemplate(0, profile_type, 'column_1_header', 'column_1_content', Constants.PROFILE_CHECKS_TEMPLATE[0])
+    loadCheckTemplate(1, profile_type, 'column_2_header', 'column_2_content', Constants.PROFILE_CHECKS_TEMPLATE[1], true)
+    loadCheckTemplate(2, profile_type, 'column_2_header', 'column_2_content', Constants.PROFILE_CHECKS_TEMPLATE[2], true)
+    loadCheckTemplate(3, profile_type, 'column_3_header', 'column_3_content', Constants.PROFILE_CHECKS_TEMPLATE[3])
+    loadCheckTemplate(4, profile_type, 'column_3_header', 'column_3_content', Constants.PROFILE_CHECKS_TEMPLATE[4])
+
 }
 
 /**
  * Loads the template for the checks used by the asset
  */
 function loadCheckTemplate(check_index, profile_type, header_id, content_id, checks) {
-    // console.log('load template', profile_type, checks);
-
-
     const container = document.getElementById(content_id);
-
 
     let headerEl, headerNameEl, rightEl, categoryEL, cellEl, textEl, ckEl;
 
@@ -446,13 +190,19 @@ function loadCheckTemplate(check_index, profile_type, header_id, content_id, che
 
         //add a check entry
         cellEl = document.createElement('div');
+        container.appendChild(cellEl);
+
 
         textEl = document.createElement('div');
-        textEl.className = 'text';
+        // textEl.className = 'text';
         textEl.innerHTML = check.text;
 
         rightEl = document.createElement('div');
         rightEl.className = 'right';
+
+        cellEl.appendChild(textEl);
+        cellEl.appendChild(rightEl);
+
         let t, total = false;
         for (const type of check.types) {
             t = profile_type.checks[check_index][index] == 0;
@@ -460,26 +210,25 @@ function loadCheckTemplate(check_index, profile_type, header_id, content_id, che
             total = !disabled || total;
 
             ckEl = document.createElement('input');
+
+            ckEl.id = check.text.toLowerCase().replace(/\s+/g, '_');
+            ckEl.name = ckEl.id;
+
             ckEl.type = 'checkbox';
-            ckEl.className = disabled ? 'check_box_disabled' : 'check_box';
             ckEl.disabled = disabled;
+
+            textEl.className = disabled ? 'text_disabled' : 'text';
 
             if (!disabled) {
                 store.inputs.push({
                     text: check.text,
                     input: ckEl
                 })
-
             }
 
             rightEl.appendChild(ckEl);
         }
 
-        cellEl.appendChild(textEl);
-        cellEl.appendChild(rightEl);
-        container.appendChild(cellEl);
-
-        cellEl.className = !total ? 'check_cell_disabled' : 'check_cell';
         index += 1;
     }
 }
@@ -502,8 +251,7 @@ function addHeaderEl(wrap, html, parentEl) {
 }
 
 function renderDate(id, value) {
-    const date = new Date(value)
-    document.getElementById(id).value = '2025-08-14';//date;//date.toLocaleDateString();
+     document.getElementById(id).value = value;
 }
 
 function renderNumber(id, value) {
@@ -511,7 +259,7 @@ function renderNumber(id, value) {
 }
 
 function renderText(id, value) {
-    document.getElementById(id).innerHTML = 't_' + value
+    document.getElementById(id).innerHTML = value
 }
 
 function renderBool(id, value) {
@@ -525,6 +273,11 @@ class Check {
 }
 
 function process() {
+
+    generateImage();
+    return;
+
+
     const zip = new JSZip();
 
     const service_id = 'service_5d2e5xd';
@@ -613,6 +366,19 @@ function process() {
 
     console.log(report);
 
+}
+
+function generateImage() {
+    const constainer = document.getElementById('container');
+
+    // console.log('process', html2canvas);
+
+    html2canvas(container).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "capture.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    });
 }
 
 function auto() {
