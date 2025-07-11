@@ -57,7 +57,7 @@ function registerEnterListener(id) {
         if (event.key === "Enter") {
             event.preventDefault(); // Optional: stop default newline behavior
 
-            const search = el.innerHTML;
+            const search = el.innerHTML.toUpperCase();
             const equipment_profile = Data.EQUIPMENT.find(p => p[id] == search);
             // console.log("Enter was pressed!", equipment_profile);
 
