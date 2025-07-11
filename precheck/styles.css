@@ -181,6 +181,7 @@ td {
     display: inline;
     font-weight: bold;
     padding-left: 10px;
+    text-transform: uppercase;
 }
 
 .no-bottom-border {
@@ -236,7 +237,7 @@ td {
     text-align: center;
 }
 
-.signature_container{
+.signature_container {
     display: inline-flex;
     /* background-color: pink; */
 }
@@ -244,11 +245,12 @@ td {
 
 .signature_label {
     display: inline-flex;
-     justify-content: center;   /* Horizontally center */
-  align-items: center;  
+    justify-content: center;
+    /* Horizontally center */
+    align-items: center;
     /* background-color: orange; */
 }
 
 .signature_image {
-    display: inline-flex;   
+    display: inline-flex;
 }
