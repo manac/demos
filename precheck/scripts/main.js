@@ -251,7 +251,7 @@ function addHeaderEl(wrap, html, parentEl) {
 }
 
 function renderDate(id, value) {
-     document.getElementById(id).value = value;
+    document.getElementById(id).value = value;
 }
 
 function renderNumber(id, value) {
@@ -373,11 +373,19 @@ function generateImage() {
 
     // console.log('process', html2canvas);
 
+    // html2canvas(container).then(canvas => {
+    //     const link = document.createElement("a");
+    //     link.download = "capture.png";
+    //     link.href = canvas.toDataURL("image/png");
+    //     link.click();
+    // });
+
     html2canvas(container).then(canvas => {
-        const link = document.createElement("a");
-        link.download = "capture.png";
-        link.href = canvas.toDataURL("image/png");
-        link.click();
+        const img = document.createElement("img");
+        img.src = canvas.toDataURL("image/png");
+        img.alt = "Captured Image";
+        img.style.maxWidth = "100%"; // Optional: scale image to fit container
+        document.body.appendChild(img); // Or append to a specific element
     });
 }
 
