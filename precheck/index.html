@@ -21,7 +21,7 @@
     <div id="container" class="container">
         <header class="header">Daily vehicle pre-journey / Plant pre-start check list</header>
         <div class="warning">
-            <div class="spaced">As a driver or operator you have a duty of care to check ALL applicable items
+            <div class="spaced">As a Driver or Operator you have a duty of care to check ALL applicable items
                 <strong>DAILY</strong>.
             </div>
             <div class="spaced">Please complete and return completed checklist to the office daily.</div>
@@ -72,7 +72,7 @@
                 <td>
                     <div class="unit_cell">
                         <div>TSL labels checked</div>
-                        <input id="tsl_labels_checked" type="checkbox" class="check_box" />
+                        <input id="tsl_labels_checked" name="tsl_labels_checked" type="checkbox" class="check_box" />
                     </div>
                 </td>
             </tr>
@@ -187,10 +187,23 @@
 
         </div>
 
+        <div class="signature_container">
+            <div class="signature_label">
+                Driver Signature
+            </div>
+            <image id="signature_image" />
+        </div>
 
-        <footer class="footer" onclick="auto();">Auto</footer>
-        <footer class="footer" onclick="process();">Process</footer>
-    </div>
+
+    </div>`
+
+    <footer class="footer" onclick="auto();">Auto</footer>
+    <footer class="footer" onclick="process();">Process</footer>
+
+
+    <script src="scripts/query.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/constants.js"></script>
 
     <script src="scripts/main.js"></script>
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
