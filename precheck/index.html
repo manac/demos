@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="styles.css" />
 
-  <title>Carousel with Footer Button</title>
+  <title>Pre Start</title>
   <style>
     html,
     body {
@@ -86,7 +86,12 @@
   <div class="header">
     <div class="carousel-track" id="carouselTrack">
       <!--User-->
-      <div class="page">User </div>
+      <div class="page">
+        <div class="dropdown-container">
+          <input type="text" id="searchBox" placeholder="Search employee...">
+          <ul id="dropdown" class="dropdown"></ul>
+        </div>
+      </div>
 
       <!--Equipment-->
       <div class="page">Equipment</div>
@@ -290,6 +295,63 @@
   <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
   <script>
+    run();
+
+    let user_id;
+
+    // const employees = [
+    //   {
+    //     name: "Mana Coromandel",
+    //     id: 1234
+    //   },
+    //   {
+    //     name: "John Smith",
+    //     id: 1235
+    //   },
+    //   {
+    //     name: "Peter Pan",
+    //     id: 1236
+    //   }
+    // ];
+
+    const employees = Data.USERS;
+
+    const searchBox = document.getElementById('searchBox');
+    const dropdown = document.getElementById('dropdown');
+
+    searchBox.addEventListener('input', () => {
+      const query = searchBox.value.toLowerCase();
+      dropdown.innerHTML = '';
+
+      const name = (employee) => {
+        return employee.first_name + ' ' + employee.last_name; 
+      }
+
+      const filtered = employees.filter(employee =>
+        name(employee).toLowerCase().includes(query)
+      );
+
+      filtered.forEach(employee => {
+        const li = document.createElement('li');
+        li.textContent = name(employee);
+        li.onclick = () => {
+          searchBox.value = name(employee);
+          dropdown.innerHTML = '';
+          
+          loadUserProfile(employee);          
+        };
+        dropdown.appendChild(li);
+      });
+
+      dropdown.style.display = filtered.length ? 'block' : 'none';
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.dropdown-container')) {
+        dropdown.innerHTML = '';
+      }
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
       const track = document.getElementById('carouselTrack');
       const pages = document.querySelectorAll('.page');
@@ -300,7 +362,7 @@
 
       nextBtn.addEventListener('click', () => {
         currentIndex = Math.min(currentIndex + 1, pages.length - 1);
-          
+
         nextBtn.innerHTML = currentIndex >= 2 ? "Submit" : "Next";
 
         if (currentIndex == 3) {
@@ -315,7 +377,7 @@
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
       });
 
-      run();
+      
     });
   </script>
 </body>
