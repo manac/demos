@@ -3,6 +3,7 @@ const store = {
     inputs: []
 };
 
+alert('load');
 //have admin dashboard
 
 //add data for look up
@@ -103,7 +104,7 @@ function initDropDown(data, searchId, dropId, filter, format, callback) {
 
         filtered.forEach(item => {
             const li = document.createElement('li');
-            li.style.fontSize = '20px';
+            li.style.fontSize = '60px';
             li.textContent = format(item);
             li.onclick = () => {
                 searchBox.value = format(item);
