@@ -24,30 +24,98 @@ let plant = {
     qr_code: 1,
 }
 
-function initUI(){
+function initUI() {
     const track = document.getElementById('carouselTrack');
-      const pages = document.querySelectorAll('.page');
-      const nextBtn = document.getElementById('nextBtn');
-      const backBtn = document.getElementById('backBtn');
+    const pages = document.querySelectorAll('.page');
+    const nextBtn = document.getElementById('nextBtn');
+    const backBtn = document.getElementById('backBtn');
 
-      let currentIndex = 0;
+    let currentIndex = 0;
 
-      nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener('click', () => {
         currentIndex = Math.min(currentIndex + 1, pages.length - 1);
 
         nextBtn.innerHTML = currentIndex >= 2 ? "Submit" : "Next";
 
         if (currentIndex == 3) {
-          process();
+            process();
         } else {
-          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
-      });
+    });
 
-      backBtn.addEventListener('click', () => {
+    backBtn.addEventListener('click', () => {
         currentIndex = Math.max(currentIndex - 1, 0);
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      });
+    });
+
+    //employee select page
+    const employeeFilter = (query, employees) => {
+        return employees.filter(item =>
+            (item.first_name + ' ' + item.last_name).toLowerCase().includes(query)
+        );
+    }
+
+    const employeeName = (employee) => {
+        return employee.first_name + ' ' + employee.last_name;
+    }
+
+    const employeeCallback = (employee) => {
+        loadUserProfile(employee);
+    }
+    initDropDown(Data.USERS, 'employeeSearchBox', 'employeeDropdown', employeeFilter, employeeName, employeeCallback);
+
+    //equipment select page
+    const equipmentFilter = (query, equipment) => {
+        return equipment.filter(item =>
+            (item.rego_1).toLowerCase().includes(query)
+        );
+    }
+
+    const equipmentName = (equipment) => {
+        return equipment.rego_1;
+    }
+
+    const equipmentCallback = (equipment) => {
+        loadEquipmentProfile(equipment, Constants.CHECK_DATA_TYPES)
+    }
+    initDropDown(Data.EQUIPMENT, 'equipmentSearchBox', 'equipmentDropdown', equipmentFilter, equipmentName, equipmentCallback);
+
+}
+
+function initDropDown(data, searchId, dropId, filter, format, callback) {
+
+
+    const searchBox = document.getElementById(searchId);
+    const dropdown = document.getElementById(dropId);
+
+    searchBox.addEventListener('input', () => {
+        const query = searchBox.value.toLowerCase();
+        dropdown.innerHTML = '';
+
+        const filtered = filter(query, data);
+
+        filtered.forEach(item => {
+            const li = document.createElement('li');
+            li.style.fontSize = '20px';
+            li.textContent = format(item);
+            li.onclick = () => {
+                searchBox.value = format(item);
+                dropdown.innerHTML = '';
+
+                callback(item);
+            };
+            dropdown.appendChild(li);
+        });
+
+        dropdown.style.display = filtered.length ? 'block' : 'none';
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.dropdown-container')) {
+            dropdown.innerHTML = '';
+        }
+    });
 
 }
 
@@ -55,7 +123,7 @@ function run() {
     registerEnterListener('plant_no_1');
     registerEnterListener('rego_1');
 
-    
+
 
 }
 
@@ -380,7 +448,7 @@ function process() {
 function generateImage() {
     const constainer = document.getElementById('container');
 
-    
+
 
     // html2canvas(container).then(canvas => {
     //     const img = document.createElement("img");
@@ -391,24 +459,24 @@ function generateImage() {
     // });
 
     html2canvas(container).then(canvas => {
-    canvas.toBlob(blob => {
-        const file = new File([blob], "capture.png", { type: "image/png" });
+        canvas.toBlob(blob => {
+            const file = new File([blob], "capture.png", { type: "image/png" });
 
-        const shareData = {
-            title: "My Screenshot",
-            text: "Check out this image!",
-            files: [file]
-        };
+            const shareData = {
+                title: "My Screenshot",
+                text: "Check out this image!",
+                files: [file]
+            };
 
-        if (navigator.canShare && navigator.canShare({ files: [file] })) {
-            navigator.share(shareData)
-                .then(() => console.log("Shared successfully"))
-                .catch(err => console.error("Share failed:", err));
-        } else {
-            alert("Sharing not supported on this device or browser.");
-        }
+            if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                navigator.share(shareData)
+                    .then(() => console.log("Shared successfully"))
+                    .catch(err => console.error("Share failed:", err));
+            } else {
+                alert("Sharing not supported on this device or browser.");
+            }
+        });
     });
-});
 
 }
 
