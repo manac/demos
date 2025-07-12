@@ -30,6 +30,11 @@ function initUI() {
     const nextBtn = document.getElementById('nextBtn');
     const backBtn = document.getElementById('backBtn');
 
+    const cheatBtn = document.getElementById('cheatBtn');
+    cheatBtn.addEventListener('click', () => {
+        auto();
+    });
+
     let currentIndex = 0;
 
     nextBtn.addEventListener('click', () => {
@@ -81,6 +86,7 @@ function initUI() {
     }
     initDropDown(Data.EQUIPMENT, 'equipmentSearchBox', 'equipmentDropdown', equipmentFilter, equipmentName, equipmentCallback);
 
+    initCheat();
 }
 
 function initDropDown(data, searchId, dropId, filter, format, callback) {
@@ -117,6 +123,12 @@ function initDropDown(data, searchId, dropId, filter, format, callback) {
         }
     });
 
+}
+
+function initCheat(){
+    document.getElementById('cheat').addEventListener('click', () => {
+        auto();
+    })
 }
 
 function run() {
