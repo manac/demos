@@ -97,13 +97,18 @@
       <!--User-->
       <div class="page">
         <div class="dropdown-container">
-          <input type="text" id="searchBox" placeholder="Search employee...">
-          <ul id="dropdown" class="dropdown"></ul>
+          <input type="text" id="employeeSearchBox" placeholder="Search employee...">
+          <ul id="employeeDropdown" class="dropdown"></ul>
         </div>
       </div>
 
       <!--Equipment-->
-      <div class="page">Equipment</div>
+      <div class="page">
+        <div class="dropdown-container">
+          <input type="text" id="equipmentSearchBox" placeholder="Search equipment...">
+          <ul id="equipmentDropdown" class="dropdown"></ul>
+        </div>
+      </div>
 
       <!--Pre Start Form-->
       <div class="page">
@@ -306,49 +311,7 @@
   <script>
     run();
 
-    let user_id;
-
-
-
-    const employees = Data.USERS;
-
-    const searchBox = document.getElementById('searchBox');
-    const dropdown = document.getElementById('dropdown');
-
-    searchBox.addEventListener('input', () => {
-      const query = searchBox.value.toLowerCase();
-      dropdown.innerHTML = '';
-
-      const name = (employee) => {
-        return employee.first_name + ' ' + employee.last_name;
-      }
-
-      const filtered = employees.filter(employee =>
-        name(employee).toLowerCase().includes(query)
-      );
-
-      filtered.forEach(employee => {
-        const li = document.createElement('li');
-        li.style.fontSize = '20px';
-        li.textContent = name(employee);
-        li.onclick = () => {
-          searchBox.value = name(employee);
-          dropdown.innerHTML = '';
-
-          loadUserProfile(employee);
-        };
-        dropdown.appendChild(li);
-      });
-
-      dropdown.style.display = filtered.length ? 'block' : 'none';
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.dropdown-container')) {
-        dropdown.innerHTML = '';
-      }
-    });
-
+    
     document.addEventListener('DOMContentLoaded', () => {
       initUI();
 
