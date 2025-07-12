@@ -12,23 +12,27 @@ body {
     /* padding: 20px; */
 }
 
+
+
 .dropdown-container {
       position: relative;
-      width: 300px;
+      width: 700px;
       color: black;
+      font-size: 0px;
+      
     }
 
     input[type="text"] {
       width: 100%;
       padding: 10px;
-      font-size: 30px;
+      font-size: 80px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
 
     ul.dropdown {
       position: absolute;
-      top: 60px;
+      top: 120px;
       width: 100%;
       list-style: none;
       margin: 0;
@@ -40,7 +44,7 @@ body {
       overflow-y: auto;
       z-index: 10;
       font-size: 30px;
-      min-height: 40px;
+      /* min-height: 40px; */
     }
 
     ul.dropdown li {
