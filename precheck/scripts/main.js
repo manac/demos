@@ -24,11 +24,38 @@ let plant = {
     qr_code: 1,
 }
 
+function initUI(){
+    const track = document.getElementById('carouselTrack');
+      const pages = document.querySelectorAll('.page');
+      const nextBtn = document.getElementById('nextBtn');
+      const backBtn = document.getElementById('backBtn');
+
+      let currentIndex = 0;
+
+      nextBtn.addEventListener('click', () => {
+        currentIndex = Math.min(currentIndex + 1, pages.length - 1);
+
+        nextBtn.innerHTML = currentIndex >= 2 ? "Submit" : "Next";
+
+        if (currentIndex == 3) {
+          process();
+        } else {
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+      });
+
+      backBtn.addEventListener('click', () => {
+        currentIndex = Math.max(currentIndex - 1, 0);
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      });
+
+}
+
 function run() {
     registerEnterListener('plant_no_1');
     registerEnterListener('rego_1');
 
-    // loadUserProfile()
+    
 
 }
 
@@ -59,7 +86,7 @@ function loadUserProfile(user) {
     document.getElementById('user_name').innerHTML = user.first_name + ' ' + user.last_name;
 
     //load users signature
-    document.getElementById('signature_image').src = 'images/' + user_id + '.png';
+    document.getElementById('signature_image').src = 'images/' + user.id + '.png';
 
     //load today's date
     document.getElementById('todays_date').value = today.toLocaleDateString('en-CA');
