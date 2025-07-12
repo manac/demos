@@ -25,28 +25,10 @@ let plant = {
 }
 
 function run() {
-    // emailjs.init('ersnyAV0gQv1AH9dn');
     registerEnterListener('plant_no_1');
     registerEnterListener('rego_1');
 
-    //some fake user data retireved on login
-    const user_id = Query.read('user');//1235;    
-
-    //register plant type from which user can select a plant type
-    //if the machine is identifiable via its plant number or QRCode then this will be  loaded
-
-    //examples of registered check profile
-    // const profile_index = Constants.PROFILE_TYPES.findIndex(p => p.id == Query.read('profile'));
-
-    // const profile_type = Constants.PROFILE_TYPES[profile_index];
-
-    // loadCheckTemplate(0, profile_type, 'column_1_header', 'column_1_content', Constants.PROFILE_CHECKS_TEMPLATE[0])
-    // loadCheckTemplate(1, profile_type, 'column_2_header', 'column_2_content', Constants.PROFILE_CHECKS_TEMPLATE[1], true)
-    // loadCheckTemplate(2, profile_type, 'column_2_header', 'column_2_content', Constants.PROFILE_CHECKS_TEMPLATE[2], true)
-    // loadCheckTemplate(3, profile_type, 'column_3_header', 'column_3_content', Constants.PROFILE_CHECKS_TEMPLATE[3])
-    // loadCheckTemplate(4, profile_type, 'column_3_header', 'column_3_content', Constants.PROFILE_CHECKS_TEMPLATE[4])
-
-    loadUserProfile(user_id, Constants.CHECK_DATA_TYPES)
+    // loadUserProfile()
 
 }
 
@@ -69,10 +51,8 @@ function registerEnterListener(id) {
     });
 }
 
-function loadUserProfile(user_id) {
-    user_id = 1234;
-    
-    const user = Data.USERS[user_id];
+function loadUserProfile(user) {
+    // const user = Data.USERS[user_id];
 
     //load up the profile for today
     const today = new Date();

@@ -1,14 +1,16 @@
 const Data = {
-    USERS: {
-        1234: {
+    USERS: [
+        {
+            id: 1234,
             first_name: 'Mana',
             last_name: 'Coromandel'
         },
-        1235: {
+        {
+            id: 1235,
             first_name: 'John',
             last_name: 'Smith'
         }
-    },
+    ],
 
     EQUIPMENT: [
         {
