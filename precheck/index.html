@@ -2,215 +2,322 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pre Start</title>
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            // Your code here
-            // console.log("DOM is fully loaded!");
-            run();
-        });
-    </script>
+  <link rel="stylesheet" href="styles.css" />
 
+  <title>Carousel with Footer Button</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: sans-serif;
+      background-color: #eef2f6;
+      font-size: 32px;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .header {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease-in-out;
+    }
+
+    .page {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* background-color: orange; */
+      font-size: 1.6rem;
+      /* border: solid 1px black; */
+    }
+
+
+
+    .footer {
+      flex-shrink: 0;
+      width: 100%;
+      height: 120px;
+      /* background-color: yellow; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      bottom: 0;
+      z-index: 10;
+      gap: 200px;
+    }
+
+    .button {
+      font-size: 1.2rem;
+      padding: 0.6em 1.2em;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #1b5e20;
+    }
+  </style>
 </head>
 
 <body>
-    <div id="container" class="container">
-        <header class="header">Daily vehicle pre-journey / Plant pre-start check list</header>
-        <div class="warning">
-            <div class="spaced">As a Driver or Operator you have a duty of care to check ALL applicable items
-                <strong>DAILY</strong>.
+  <div class="header">
+    <div class="carousel-track" id="carouselTrack">
+      <!--User-->
+      <div class="page">User </div>
+
+      <!--Equipment-->
+      <div class="page">Equipment</div>
+
+      <!--Pre Start Form-->
+      <div class="page">
+
+        <div id="container" class="container">
+          <header class="header">Daily vehicle pre-journey / Plant pre-start check list</header>
+          <div class="warning">
+            <div class="spaced">As a Driver or Operator you have a duty of care to check ALL applicable
+              items
+              <strong>DAILY</strong>.
             </div>
-            <div class="spaced">Please complete and return completed checklist to the office daily.</div>
-        </div>
+            <div class="spaced">Please complete and return completed checklist to the office daily.
+            </div>
+          </div>
 
-        <div class="spaced"><strong>V/P</strong> - Vehicle/Plant <strong>TR</strong> - Trailer</div>
+          <div class="spaced"><strong>V/P</strong> - Vehicle/Plant <strong>TR</strong> - Trailer</div>
 
-
-
-        <table>
+          <table>
             <tr>
-                <td colspan="2">Driver name (print)
-                    <div contenteditable="true" class="field_input" id="user_name"></div>
-                </td>
-                <td>Date
-                    <input type="date" id="todays_date" name="todays_date">
-                </td>
+              <td colspan="2">Driver name (print)
+                <div contenteditable="true" class="field_input" id="user_name"></div>
+              </td>
+              <td>Date
+                <input type="date" id="todays_date" name="todays_date">
+              </td>
             </tr>
             <tr>
-                <td>Plant No. (1)
-                    <div contenteditable="true" class="field_input" id="plant_no_1"></div>
-                </td>
-                <td>Plant No. (2)
-                    <div contenteditable="true" class="field_input" id="plant_no_2"></div>
-                </td>
-                <td class="no-bottom-border">Location depot
-                </td>
+              <td>Plant No. (1)
+                <div contenteditable="true" class="field_input" id="plant_no_1"></div>
+              </td>
+              <td>Plant No. (2)
+                <div contenteditable="true" class="field_input" id="plant_no_2"></div>
+              </td>
+              <td class="no-bottom-border">Location depot
+              </td>
 
             </tr>
             <tr>
-                <td>Rego (1)
-                    <div <div contenteditable="true" class="field_input" id="rego_1"></div>
-                </td>
-                <td>Rego (2)
-                    <div <div contenteditable="true" class="field_input" id="rego_2"></div>
-                </td>
-                <td class="no-top-border">
-                    <div <div contenteditable="true" class="field_input" id="location_depot"></div>
-                </td>
+              <td>Rego (1)
+                <div <div contenteditable="true" class="field_input" id="rego_1"></div>
+              </td>
+              <td>Rego (2)
+                <div <div contenteditable="true" class="field_input" id="rego_2"></div>
+              </td>
+              <td class="no-top-border">
+                <div <div contenteditable="true" class="field_input" id="location_depot"></div>
+              </td>
             </tr>
             <tr>
-                <td>Rego expiry (1)
-                    <input type="date" id="rego_expiry_1" name="rego_expiry_1">
-                </td>
-                <td>Rego expiry (2)
-                    <input type="date" id="rego_expiry_2" name="rego_expiry_2">
-                </td>
-                <td>
-                    <div class="unit_cell">
-                        <div>TSL labels checked</div>
-                        <input id="tsl_labels_checked" name="tsl_labels_checked" type="checkbox" class="check_box" />
-                    </div>
-                </td>
+              <td>Rego expiry (1)
+                <input type="date" id="rego_expiry_1" name="rego_expiry_1">
+              </td>
+              <td>Rego expiry (2)
+                <input type="date" id="rego_expiry_2" name="rego_expiry_2">
+              </td>
+              <td>
+                <div class="unit_cell">
+                  <div>TSL labels checked</div>
+                  <input id="tsl_labels_checked" name="tsl_labels_checked" type="checkbox" class="check_box" />
+                </div>
+              </td>
             </tr>
             <tr>
-                <td>
-                    <div class="unit_cell">
-                        <div>Hubo reading (1)
-                            <div contenteditable="true" class="field_input" id="hubo_reading_1"></div>
-                        </div>
-                        <div>km</div>
-                    </div>
+              <td>
+                <div class="unit_cell">
+                  <div>Hubo reading (1)
+                    <div contenteditable="true" class="field_input" id="hubo_reading_1"></div>
+                  </div>
+                  <div>km</div>
+                </div>
 
-                </td>
-                <td>Hubo reading (2)
-                    <div contenteditable="true" class="field_input" id="hubo_reading_2"></div>
-                </td>
-                <td>
-                    <div class="unit_cell">
-                        <div>Logbook filled in</div>
-                        <input id="logbook_filled_in" type="checkbox" class="check_box" />
-                    </div>
-                </td>
+              </td>
+              <td>Hubo reading (2)
+                <div contenteditable="true" class="field_input" id="hubo_reading_2"></div>
+              </td>
+              <td>
+                <div class="unit_cell">
+                  <div>Logbook filled in</div>
+                  <input id="logbook_filled_in" type="checkbox" class="check_box" />
+                </div>
+              </td>
             </tr>
             <tr>
-                <td>RUC expiry (1)
-                    <input type="date" id="ruc_expiry_1" name="ruc_expiry_1">
-                </td>
-                <td>RUC expiry (2)
-                    <input type="date" id="ruc_expiry_2" name="ruc_expiry_2">
-                </td>
-                <td>
-                    <div class="unit_cell">
-                        <div>DG sheets filled in</div>
-                        <input id="dg_sheets_filled_in" type="checkbox" class="check_box" />
-                    </div>
-                </td>
+              <td>RUC expiry (1)
+                <input type="date" id="ruc_expiry_1" name="ruc_expiry_1">
+              </td>
+              <td>RUC expiry (2)
+                <input type="date" id="ruc_expiry_2" name="ruc_expiry_2">
+              </td>
+              <td>
+                <div class="unit_cell">
+                  <div>DG sheets filled in</div>
+                  <input id="dg_sheets_filled_in" type="checkbox" class="check_box" />
+                </div>
+              </td>
             </tr>
             <tr>
-                <td>
-                    <div class="unit_cell">
-                        <div>Speedo reading
-                            <div contenteditable="true" class="field_input" id="speedo_reading"></div>
-                        </div>
-                        <div>hr</div>
-                    </div>
-                </td>
-                <td></td>
-                <td class="no-bottom-border">
-                    <div class="unit_cell">
-                        <div>Pre-Check EWP</div>
-                        <input id="pre_check_ewp" type="checkbox" class="check_box" />
-                    </div>
-                </td>
+              <td>
+                <div class="unit_cell">
+                  <div>Speedo reading
+                    <div contenteditable="true" class="field_input" id="speedo_reading"></div>
+                  </div>
+                  <div>hr</div>
+                </div>
+              </td>
+              <td></td>
+              <td class="no-bottom-border">
+                <div class="unit_cell">
+                  <div>Pre-Check EWP</div>
+                  <input id="pre_check_ewp" type="checkbox" class="check_box" />
+                </div>
+              </td>
             </tr>
             <tr>
-                <td>
-                    <div class="unit_cell">
-                        <div>Hour reading
-                            <div contenteditable="true" class="field_input" id="hour_reading"></div>
-                        </div>
-                        <div>km/hr</div>
-                    </div>
-                </td>
-                <td>WOF/COF due(1)
-                    <input type="date" id="wof_cof_1" name="wof_cof_1">
-                </td>
-                <td class="no-top-border">Before operation</td>
+              <td>
+                <div class="unit_cell">
+                  <div>Hour reading
+                    <div contenteditable="true" class="field_input" id="hour_reading"></div>
+                  </div>
+                  <div>km/hr</div>
+                </div>
+              </td>
+              <td>WOF/COF due(1)
+                <input type="date" id="wof_cof_1" name="wof_cof_1">
+              </td>
+              <td class="no-top-border">Before operation</td>
             </tr>
             <tr>
-                <td>Service due
-                    <input type="date" id="service_due" name="service_due">
-                </td>
-                <td>WOF/COF due(2)
-                    <input type="date" id="wof_cof_2" name="wof_cof_2">
-                </td>
-                <td class="no-right-bottom-border"></td>
+              <td>Service due
+                <input type="date" id="service_due" name="service_due">
+              </td>
+              <td>WOF/COF due(2)
+                <input type="date" id="wof_cof_2" name="wof_cof_2">
+              </td>
+              <td class="no-right-bottom-border"></td>
             </tr>
-        </table>
+          </table>
 
-        <div style="display: flex;">
+          <div style="display: flex;">
             <!-- 1st Column -->
             <div class="check_column">
-                <div id="column_1_header" class="check_cell_header">
-                    <div>Vehicle/Plant<br>Checks</div>
-                </div>
-                <div id="column_1_content">
+              <div id="column_1_header" class="check_cell_header">
+                <div>Vehicle/Plant<br>Checks</div>
+              </div>
+              <div id="column_1_content">
 
-                </div>
+              </div>
 
 
             </div>
 
             <!-- 2nd Column -->
             <div class="check_column">
-                <div id="column_2_header" class="check_cell_header">
-                    <div>Vehicle/Plant<br>Checks</div>
-                </div>
-                <div id="column_2_content">
+              <div id="column_2_header" class="check_cell_header">
+                <div>Vehicle/Plant<br>Checks</div>
+              </div>
+              <div id="column_2_content">
 
-                </div>
+              </div>
             </div>
 
             <!-- 3rd Column -->
             <div class="check_column">
-                <div id="column_3_header" class="check_cell_header">
-                    <div>Vehicle/Plant<br>Checks</div>
-                </div>
-                <div id="column_3_content">
+              <div id="column_3_header" class="check_cell_header">
+                <div>Vehicle/Plant<br>Checks</div>
+              </div>
+              <div id="column_3_content">
 
-                </div>
+              </div>
             </div>
 
-        </div>
+          </div>
 
-        <div class="signature_container">
+          <div class="signature_container">
             <div class="signature_label">
-                Driver Signature
+              Driver Signature
             </div>
             <image id="signature_image" />
+          </div>
         </div>
+      </div>
 
+      <!--Submitted-->
+      <div class="page">Submitted</div>
+    </div>
+  </div>
+  <div class="footer">
+    <button id="backBtn" class="button">Back</button>
+    <button id="nextBtn" class="button">Next</button>
 
-    </div>`
+  </div>
 
-    <footer class="footer" onclick="auto();">Auto</footer>
-    <footer class="footer" onclick="process();">Process</footer>
+  <script src="scripts/query.js"></script>
+  <script src="scripts/data.js"></script>
+  <script src="scripts/constants.js"></script>
 
+  <script src="scripts/main.js"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
-    <script src="scripts/query.js"></script>
-    <script src="scripts/data.js"></script>
-    <script src="scripts/constants.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const track = document.getElementById('carouselTrack');
+      const pages = document.querySelectorAll('.page');
+      const nextBtn = document.getElementById('nextBtn');
+      const backBtn = document.getElementById('backBtn');
 
-    <script src="scripts/main.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+      let currentIndex = 0;
 
+      nextBtn.addEventListener('click', () => {
+        currentIndex = Math.min(currentIndex + 1, pages.length - 1);
+          
+        nextBtn.innerHTML = currentIndex >= 2 ? "Submit" : "Next";
+
+        if (currentIndex == 3) {
+          process();
+        } else {
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+      });
+
+      backBtn.addEventListener('click', () => {
+        currentIndex = Math.max(currentIndex - 1, 0);
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      });
+
+      run();
+    });
+  </script>
 </body>
 
 </html>
