@@ -17,6 +17,15 @@
       font-family: sans-serif;
       background-color: #eef2f6;
       font-size: 32px;
+
+      user-select: none;
+      -webkit-user-select: none;
+      /* For Safari */
+      -moz-user-select: none;
+      /* For Firefox */
+      -ms-user-select: none;
+      /* For old IE */
+
     }
 
     body {
@@ -299,20 +308,7 @@
 
     let user_id;
 
-    // const employees = [
-    //   {
-    //     name: "Mana Coromandel",
-    //     id: 1234
-    //   },
-    //   {
-    //     name: "John Smith",
-    //     id: 1235
-    //   },
-    //   {
-    //     name: "Peter Pan",
-    //     id: 1236
-    //   }
-    // ];
+
 
     const employees = Data.USERS;
 
@@ -324,7 +320,7 @@
       dropdown.innerHTML = '';
 
       const name = (employee) => {
-        return employee.first_name + ' ' + employee.last_name; 
+        return employee.first_name + ' ' + employee.last_name;
       }
 
       const filtered = employees.filter(employee =>
@@ -333,12 +329,13 @@
 
       filtered.forEach(employee => {
         const li = document.createElement('li');
+        li.style.fontSize = '20px';
         li.textContent = name(employee);
         li.onclick = () => {
           searchBox.value = name(employee);
           dropdown.innerHTML = '';
-          
-          loadUserProfile(employee);          
+
+          loadUserProfile(employee);
         };
         dropdown.appendChild(li);
       });
@@ -353,31 +350,8 @@
     });
 
     document.addEventListener('DOMContentLoaded', () => {
-      const track = document.getElementById('carouselTrack');
-      const pages = document.querySelectorAll('.page');
-      const nextBtn = document.getElementById('nextBtn');
-      const backBtn = document.getElementById('backBtn');
+      initUI();
 
-      let currentIndex = 0;
-
-      nextBtn.addEventListener('click', () => {
-        currentIndex = Math.min(currentIndex + 1, pages.length - 1);
-
-        nextBtn.innerHTML = currentIndex >= 2 ? "Submit" : "Next";
-
-        if (currentIndex == 3) {
-          process();
-        } else {
-          track.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-      });
-
-      backBtn.addEventListener('click', () => {
-        currentIndex = Math.max(currentIndex - 1, 0);
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      });
-
-      
     });
   </script>
 </body>
