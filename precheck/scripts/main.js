@@ -70,6 +70,8 @@ function registerEnterListener(id) {
 }
 
 function loadUserProfile(user_id) {
+    user_id = 1234;
+    
     const user = Data.USERS[user_id];
 
     //load up the profile for today
