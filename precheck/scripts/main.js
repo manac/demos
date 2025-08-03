@@ -3,7 +3,7 @@ const store = {
     inputs: []
 };
 
-alert('load');
+// alert('load');
 //have admin dashboard
 
 //add data for look up
@@ -39,21 +39,31 @@ function initUI() {
     let currentIndex = 0;
 
     nextBtn.addEventListener('click', () => {
-        currentIndex = Math.min(currentIndex + 1, pages.length - 1);
+        setPageIndex(Math.min(currentIndex + 1, pages.length - 1));
 
+        
+       
+    });
+
+    backBtn.addEventListener('click', () => {
+        setPageIndex(Math.max(currentIndex - 1, 0));
+        
+
+    });
+
+    const setPageIndex = (index) => {
+        currentIndex = index;
         nextBtn.innerHTML = currentIndex >= 2 ? "Submit" : "Next";
 
-        if (currentIndex == 3) {
+         if (currentIndex == 3) {
             process();
         } else {
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
         }
-    });
 
-    backBtn.addEventListener('click', () => {
-        currentIndex = Math.max(currentIndex - 1, 0);
-        track.style.transform = `translateX(-${currentIndex * 100}%)`;
-    });
+        //  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    }
 
     //employee select page
     const employeeFilter = (query, employees) => {
@@ -87,7 +97,7 @@ function initUI() {
     }
     initDropDown(Data.EQUIPMENT, 'equipmentSearchBox', 'equipmentDropdown', equipmentFilter, equipmentName, equipmentCallback);
 
-    initCheat();
+    // initCheat();
 }
 
 function initDropDown(data, searchId, dropId, filter, format, callback) {
@@ -126,7 +136,7 @@ function initDropDown(data, searchId, dropId, filter, format, callback) {
 
 }
 
-function initCheat(){
+function initCheat() {
     document.getElementById('cheat').addEventListener('click', () => {
         auto();
     })
@@ -341,7 +351,7 @@ function addHeaderEl(wrap, html, parentEl) {
 }
 
 function renderDate(id, value) {
-    document.getElementById(id).value = value;
+    // document.getElementById(id).value = value;
 }
 
 function renderNumber(id, value) {
